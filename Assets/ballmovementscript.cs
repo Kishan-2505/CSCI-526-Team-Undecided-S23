@@ -5,7 +5,7 @@ using UnityEngine;
 public class ballmovementscript : MonoBehaviour
 {
 
-    public float speed = 10.0f;
+    public float speed = 4.0f;
 
     private Rigidbody2D rigidBody;
     private Vector2 direction;
