@@ -12,7 +12,8 @@ public class CircleGenerator : MonoBehaviour
         if (timeCounter >= timeInterval)
         {
             timeCounter = 0.0f;
-            Vector3 randomPosition = new Vector3(Random.Range(-10.0f, 10.0f), Random.Range(-10.0f, 10.0f), 0.0f);
+            circlePrefab.tag = "food";
+            Vector3 randomPosition = new Vector3(Random.Range(-4.0f, 4.0f), Random.Range(-4.0f, 4.0f), 0.0f);
             Instantiate(circlePrefab, randomPosition, Quaternion.identity);
         }
     }

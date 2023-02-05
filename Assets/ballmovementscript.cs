@@ -26,4 +26,11 @@ public class ballmovementscript : MonoBehaviour
         rigidBody.velocity = direction * speed;
         
     }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if(collision.gameObject.CompareTag("food")){
+            Debug.Log("Test");
+            Destroy(collision.gameObject);
+        }
+    }
 }
