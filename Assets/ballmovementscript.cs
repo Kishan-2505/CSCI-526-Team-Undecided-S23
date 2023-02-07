@@ -1,9 +1,16 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ballmovementscript : MonoBehaviour
 {
-
     public float speed = 4.0f;
+
+    public GameObject background;
+
+    public void RestartButton()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
 
     private Rigidbody2D rigidBody;
     private Vector2 direction;
@@ -46,7 +53,9 @@ public class ballmovementscript : MonoBehaviour
 
         if (size.x <= 0.1f || size.y <= 0.1f)
         {
-            Debug.Log("Exiting game due to small size");
+            background.SetActive(true);
+            // GameOverScreen screen = new GameOverScreen();
+            // screen.Setup();
         }
 
     }
