@@ -28,7 +28,10 @@ public class ballmovementscript : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         Vector2 direction = new Vector2(horizontal, vertical);
         rigidBody.velocity = direction * speed;
-
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+        Bounds bounds = renderer.bounds;
+        Vector2 size = bounds.size;
+        rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y)));
     }
     public float timeInterval = 1.0f;
     private float timeCounter = 0.0f;
@@ -51,7 +54,9 @@ public class ballmovementscript : MonoBehaviour
         Bounds bounds = renderer.bounds;
         Vector2 size = bounds.size;
 
-        if (size.x <= 0.1f || size.y <= 0.1f)
+        rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y)));
+
+        if (size.x <= 0.3f || size.y <= 0.3f)
         {
             background.SetActive(true);
             // GameOverScreen screen = new GameOverScreen();
@@ -66,6 +71,11 @@ public class ballmovementscript : MonoBehaviour
         {
             Destroy(collision.gameObject);
             transform.localScale += new Vector3(0.1f, 0.1f, 0);
+        }
+
+        if (collision.gameObject.CompareTag("enemy"))
+        {
+            background.SetActive(true);
         }
     }
 }
