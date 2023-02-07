@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ballmovementscript : MonoBehaviour
@@ -30,20 +28,35 @@ public class ballmovementscript : MonoBehaviour
     private void Update()
     {
         timeCounter += Time.deltaTime;
+        // Vector3 v = new Vector3(0.1f, 0.1f, 2.0f);
+
         if (timeCounter >= timeInterval)
         {
             transform.localScale += new Vector3(-0.1f, -0.1f, 0);
             timeCounter = 0.0f;
+            // if (transform.localScale.Equals(v))
+            // {
+            //     Debug.Log("Game Over!");
+            // }
         }
+
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+        Bounds bounds = renderer.bounds;
+        Vector2 size = bounds.size;
+
+        if (size.x <= 0.1f || size.y <= 0.1f)
+        {
+            Debug.Log("Exiting game due to small size");
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("food"))
         {
-            Debug.Log("Test");
             Destroy(collision.gameObject);
-            transform.localScale += new Vector3(1.0f, 1.0f, 0);
+            transform.localScale += new Vector3(0.1f, 0.1f, 0);
         }
     }
 }
