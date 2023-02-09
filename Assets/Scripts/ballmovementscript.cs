@@ -2,27 +2,24 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class ballmovementscript : MonoBehaviour
 {
+
+    public GameOverScreen gameOverScreen;
+
     public float speed = 4.0f;
 
-    public GameObject background;
-    float startTime;
-    int score=0;
-    float elapsedTime;
-    public Text pointsText;
-    public Text timeText;
-    public void RestartButton()
-    {
-        SceneManager.LoadScene("SampleScene");
-    }
+    private float startTime;
+    private int score = 0;
+    private float elapsedTime;
 
     private Rigidbody2D rigidBody;
     private Vector2 direction;
     // Start is called before the first frame update
     void Start()
     {
-        startTime=Time.time;
+        startTime = Time.time;
         rigidBody = GetComponent<Rigidbody2D>();
         direction = Random.insideUnitCircle.normalized;
     }
@@ -41,35 +38,41 @@ public class ballmovementscript : MonoBehaviour
     }
     public float timeInterval = 1.0f;
     private float timeCounter = 0.0f;
+
+
+    public void StopScript()
+    {
+        enabled = false;
+    }
+
+    public void StartScript()
+    {
+        enabled = true;
+    }
+
     private void Update()
     {
-        elapsedTime = Time.time - startTime;
         timeCounter += Time.deltaTime;
-        // Vector3 v = new Vector3(0.1f, 0.1f, 2.0f);
 
         if (timeCounter >= timeInterval)
         {
             transform.localScale += new Vector3(-0.1f, -0.1f, 0);
             timeCounter = 0.0f;
-            // if (transform.localScale.Equals(v))
-            // {
-            //     Debug.Log("Game Over!");
-            // }
         }
 
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         Bounds bounds = renderer.bounds;
         Vector2 size = bounds.size;
 
+        Debug.Log(size);
+
+
         rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y)));
 
         if (size.x <= 0.3f || size.y <= 0.3f)
         {
-            background.SetActive(true);
-            pointsText.text=score.ToString()+" Points";
-            timeText.text=elapsedTime.ToString()+" seconds";
-            // GameOverScreen screen = new GameOverScreen();
-            // screen.Setup();
+            GameOver();
+            this.enabled = false;
         }
 
     }
@@ -80,14 +83,19 @@ public class ballmovementscript : MonoBehaviour
         {
             Destroy(collision.gameObject);
             transform.localScale += new Vector3(0.1f, 0.1f, 0);
-            score+=1;
+            score += 1;
         }
 
         if (collision.gameObject.CompareTag("enemy"))
         {
-            background.SetActive(true);
-            pointsText.text=score.ToString()+" Points";
-            timeText.text=elapsedTime.ToString()+" seconds";
+            GameOver();
+            this.enabled = false;
         }
+
+    }
+    public void GameOver()
+    {
+        elapsedTime = Time.time - startTime;
+        gameOverScreen.Setup(score, elapsedTime);
     }
 }
