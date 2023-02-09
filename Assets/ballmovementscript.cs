@@ -1,12 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ballmovementscript : MonoBehaviour
 {
     public float speed = 4.0f;
 
     public GameObject background;
-
+    float startTime;
+    int score=0;
+    float elapsedTime;
+    public Text pointsText;
+    public Text timeText;
     public void RestartButton()
     {
         SceneManager.LoadScene("SampleScene");
@@ -17,6 +22,7 @@ public class ballmovementscript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        startTime=Time.time;
         rigidBody = GetComponent<Rigidbody2D>();
         direction = Random.insideUnitCircle.normalized;
     }
@@ -37,6 +43,7 @@ public class ballmovementscript : MonoBehaviour
     private float timeCounter = 0.0f;
     private void Update()
     {
+        elapsedTime = Time.time - startTime;
         timeCounter += Time.deltaTime;
         // Vector3 v = new Vector3(0.1f, 0.1f, 2.0f);
 
@@ -59,6 +66,8 @@ public class ballmovementscript : MonoBehaviour
         if (size.x <= 0.3f || size.y <= 0.3f)
         {
             background.SetActive(true);
+            pointsText.text=score.ToString()+" Points";
+            timeText.text=elapsedTime.ToString()+" seconds";
             // GameOverScreen screen = new GameOverScreen();
             // screen.Setup();
         }
@@ -71,11 +80,14 @@ public class ballmovementscript : MonoBehaviour
         {
             Destroy(collision.gameObject);
             transform.localScale += new Vector3(0.1f, 0.1f, 0);
+            score+=1;
         }
 
         if (collision.gameObject.CompareTag("enemy"))
         {
             background.SetActive(true);
+            pointsText.text=score.ToString()+" Points";
+            timeText.text=elapsedTime.ToString()+" seconds";
         }
     }
 }
