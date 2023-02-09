@@ -355,7 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d49db7295f02421386389ca2fcf24ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 5
   background: {fileID: 1328862245}
   timeInterval: 3
 --- !u!50 &110449099
@@ -1079,7 +1079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circlePrefab: {fileID: 4616678805891848469, guid: e97c05062c7f648de849f0c21dc4be3a, type: 3}
-  timeInterval: 4
+  timeInterval: 3
 --- !u!4 &1210829626
 Transform:
   m_ObjectHideFlags: 0
