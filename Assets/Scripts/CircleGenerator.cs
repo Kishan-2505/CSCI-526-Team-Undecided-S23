@@ -6,18 +6,6 @@ public class CircleGenerator : MonoBehaviour
     public float timeInterval = 5.0f;
     private float timeCounter = 0.0f;
 
-    public void StopScript()
-    {
-        enabled = false;
-    }
-
-    public void StartScript()
-    {
-        enabled = true;
-    }
-
-
-
     private void Update()
     {
         timeCounter += Time.deltaTime;
@@ -29,4 +17,5 @@ public class CircleGenerator : MonoBehaviour
             Instantiate(circlePrefab, randomPosition, Quaternion.identity);
         }
     }
+
 }

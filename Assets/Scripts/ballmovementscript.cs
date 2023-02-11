@@ -39,33 +39,19 @@ public class ballmovementscript : MonoBehaviour
     public float timeInterval = 1.0f;
     private float timeCounter = 0.0f;
 
-
-    public void StopScript()
-    {
-        enabled = false;
-    }
-
-    public void StartScript()
-    {
-        enabled = true;
-    }
-
     private void Update()
     {
         timeCounter += Time.deltaTime;
 
         if (timeCounter >= timeInterval)
         {
-            transform.localScale += new Vector3(-0.1f, -0.1f, 0);
+            transform.localScale += new Vector3(-0.05f, -0.05f, 0);
             timeCounter = 0.0f;
         }
 
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         Bounds bounds = renderer.bounds;
         Vector2 size = bounds.size;
-
-        Debug.Log(size);
-
 
         rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y)));
 

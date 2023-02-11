@@ -10,16 +10,6 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
-    public void StopScript()
-    {
-        enabled = false;
-    }
-
-    public void StartScript()
-    {
-        enabled = true;
-    }
-
     // Update is called once per frame
     public GameObject player;
     public float speed = 2.0f;
