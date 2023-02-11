@@ -395,6 +395,7 @@ MonoBehaviour:
   gameOverScreen: {fileID: 1328862249}
   speed: 4
   freezeDuration: 5
+  isBallFrozen: 0
   enemy: {fileID: 1574847557}
   timeInterval: 1
 --- !u!1 &311884087
@@ -1540,6 +1541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2312db2cf2647fea82570681f27fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballmovementscript: {fileID: 110449101}
   player: {fileID: 110449095}
   speed: 2
 --- !u!212 &1574847554

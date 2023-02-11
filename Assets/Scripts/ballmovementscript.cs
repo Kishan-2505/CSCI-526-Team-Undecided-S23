@@ -7,7 +7,6 @@ public class ballmovementscript : MonoBehaviour
 {
 
     public GameOverScreen gameOverScreen;
-
     public float speed = 4.0f;
 
     private float startTime;
@@ -20,7 +19,7 @@ public class ballmovementscript : MonoBehaviour
     // Start is called before the first frame update
 
     public float freezeDuration = 5.0f;
-    private bool isBallFrozen = false;
+    public bool isBallFrozen = false;
     public Rigidbody2D enemy;
     private Vector2 originalVelocity;
 
@@ -30,6 +29,7 @@ public class ballmovementscript : MonoBehaviour
         startTime = Time.time;
         rigidBody = GetComponent<Rigidbody2D>();
         direction = Random.insideUnitCircle.normalized;
+        enemy = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -89,6 +89,7 @@ public class ballmovementscript : MonoBehaviour
         }
         if(collision.gameObject.CompareTag("FreezeFood"))
         {
+            Debug.Log("collided");
             Destroy(collision.gameObject);
             // enemy.color=Random.ColorHSV();
             FreezeBall();
@@ -102,17 +103,22 @@ public class ballmovementscript : MonoBehaviour
     }
     void FreezeBall()
     {
+        Debug.Log("FreezingBall");
         if (!isBallFrozen)
         {
+            Debug.Log("Ball freezed");
             isBallFrozen = true;
             originalVelocity = enemy.velocity;
+            Debug.Log(originalVelocity);
             enemy.velocity = Vector2.zero;
+            Debug.Log("After freeezing"+enemy.velocity);
             Invoke("UnfreezeBall", freezeDuration);
         }
     }
 
     void UnfreezeBall()
     {
+        Debug.Log("UnfreezingBall");
         enemy.velocity = originalVelocity;
         isBallFrozen = false;
     }
