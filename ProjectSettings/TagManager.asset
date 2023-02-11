@@ -6,6 +6,7 @@ TagManager:
   tags:
   - food
   - enemy
+  - FreezeFood
   layers:
   - Default
   - TransparentFX

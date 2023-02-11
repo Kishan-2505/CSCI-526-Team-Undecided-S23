@@ -10,8 +10,9 @@ public class GameOverScreen : MonoBehaviour
     public TMP_Text pointsText;
     public TMP_Text timeText;
 
-    public void Setup(int score, float time)
+    public void Setup(int score, float time, int state)
     {
+        Debug.Log(state);
         gameObject.SetActive(true);
         pointsText.text = score.ToString() + " Points";
         timeText.text = Mathf.Round(time).ToString() + " seconds";

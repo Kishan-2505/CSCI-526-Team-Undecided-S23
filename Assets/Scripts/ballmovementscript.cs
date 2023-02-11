@@ -14,9 +14,17 @@ public class ballmovementscript : MonoBehaviour
     private int score = 0;
     private float elapsedTime;
 
+    private int state = -1;//No state: 0 denotes kill by enemy, 1 denotes size death.
     private Rigidbody2D rigidBody;
     private Vector2 direction;
     // Start is called before the first frame update
+
+    public float freezeDuration = 5.0f;
+    private bool isBallFrozen = false;
+    public Rigidbody2D enemy;
+    private Vector2 originalVelocity;
+
+
     void Start()
     {
         startTime = Time.time;
@@ -57,6 +65,7 @@ public class ballmovementscript : MonoBehaviour
 
         if (size.x <= 0.3f || size.y <= 0.3f)
         {
+            state = 1;//No state: 0 denotes kill by enemy, 1 denotes size death.
             GameOver();
             this.enabled = false;
         }
@@ -68,20 +77,44 @@ public class ballmovementscript : MonoBehaviour
         if (collision.gameObject.CompareTag("food"))
         {
             Destroy(collision.gameObject);
-            transform.localScale += new Vector3(0.1f, 0.1f, 0);
+            transform.localScale += new Vector3(0.15f, 0.15f, 0);
             score += 1;
         }
 
         if (collision.gameObject.CompareTag("enemy"))
         {
+            state = 0;// 0 denotes kill by enemy, 1 denotes size death.
             GameOver();
             this.enabled = false;
         }
-
+        if(collision.gameObject.CompareTag("FreezeFood"))
+        {
+            Destroy(collision.gameObject);
+            // enemy.color=Random.ColorHSV();
+            FreezeBall();
+        }
     }
     public void GameOver()
     {
+
         elapsedTime = Time.time - startTime;
-        gameOverScreen.Setup(score, elapsedTime);
+        gameOverScreen.Setup(score, elapsedTime, state);
     }
+    void FreezeBall()
+    {
+        if (!isBallFrozen)
+        {
+            isBallFrozen = true;
+            originalVelocity = enemy.velocity;
+            enemy.velocity = Vector2.zero;
+            Invoke("UnfreezeBall", freezeDuration);
+        }
+    }
+
+    void UnfreezeBall()
+    {
+        enemy.velocity = originalVelocity;
+        isBallFrozen = false;
+    }
+
 }

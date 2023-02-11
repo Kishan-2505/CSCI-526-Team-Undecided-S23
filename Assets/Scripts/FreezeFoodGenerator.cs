@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class CircleGenerator : MonoBehaviour
+public class FreezeFoodGenerator : MonoBehaviour
 {
-    public GameObject circlePrefab;
-    public float timeInterval = 5.0f;
+    public GameObject trianglePrefab;
+    // public float timeInterval = 5.0f;
+    public float timeInterval = 10.0f;
     private float timeCounter = 0.0f;
 
     private void Update()
@@ -12,9 +13,9 @@ public class CircleGenerator : MonoBehaviour
         if (timeCounter >= timeInterval)
         {
             timeCounter = 0.0f;
-            circlePrefab.tag = "food";
+            trianglePrefab.tag = "FreezeFood";
             Vector3 randomPosition = new Vector3(Random.Range(-8.0f, 8.0f), Random.Range(-4.0f, 4.0f), 0.0f);
-            Instantiate(circlePrefab, randomPosition, Quaternion.identity);
+            Instantiate(trianglePrefab, randomPosition, Quaternion.identity);
         }
     }
 
