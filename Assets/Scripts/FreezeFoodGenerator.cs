@@ -4,7 +4,7 @@ public class FreezeFoodGenerator : MonoBehaviour
 {
     public GameObject trianglePrefab;
     // public float timeInterval = 5.0f;
-    public float timeInterval = 10.0f;
+    public float timeInterval = 30.0f;
     private float timeCounter = 0.0f;
 
     private void Update()
