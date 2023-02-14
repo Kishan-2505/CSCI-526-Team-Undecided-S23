@@ -34,6 +34,8 @@ public class GameOverScreen : MonoBehaviour
 	{
 		Dictionary<string, string> head = new Dictionary<string, string>();
 		head.Add("Content-Type", "application/json");
+        head.Add("Access-Control-Allow-Origin", "*");
+
 		currentRequest = new RequestHelper
 		{
 			Uri = basePath,
