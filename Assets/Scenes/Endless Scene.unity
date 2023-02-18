@@ -389,7 +389,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 110449095}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdcc90bd71412b84ba2d1bad1447de0b, type: 3}
+  m_Script: {fileID: 11500000, guid: d0abc219ccdf2704a854ca05a3a90c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 1328862249}
@@ -483,7 +483,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1328862249}
-        m_TargetAssemblyTypeName: GameOverScreen, Assembly-CSharp
+        m_TargetAssemblyTypeName: Endless.GameOverScreen, Assembly-CSharp
         m_MethodName: RestartButton
         m_Mode: 1
         m_Arguments:
@@ -944,7 +944,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 507322039}
-  - component: {fileID: 507322038}
+  - component: {fileID: 507322040}
   m_Layer: 0
   m_Name: FreezeFoodSpawner
   m_TagString: Untagged
@@ -952,20 +952,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &507322038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 507322037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb6c96db7eec8c14caad59dd0bcfffa5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trianglePrefab: {fileID: 1939843234603756491, guid: e302d1d4d0c4e7f4b804ecb2c510fc2a, type: 3}
-  timeInterval: 20
 --- !u!4 &507322039
 Transform:
   m_ObjectHideFlags: 0
@@ -981,6 +967,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &507322040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507322037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9304044eb854944abae144aabf7a720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trianglePrefab: {fileID: 1939843234603756491, guid: e883b397493587c49bcd185194372463, type: 3}
+  timeInterval: 20
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,10 +1274,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1210829624}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa873884e484c544ab4a2d74821a7664, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b7781e43d1aa2f449dc4433a6fcc9a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circlePrefab: {fileID: 4616678805891848469, guid: e97c05062c7f648de849f0c21dc4be3a, type: 3}
+  circlePrefab: {fileID: 4616678805891848469, guid: be5c9cade1550874e862dce96da65602, type: 3}
   timeInterval: 2
 --- !u!1 &1328862245
 GameObject:
@@ -1369,7 +1369,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1328862245}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f74411923bcb50429def0707e90888c, type: 3}
+  m_Script: {fileID: 11500000, guid: 22d3691326aa2c64299dce25dd24a67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pointsText: {fileID: 333691767}
@@ -1520,8 +1520,8 @@ GameObject:
   - component: {fileID: 1574847555}
   - component: {fileID: 1574847554}
   - component: {fileID: 1574847556}
-  - component: {fileID: 1574847557}
   - component: {fileID: 1574847558}
+  - component: {fileID: 1574847557}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: enemy
@@ -1642,7 +1642,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1574847550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf5f64634f04ef04d988a7ecc9afe681, type: 3}
+  m_Script: {fileID: 11500000, guid: 05313c683689b2047b999aa98c6a8df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ballmovementscript: {fileID: 110449101}
