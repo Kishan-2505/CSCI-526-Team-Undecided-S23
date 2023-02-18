@@ -3,7 +3,7 @@ using UnityEngine;
 public class CircleGenerator : MonoBehaviour
 {
     public GameObject circlePrefab;
-    public float timeInterval = 5.0f;
+    public float timeInterval = 2.0f;
     private float timeCounter = 0.0f;
 
     private void Update()

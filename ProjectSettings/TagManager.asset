@@ -7,6 +7,9 @@ TagManager:
   - food
   - enemy
   - FreezeFood
+  - Button
+  - InfiniteTag
+  - Spike
   layers:
   - Default
   - TransparentFX

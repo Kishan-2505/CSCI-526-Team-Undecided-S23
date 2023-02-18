@@ -1,20 +1,19 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public class ballmovementscript : MonoBehaviour
+public class EndlessBallMovement : MonoBehaviour
 {
 
     public GameOverScreen gameOverScreen;
     public float speed = 4.0f;
 
-    public float startTime;
-    public int score = 0;
+    private float startTime;
+    private int score = 0;
     private float elapsedTime;
 
-    private int state = -1;//No state: 0 denotes kill by enemy, 1 denotes size death, 3 denotes win
+    private int state = -1;//No state: 0 denotes kill by enemy, 1 denotes size death.
     private Rigidbody2D rigidBody;
     private Vector2 direction;
     // Start is called before the first frame update
@@ -24,13 +23,7 @@ public class ballmovementscript : MonoBehaviour
     public Rigidbody2D enemy;
     private Vector2 originalVelocity;
 
-    private bool onTouch = true;
-    public GameObject DiminishingWall;
-    public int buttonCount = 0;
 
-    public displaypoints displaypoints;
-
-    public GameObject spikePrefab;
     void Start()
     {
         startTime = Time.time;
@@ -54,19 +47,15 @@ public class ballmovementscript : MonoBehaviour
     public float timeInterval = 1.0f;
     private float timeCounter = 0.0f;
 
-    private bool isGettingSmall = true;
     private void Update()
     {
-        if(isGettingSmall)
+        timeCounter += Time.deltaTime;
+
+        if (timeCounter >= timeInterval)
         {
-            timeCounter += Time.deltaTime;
-            if (timeCounter >= timeInterval)
-            {
-                transform.localScale += new Vector3(-0.05f, -0.05f, 0);
-                timeCounter = 0.0f;
-            }
+            transform.localScale += new Vector3(-0.05f, -0.05f, 0);
+            timeCounter = 0.0f;
         }
-        
 
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         Bounds bounds = renderer.bounds;
@@ -81,22 +70,6 @@ public class ballmovementscript : MonoBehaviour
             this.enabled = false;
         }
 
-        displaypoints.display(score);
-
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            if(score>=2) //Change this to 10
-            {
-                score -= 10;
-                Instantiate(spikePrefab, gameObject.transform.localPosition, Quaternion.identity);
-            }
-        }
-
-    }
-
-    private void ResetButtonCollision()
-    {
-        onTouch = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -104,10 +77,7 @@ public class ballmovementscript : MonoBehaviour
         if (collision.gameObject.CompareTag("food"))
         {
             Destroy(collision.gameObject);
-            if(isGettingSmall)
-            {
-                transform.localScale += new Vector3(0.15f, 0.15f, 0);
-            }
+            transform.localScale += new Vector3(0.15f, 0.15f, 0);
             score += 1;
         }
 
@@ -119,34 +89,10 @@ public class ballmovementscript : MonoBehaviour
         }
         if(collision.gameObject.CompareTag("FreezeFood"))
         {
+            Debug.Log("collided");
             Destroy(collision.gameObject);
             // enemy.color=Random.ColorHSV();
             FreezeBall();
-        }
-        if (collision.gameObject.CompareTag("Button"))
-        {
-            if(score>=3)
-            {
-                if (onTouch == true)
-                {
-                    buttonCount++;
-                    score -= 5;
-                    Invoke("ResetButtonCollision", 2f);
-                    onTouch = false;
-                    DiminishingWall.transform.localScale -= new Vector3(0.1f, 0, 0);
-                    Debug.Log("Collided with button");
-                    if(buttonCount==5)
-                    {
-                        Destroy(collision.gameObject);
-                    }
-                }
-            }
-        }
-        if(collision.gameObject.CompareTag("InfiniteTag"))
-        {
-            isGettingSmall = false;
-            gameObject.GetComponent<SpriteRenderer>().color = Color.green;
-            Destroy(collision.gameObject);
         }
     }
     public void GameOver()
@@ -157,17 +103,22 @@ public class ballmovementscript : MonoBehaviour
     }
     void FreezeBall()
     {
+        Debug.Log("FreezingBall");
         if (!isBallFrozen)
         {
+            Debug.Log("Ball freezed");
             isBallFrozen = true;
             originalVelocity = enemy.velocity;
+            Debug.Log(originalVelocity);
             enemy.velocity = Vector2.zero;
+            Debug.Log("After freeezing"+enemy.velocity);
             Invoke("UnfreezeBall", freezeDuration);
         }
     }
 
     void UnfreezeBall()
     {
+        Debug.Log("UnfreezingBall");
         enemy.velocity = originalVelocity;
         isBallFrozen = false;
     }

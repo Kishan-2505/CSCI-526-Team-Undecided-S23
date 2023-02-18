@@ -16,7 +16,6 @@ public class GameOverScreen : MonoBehaviour
 
 	public void Setup(int score, float time, int state)
     {
-        Debug.Log(state);
 		Post(score, time, state);
         gameObject.SetActive(true);
         pointsText.text = score.ToString() + " Points";
@@ -27,7 +26,7 @@ public class GameOverScreen : MonoBehaviour
     public void RestartButton()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Level 1");
     }
 
 	public void Post(int score, float time, int causeOfDeath)
