@@ -28,7 +28,7 @@ namespace Level1
         public void RestartButton()
         {
             Time.timeScale = 1;
-            SceneManager.LoadScene("Level 1");
+            SceneManager.LoadScene("Level Selector");
         }
 
         public void Post(int score, float time, int causeOfDeath)
