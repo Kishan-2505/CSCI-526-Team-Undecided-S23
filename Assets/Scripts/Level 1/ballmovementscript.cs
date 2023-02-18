@@ -32,6 +32,8 @@ namespace Level1
 
         public displaypoints displaypoints;
 
+        public displaypoints displaywarning;
+        public displaypoints displaybutton;
         public GameObject spikePrefab;
         void Start()
         {
@@ -79,18 +81,31 @@ namespace Level1
             if (size.x <= 0.3f || size.y <= 0.3f)
             {
                 state = 1;//No state: 0 denotes kill by enemy, 1 denotes size death.
-                GameOver();
+                GameOver("You died of starvation");
                 this.enabled = false;
             }
 
             displaypoints.display(score);
+            if (score >= 5) 
+            {
+                displaybutton.displaybutton(0);
+            }
+            else
+            {
+                displaybutton.displaybutton(5-score);
+            }
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (score >= 2) //Change this to 10
+                if (score >= 10) //Change this to 10
                 {
-                    score -= 10;
+                    displaywarning.displaywarning("You spawned a spike");
+                    score -= 10;//change this to 10
                     Instantiate(spikePrefab, gameObject.transform.localPosition, Quaternion.identity);
+                }
+                else
+                {
+                    displaywarning.displaywarning("You need at least 10 points to spawn a spike");
                 }
             }
 
@@ -116,15 +131,9 @@ namespace Level1
             if (collision.gameObject.CompareTag("enemy"))
             {
                 state = 0;// 0 denotes kill by enemy, 1 denotes size death.
-                GameOver();
+                GameOver("You collided with an enemy");
                 this.enabled = false;
             }
-            // if (collision.gameObject.CompareTag("FreezeFood"))
-            // {
-            //     Destroy(collision.gameObject);
-            //     // enemy.color=Random.ColorHSV();
-            //     FreezeBall();
-            // }
             if (collision.gameObject.CompareTag("Button"))
             {
                 if (score >= 3)
@@ -132,7 +141,7 @@ namespace Level1
                     if (onTouch == true)
                     {
                         buttonCount++;
-                        score -= 5;
+                        score -= 3; //change this to 5
                         Invoke("ResetButtonCollision", 2f);
                         onTouch = false;
                         DiminishingWall.transform.localScale -= new Vector3(0.1f, 0, 0);
@@ -151,28 +160,11 @@ namespace Level1
                 Destroy(collision.gameObject);
             }
         }
-        public void GameOver()
+        public void GameOver(string message)
         {
 
             elapsedTime = Time.time - startTime;
-            gameOverScreen.Setup(score, elapsedTime, state);
+            gameOverScreen.Setup(score, elapsedTime, state, message);
         }
-        // void FreezeBall()
-        // {
-        //     if (!isBallFrozen)
-        //     {
-        //         isBallFrozen = true;
-        //         originalVelocity = enemy.velocity;
-        //         enemy.velocity = Vector2.zero;
-        //         Invoke("UnfreezeBall", freezeDuration);
-        //     }
-        // }
-
-        // void UnfreezeBall()
-        // {
-        //     enemy.velocity = originalVelocity;
-        //     isBallFrozen = false;
-        // }
-
     }
 }

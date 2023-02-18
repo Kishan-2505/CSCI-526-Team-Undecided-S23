@@ -13,14 +13,16 @@ namespace Level1
 
         public TMP_Text pointsText;
         public TMP_Text timeText;
+        public TMP_Text messageText;
         private readonly string basePath = "https://backend-game-team-undecided.onrender.com/";
         private RequestHelper currentRequest;
 
-        public void Setup(int score, float time, int state)
+        public void Setup(int score, float time, int state, string message)
         {
             Post(score, time, state);
             gameObject.SetActive(true);
             pointsText.text = score.ToString() + " Points";
+            messageText.text = message;
             timeText.text = Mathf.Round(time).ToString() + " seconds";
             Time.timeScale = 0;
         }

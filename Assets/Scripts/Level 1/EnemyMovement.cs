@@ -38,7 +38,7 @@ namespace Level1
                 Destroy(collision.gameObject);
                 Debug.Log("You Won!");
                 elapsedTime = Time.time - ballmovementscript.startTime;
-                gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3); // 3 is win state
+                gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!"); // 3 is win state
             }
         }
     }
