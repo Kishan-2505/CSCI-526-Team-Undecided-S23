@@ -510,7 +510,6 @@ GameObject:
   - component: {fileID: 280083853}
   - component: {fileID: 280083852}
   - component: {fileID: 280083851}
-  - component: {fileID: 280083850}
   m_Layer: 5
   m_Name: WarningText
   m_TagString: Untagged
@@ -538,19 +537,6 @@ RectTransform:
   m_AnchoredPosition: {x: 431, y: -260}
   m_SizeDelta: {x: 115.2, y: 52.8967}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &280083850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 280083848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b97144dca9eabf46abe5a6e04e56e6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentPoints: {fileID: 280083851}
 --- !u!114 &280083851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1037,7 +1023,6 @@ GameObject:
   - component: {fileID: 565688391}
   - component: {fileID: 565688395}
   - component: {fileID: 565688393}
-  - component: {fileID: 565688392}
   m_Layer: 5
   m_Name: DiamondText
   m_TagString: Untagged
@@ -1065,19 +1050,6 @@ RectTransform:
   m_AnchoredPosition: {x: -304, y: 182}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &565688392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 565688390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b97144dca9eabf46abe5a6e04e56e6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentPoints: {fileID: 565688393}
 --- !u!114 &565688393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1187,7 +1159,6 @@ GameObject:
   - component: {fileID: 576353829}
   - component: {fileID: 576353828}
   - component: {fileID: 576353827}
-  - component: {fileID: 576353826}
   m_Layer: 5
   m_Name: ButtonText
   m_TagString: Untagged
@@ -1215,19 +1186,6 @@ RectTransform:
   m_AnchoredPosition: {x: -286, y: -218}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &576353826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576353824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b97144dca9eabf46abe5a6e04e56e6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentPoints: {fileID: 576353827}
 --- !u!114 &576353827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1352,7 +1310,6 @@ GameObject:
   - component: {fileID: 748716118}
   - component: {fileID: 748716120}
   - component: {fileID: 748716117}
-  - component: {fileID: 748716119}
   m_Layer: 5
   m_Name: CurrentScore
   m_TagString: Untagged
@@ -1477,19 +1434,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 748716115}
   m_CullTransparentMesh: 1
---- !u!114 &748716119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 748716115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b97144dca9eabf46abe5a6e04e56e6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentPoints: {fileID: 748716117}
 --- !u!114 &748716120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2826,7 +2770,6 @@ GameObject:
   - component: {fileID: 1429333545}
   - component: {fileID: 1429333549}
   - component: {fileID: 1429333547}
-  - component: {fileID: 1429333546}
   m_Layer: 5
   m_Name: SpikeTest
   m_TagString: Untagged
@@ -2854,19 +2797,6 @@ RectTransform:
   m_AnchoredPosition: {x: 25, y: 182}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1429333546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1429333544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b97144dca9eabf46abe5a6e04e56e6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentPoints: {fileID: 1429333547}
 --- !u!114 &1429333547
 MonoBehaviour:
   m_ObjectHideFlags: 0
