@@ -29,6 +29,8 @@ namespace Level2
         private bool onTouch = true;
         public GameObject DiminishingWall;
         public int buttonCount = 0;
+        public GameObject instructions;
+        private bool canvasDispalay = false;
 
         public int bulletHit = 0;
         public displaypoints displaypoints;
@@ -134,6 +136,19 @@ namespace Level2
                 }
 
             }
+            if (Input.GetKeyDown(KeyCode.Tab) && canvasDispalay==false)
+            {
+                instructions.SetActive(true);
+                canvasDispalay=true;
+                Time.timeScale = 0;
+            }
+            else if (Input.GetKeyDown(KeyCode.Tab) && canvasDispalay==true)
+            {
+                instructions.SetActive(false);
+                canvasDispalay=false;
+                Time.timeScale = 1;
+            }
+
 
         }
 

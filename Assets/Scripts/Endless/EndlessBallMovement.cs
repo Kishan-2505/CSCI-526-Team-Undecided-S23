@@ -24,7 +24,10 @@ namespace Endless
         public Rigidbody2D enemy;
         private Vector2 originalVelocity;
 
+        public GameObject instructions;
 
+        public displaypoints displaypoints;
+        private bool canvasDispalay = false;
         void Start()
         {
             startTime = Time.time;
@@ -70,6 +73,21 @@ namespace Endless
                 GameOver();
                 this.enabled = false;
             }
+            displaypoints.display(score);
+            // Debug.Log(canvasDispalay);
+            if (Input.GetKeyDown(KeyCode.Tab) && canvasDispalay==false)
+            {
+                instructions.SetActive(true);
+                canvasDispalay=true;
+                Time.timeScale = 0;
+            }
+            else if (Input.GetKeyDown(KeyCode.Tab) && canvasDispalay==true)
+            {
+                instructions.SetActive(false);
+                canvasDispalay=false;
+                Time.timeScale = 1;
+            }
+
 
         }
 

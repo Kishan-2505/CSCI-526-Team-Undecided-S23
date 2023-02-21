@@ -14,6 +14,8 @@ namespace Level1
 
         public float startTime;
         public int score = 0;
+        public GameObject instructions;
+        private bool canvasDispalay = false;
         private float elapsedTime;
 
         private int state = -1;//No state: 0 denotes kill by enemy, 1 denotes size death, 3 denotes win
@@ -108,6 +110,19 @@ namespace Level1
                     displaywarning.displaywarning("You need at least 10 points to spawn a spike");
                 }
             }
+            if (Input.GetKeyDown(KeyCode.Tab) && canvasDispalay==false)
+            {
+                instructions.SetActive(true);
+                canvasDispalay=true;
+                Time.timeScale = 0;
+            }
+            else if (Input.GetKeyDown(KeyCode.Tab) && canvasDispalay==true)
+            {
+                instructions.SetActive(false);
+                canvasDispalay=false;
+                Time.timeScale = 1;
+            }
+
 
         }
 
