@@ -21,8 +21,7 @@ namespace Level2
         }
         public void displaybutton(int tries)
         {
-            Debug.Log("entered display button");
-            buttonmessage.text = "You need " + tries.ToString() + " to unlock the door";
+            buttonmessage.text = "You need " + tries.ToString() + " points to press the button to decrease the size of the door";
         }
     }
 

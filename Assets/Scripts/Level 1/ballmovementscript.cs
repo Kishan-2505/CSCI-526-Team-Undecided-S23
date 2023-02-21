@@ -99,15 +99,15 @@ namespace Level1
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (score >= 10) //Change this to 10
+                if (score >= 15) //Change this to 10
                 {
                     displaywarning.displaywarning("You spawned a spike");
-                    score -= 10;//change this to 10
+                    score -= 15;//change this to 10
                     Instantiate(spikePrefab, gameObject.transform.localPosition, Quaternion.identity);
                 }
                 else
                 {
-                    displaywarning.displaywarning("You need at least 10 points to spawn a spike");
+                    displaywarning.displaywarning("You need at least 15 points to spawn a spike");
                 }
             }
             if (Input.GetKeyDown(KeyCode.Tab) && canvasDispalay==false)

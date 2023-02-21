@@ -103,10 +103,10 @@ namespace Level2
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (score >= 30 && isGettingSmall) //Change this to 10
+                if (score >= 25 && isGettingSmall) //Change this to 10
                 {
                     displaywarning.displaywarning("You spawned a spike");
-                    score -= 30;//change this to 10
+                    score -= 25;//change this to 10
                     Instantiate(spikePrefab, gameObject.transform.localPosition, Quaternion.identity);
                 }
                 else if (isGettingSmall == false)
@@ -115,7 +115,7 @@ namespace Level2
                 }
                 else
                 {
-                    displaywarning.displaywarning("You need at least 40 points to spawn a spike");
+                    displaywarning.displaywarning("You need at least 25 points to spawn a spike");
                 }
             }
             if (Input.GetKeyDown(KeyCode.P))
@@ -126,13 +126,13 @@ namespace Level2
                     bulletsFired += 1;
                     score -= 1;
                     if (isGettingSmall)
-                        transform.localScale += new Vector3(-0.1f, -0.1f, 0);
+                        transform.localScale += new Vector3(-0.08f, -0.08f, 0);
                     var bullet = Instantiate(bulletPrefab, gameObject.transform.localPosition, Quaternion.identity);
                     bullet.GetComponent<Rigidbody2D>().velocity = rigidBody.velocity * -1;
                 }
                 else
                 {
-                    displaywarning.displaywarning("You need at least 10 points to fire a bullet");
+                    displaywarning.displaywarning("You need at least 1 points to fire a bullet");
                 }
 
             }

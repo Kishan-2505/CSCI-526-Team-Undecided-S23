@@ -2235,7 +2235,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Arrow Keys/WASD - Movement Keys\n\nCircle Food - Collect this to get points
     and survive\n\nDiamond Food - Collect this to get infinite health\n\nSpace Bar
-    - Press it to spawn a spike to kill enemy. \nA Spike costs 30 points.\n\nP -
+    - Press it to spawn a spike to kill enemy. \nA Spike costs 25 points.\n\nP -
     Press it to fire a bullet in opposite direction of player movement. A bullet
     costs 1 point.\n"
   m_isRightToLeft: 0

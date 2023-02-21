@@ -2662,7 +2662,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Arrow Keys/WASD - Movement Keys\n\nCircle Food - Collect this to get points
     and survive\n\nDiamond Food - Collect this to get infinite health\n\nSpace Bar
-    - Press it to spawn a spike to kill enemy. \nA Spike costs 10 points."
+    - Press it to spawn a spike to kill enemy. \nA Spike costs 15 points."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
