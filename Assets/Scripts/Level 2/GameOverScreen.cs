@@ -14,12 +14,12 @@ namespace Level2
         public TMP_Text pointsText;
         public TMP_Text timeText;
         public TMP_Text messageText;
-        private readonly string basePath = "https://backend-game-team-undecided.onrender.com/";
+        private readonly string basePath = "https://rich-teal-crayfish-coat.cyclic.app/level2";
         private RequestHelper currentRequest;
 
-        public void Setup(int score, float time, int state, string message)
+        public void Setup(int score, float time, int state, string message, int bulletsFired, int bulletHit)
         {
-            Post(score, time, state);
+            Post(score, time, state, bulletsFired, bulletHit);
             gameObject.SetActive(true);
             pointsText.text = score.ToString() + " Points";
             messageText.text = message;
@@ -34,7 +34,7 @@ namespace Level2
             SceneManager.LoadScene("Level Selector");
         }
 
-        public void Post(int score, float time, int causeOfDeath)
+        public void Post(int score, float time, int causeOfDeath, int bulletsFired, int bulletHit)
         {
             Dictionary<string, string> head = new Dictionary<string, string>();
             head.Add("Content-Type", "application/json");
@@ -48,7 +48,9 @@ namespace Level2
                 {
                     score = score,
                     time = time,
-                    causeOfDeath = causeOfDeath
+                    causeOfDeath = causeOfDeath,
+                    bulletsFired=bulletsFired,
+                    bulletHit=bulletHit
                 },
                 EnableDebug = true
             };
@@ -73,6 +75,12 @@ namespace Level2
         public float time;
 
         public int causeOfDeath;
+
+        public bool isGettingSmall;
+
+        public int bulletsFired;
+
+        public int bulletHit;
 
         public override string ToString()
         {

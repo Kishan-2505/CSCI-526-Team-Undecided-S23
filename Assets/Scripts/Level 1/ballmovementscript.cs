@@ -58,7 +58,7 @@ namespace Level1
         public float timeInterval = 1.0f;
         private float timeCounter = 0.0f;
 
-        private bool isGettingSmall = true;
+        public bool isGettingSmall = true;
         private void Update()
         {
             if (isGettingSmall)
@@ -164,7 +164,7 @@ namespace Level1
         {
 
             elapsedTime = Time.time - startTime;
-            gameOverScreen.Setup(score, elapsedTime, state, message);
+            gameOverScreen.Setup(score, elapsedTime, state, message,isGettingSmall);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Level3
         public TMP_Text pointsText;
         public TMP_Text timeText;
         public TMP_Text messageText;
-        private readonly string basePath = "https://backend-game-team-undecided.onrender.com/";
+        private readonly string basePath = "https://rich-teal-crayfish-coat.cyclic.app/level3";
         private RequestHelper currentRequest;
 
         public void Setup(int score, float time, int state, string message)

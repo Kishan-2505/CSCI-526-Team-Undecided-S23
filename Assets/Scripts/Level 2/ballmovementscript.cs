@@ -30,6 +30,7 @@ namespace Level2
         public GameObject DiminishingWall;
         public int buttonCount = 0;
 
+        public int bulletHit = 0;
         public displaypoints displaypoints;
 
         public displaypoints displaywarning;
@@ -60,6 +61,7 @@ namespace Level2
         public float timeInterval = 1.0f;
         private float timeCounter = 0.0f;
 
+        public int bulletsFired = 0;
         private bool isGettingSmall = true;
         private void Update()
         {
@@ -119,6 +121,7 @@ namespace Level2
                 if (score >= 1)
                 {//cnhange this to 10
                     displaywarning.displaywarning("Bullet fired");
+                    bulletsFired += 1;
                     score -= 1;
                     if (isGettingSmall)
                         transform.localScale += new Vector3(-0.1f, -0.1f, 0);
@@ -187,7 +190,7 @@ namespace Level2
         {
 
             elapsedTime = Time.time - startTime;
-            gameOverScreen.Setup(score, elapsedTime, state, message);
+            gameOverScreen.Setup(score, elapsedTime, state, message, bulletsFired,bulletHit);
         }
     }
 }

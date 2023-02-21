@@ -14,12 +14,12 @@ namespace Level1
         public TMP_Text pointsText;
         public TMP_Text timeText;
         public TMP_Text messageText;
-        private readonly string basePath = "https://backend-game-team-undecided.onrender.com/";
+        private readonly string basePath = "https://rich-teal-crayfish-coat.cyclic.app/level1";
         private RequestHelper currentRequest;
 
-        public void Setup(int score, float time, int state, string message)
+        public void Setup(int score, float time, int state, string message, bool isGettingSmall)
         {
-            Post(score, time, state);
+            Post(score, time, state, isGettingSmall);
             gameObject.SetActive(true);
             pointsText.text = score.ToString() + " Points";
             messageText.text = message;
@@ -33,7 +33,7 @@ namespace Level1
             SceneManager.LoadScene("Level Selector");
         }
 
-        public void Post(int score, float time, int causeOfDeath)
+        public void Post(int score, float time, int causeOfDeath, bool isGettingSmall)
         {
             Dictionary<string, string> head = new Dictionary<string, string>();
             head.Add("Content-Type", "application/json");
@@ -47,7 +47,8 @@ namespace Level1
                 {
                     score = score,
                     time = time,
-                    causeOfDeath = causeOfDeath
+                    causeOfDeath = causeOfDeath, // 3 is win state
+                    isGettingSmall = isGettingSmall //if false then player has taken infinite health
                 },
                 EnableDebug = true
             };
@@ -72,6 +73,7 @@ namespace Level1
         public float time;
 
         public int causeOfDeath;
+        public bool isGettingSmall;
 
         public override string ToString()
         {

@@ -20,6 +20,8 @@ namespace Level2
         public GameObject player;
         public float speed = 2.0f;
         private float elapsedTime;
+
+        
         void Update()
         {
             if (!ballmovementscript.isBallFrozen)
@@ -33,7 +35,7 @@ namespace Level2
             {
                 Destroy(gameObject);
                 elapsedTime = Time.time - ballmovementscript.startTime;
-                gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!"); // 3 is win state
+                gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!",ballmovementscript.bulletsFired,ballmovementscript.bulletHit); // 3 is win state
             }
         }
 
@@ -45,11 +47,12 @@ namespace Level2
                 Destroy(collision.gameObject);
                 Debug.Log("You Won!");
                 elapsedTime = Time.time - ballmovementscript.startTime;
-                gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!"); // 3 is win state
+                gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!",ballmovementscript.bulletsFired,ballmovementscript.bulletHit); // 3 is win state
             }
             if (collision.gameObject.tag == "Bullet")
             {
                 // Destroy(gameObject);
+                ballmovementscript.bulletHit+=1;
                 Destroy(collision.gameObject);
                 health-=25; // 3 is win state
             }
