@@ -64,7 +64,7 @@ namespace Level2
         private float timeCounter = 0.0f;
 
         public int bulletsFired = 0;
-        private bool isGettingSmall = true;
+        public bool isGettingSmall = true;
         private void Update()
         {
             if (isGettingSmall)
@@ -92,13 +92,13 @@ namespace Level2
             }
 
             displaypoints.display(score);
-            if (score >= 5)
+            if (score >= 3)
             {
                 displaybutton.displaybutton(0);
             }
             else
             {
-                displaybutton.displaybutton(5 - score);
+                displaybutton.displaybutton(3 - score);
             }
 
             if (Input.GetKeyDown(KeyCode.Space))
@@ -205,7 +205,7 @@ namespace Level2
         {
 
             elapsedTime = Time.time - startTime;
-            gameOverScreen.Setup(score, elapsedTime, state, message, bulletsFired,bulletHit);
+            gameOverScreen.Setup(score, elapsedTime, state, message, bulletsFired,bulletHit,isGettingSmall);
         }
     }
 }

@@ -17,9 +17,9 @@ namespace Level2
         private readonly string basePath = "https://rich-teal-crayfish-coat.cyclic.app/level2";
         private RequestHelper currentRequest;
 
-        public void Setup(int score, float time, int state, string message, int bulletsFired, int bulletHit)
+        public void Setup(int score, float time, int state, string message, int bulletsFired, int bulletHit, bool isGettingSmall)
         {
-            Post(score, time, state, bulletsFired, bulletHit);
+            Post(score, time, state, bulletsFired, bulletHit, isGettingSmall);
             gameObject.SetActive(true);
             pointsText.text = score.ToString() + " Points";
             messageText.text = message;
@@ -34,7 +34,7 @@ namespace Level2
             SceneManager.LoadScene("Level Selector");
         }
 
-        public void Post(int score, float time, int causeOfDeath, int bulletsFired, int bulletHit)
+        public void Post(int score, float time, int causeOfDeath, int bulletsFired, int bulletHit, bool isGettingSmall)
         {
             Dictionary<string, string> head = new Dictionary<string, string>();
             head.Add("Content-Type", "application/json");
@@ -50,7 +50,8 @@ namespace Level2
                     time = time,
                     causeOfDeath = causeOfDeath,
                     bulletsFired=bulletsFired,
-                    bulletHit=bulletHit
+                    bulletHit=bulletHit,
+                    isGettingSmall=isGettingSmall
                 },
                 EnableDebug = true
             };

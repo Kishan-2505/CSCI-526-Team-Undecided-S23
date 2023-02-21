@@ -88,13 +88,13 @@ namespace Level1
             }
 
             displaypoints.display(score);
-            if (score >= 5) 
+            if (score >= 3) 
             {
                 displaybutton.displaybutton(0);
             }
             else
             {
-                displaybutton.displaybutton(5-score);
+                displaybutton.displaybutton(3-score);
             }
 
             if (Input.GetKeyDown(KeyCode.Space))
