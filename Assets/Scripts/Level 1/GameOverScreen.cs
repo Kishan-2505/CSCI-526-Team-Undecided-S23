@@ -23,6 +23,8 @@ namespace Level1
             gameObject.SetActive(true);
             pointsText.text = score.ToString() + " Points";
             messageText.text = message;
+            if (message == "You Won!")
+                messageText.color = Color.green;
             timeText.text = Mathf.Round(time).ToString() + " seconds";
             Time.timeScale = 0;
         }
