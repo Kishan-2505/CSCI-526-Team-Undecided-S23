@@ -35,7 +35,9 @@ namespace Level1
         public displaypoints displaypoints;
 
         public displaypoints displaywarning;
-        public displaypoints displaybutton;
+        // public displaypoints displaybutton;
+
+        public displaypoints displaytimeofdeath;
         public GameObject spikePrefab;
         void Start()
         {
@@ -43,6 +45,9 @@ namespace Level1
             rigidBody = GetComponent<Rigidbody2D>();
             direction = Random.insideUnitCircle.normalized;
             enemy = GetComponent<Rigidbody2D>();
+            instructions.SetActive(true);
+            canvasDispalay = true;
+            Time.timeScale = 0;
         }
 
         // Update is called once per frame
@@ -55,7 +60,7 @@ namespace Level1
             SpriteRenderer renderer = GetComponent<SpriteRenderer>();
             Bounds bounds = renderer.bounds;
             Vector2 size = bounds.size;
-            rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y)));
+            rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y,0.6f)));
         }
         public float timeInterval = 1.0f;
         private float timeCounter = 0.0f;
@@ -78,8 +83,9 @@ namespace Level1
             Bounds bounds = renderer.bounds;
             Vector2 size = bounds.size;
 
-            rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y)));
+            rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y,0.6f)));
 
+            Debug.Log("size of x"+size.x+" size of y"+size.y);
             if (size.x <= 0.3f || size.y <= 0.3f)
             {
                 state = 1;//No state: 0 denotes kill by enemy, 1 denotes size death.
@@ -87,15 +93,17 @@ namespace Level1
                 this.enabled = false;
             }
 
+            displaytimeofdeath.displaytimeofdeath((size.x-0.3f)/0.05f);
+
             displaypoints.display(score);
-            if (score >= 3) 
-            {
-                displaybutton.displaybutton(0);
-            }
-            else
-            {
-                displaybutton.displaybutton(3-score);
-            }
+            // if (score >= 3)
+            // {
+            //     displaybutton.displaybutton(0);
+            // }
+            // else
+            // {
+            //     displaybutton.displaybutton(3 - score);
+            // }
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -110,16 +118,16 @@ namespace Level1
                     displaywarning.displaywarning("You need at least 15 points to spawn a spike");
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Tab) && canvasDispalay==false)
+            if (Input.GetKeyDown(KeyCode.Tab) && canvasDispalay == false)
             {
                 instructions.SetActive(true);
-                canvasDispalay=true;
+                canvasDispalay = true;
                 Time.timeScale = 0;
             }
-            else if (Input.GetKeyDown(KeyCode.Tab) && canvasDispalay==true)
+            else if (Input.GetKeyDown(KeyCode.Tab) && canvasDispalay == true)
             {
                 instructions.SetActive(false);
-                canvasDispalay=false;
+                canvasDispalay = false;
                 Time.timeScale = 1;
             }
 
@@ -151,20 +159,21 @@ namespace Level1
             }
             if (collision.gameObject.CompareTag("Button"))
             {
-                if (score >= 3)
+                if (score >= 7)
                 {
                     if (onTouch == true)
                     {
                         buttonCount++;
-                        score -= 3; //change this to 5
+                        score -= 7; //change this to 5
                         Invoke("ResetButtonCollision", 1f);
                         onTouch = false;
-                        DiminishingWall.transform.localScale -= new Vector3(0.1f, 0, 0);
+                        DiminishingWall.transform.localScale -= new Vector3(0.2f, 0, 0);
                         Debug.Log("Collided with button");
-                        if (buttonCount == 5)
-                        {
-                            Destroy(collision.gameObject);
-                        }
+                        // if (buttonCount == 5)
+                        // {
+                        //     Destroy(collision.gameObject);
+                        // }
+                        Destroy(collision.gameObject);
                     }
                 }
             }
@@ -179,7 +188,7 @@ namespace Level1
         {
 
             elapsedTime = Time.time - startTime;
-            gameOverScreen.Setup(score, elapsedTime, state, message,isGettingSmall);
+            gameOverScreen.Setup(score, elapsedTime, state, message, isGettingSmall);
         }
     }
 }
