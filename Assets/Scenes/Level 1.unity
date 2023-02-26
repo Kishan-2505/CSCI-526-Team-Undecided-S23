@@ -909,6 +909,7 @@ MonoBehaviour:
   currentPoints: {fileID: 748716117}
   warningmessage: {fileID: 280083851}
   buttonmessage: {fileID: 576353827}
+  timeofdeath: {fileID: 0}
 --- !u!222 &280083853
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1984,6 +1985,7 @@ MonoBehaviour:
   currentPoints: {fileID: 748716117}
   warningmessage: {fileID: 280083851}
   buttonmessage: {fileID: 576353827}
+  timeofdeath: {fileID: 0}
 --- !u!222 &576353829
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2143,6 +2145,7 @@ MonoBehaviour:
   currentPoints: {fileID: 748716117}
   warningmessage: {fileID: 280083851}
   buttonmessage: {fileID: 576353827}
+  timeofdeath: {fileID: 859078183}
 --- !u!1 &765434037
 GameObject:
   m_ObjectHideFlags: 0
@@ -2736,6 +2739,7 @@ MonoBehaviour:
   currentPoints: {fileID: 859078183}
   warningmessage: {fileID: 280083851}
   buttonmessage: {fileID: 576353827}
+  timeofdeath: {fileID: 859078183}
 --- !u!222 &859078185
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4327,7 +4331,7 @@ MonoBehaviour:
   buttonCount: 0
   displaypoints: {fileID: 748716120}
   displaywarning: {fileID: 280083852}
-  displaybutton: {fileID: 576353828}
+  displaytimeofdeath: {fileID: 859078184}
   spikePrefab: {fileID: 6503110210200737198, guid: 1b403118ccf4f5f45b6df53f116cbf0a, type: 3}
   timeInterval: 1
   isGettingSmall: 1
