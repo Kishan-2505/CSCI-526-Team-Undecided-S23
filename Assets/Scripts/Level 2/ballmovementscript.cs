@@ -36,16 +36,21 @@ namespace Level2
         public displaypoints displaypoints;
 
         public displaypoints displaywarning;
-        public displaypoints displaybutton;
+        // public displaypoints displaybutton;
         public GameObject spikePrefab;
 
         public GameObject bulletPrefab;
+
+        public displaypoints displaytimeofdeath;
         void Start()
         {
             startTime = Time.time;
             rigidBody = GetComponent<Rigidbody2D>();
             direction = Random.insideUnitCircle.normalized;
             enemy = GetComponent<Rigidbody2D>();
+            instructions.SetActive(true);
+            canvasDispalay = true;
+            Time.timeScale = 0;
         }
 
         // Update is called once per frame
@@ -58,7 +63,7 @@ namespace Level2
             SpriteRenderer renderer = GetComponent<SpriteRenderer>();
             Bounds bounds = renderer.bounds;
             Vector2 size = bounds.size;
-            rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y)));
+            rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y, 0.6f)));
         }
         public float timeInterval = 1.0f;
         private float timeCounter = 0.0f;
@@ -82,7 +87,7 @@ namespace Level2
             Bounds bounds = renderer.bounds;
             Vector2 size = bounds.size;
 
-            rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y)));
+            rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y, 0.6f)));
 
             if (size.x <= 0.3f || size.y <= 0.3f)
             {
@@ -91,22 +96,23 @@ namespace Level2
                 this.enabled = false;
             }
 
+            displaytimeofdeath.displaytimeofdeath((size.x - 0.3f) / 0.05f);
             displaypoints.display(score);
-            if (score >= 3)
-            {
-                displaybutton.displaybutton(0);
-            }
-            else
-            {
-                displaybutton.displaybutton(3 - score);
-            }
+            // if (score >= 3)
+            // {
+            //     displaybutton.displaybutton(0);
+            // }
+            // else
+            // {
+            //     displaybutton.displaybutton(3 - score);
+            // }
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (score >= 25 && isGettingSmall) //Change this to 10
+                if (score >= 15 && isGettingSmall) //Change this to 10
                 {
                     displaywarning.displaywarning("You spawned a spike");
-                    score -= 25;//change this to 10
+                    score -= 15;//change this to 10
                     Instantiate(spikePrefab, gameObject.transform.localPosition, Quaternion.identity);
                 }
                 else if (isGettingSmall == false)
@@ -115,7 +121,7 @@ namespace Level2
                 }
                 else
                 {
-                    displaywarning.displaywarning("You need at least 25 points to spawn a spike");
+                    displaywarning.displaywarning("You need at least 15 points to spawn a spike");
                 }
             }
             if (Input.GetKeyDown(KeyCode.P))
@@ -136,16 +142,16 @@ namespace Level2
                 }
 
             }
-            if (Input.GetKeyDown(KeyCode.Tab) && canvasDispalay==false)
+            if (Input.GetKeyDown(KeyCode.Tab) && canvasDispalay == false)
             {
                 instructions.SetActive(true);
-                canvasDispalay=true;
+                canvasDispalay = true;
                 Time.timeScale = 0;
             }
-            else if (Input.GetKeyDown(KeyCode.Tab) && canvasDispalay==true)
+            else if (Input.GetKeyDown(KeyCode.Tab) && canvasDispalay == true)
             {
                 instructions.SetActive(false);
-                canvasDispalay=false;
+                canvasDispalay = false;
                 Time.timeScale = 1;
             }
 
@@ -177,20 +183,21 @@ namespace Level2
             }
             if (collision.gameObject.CompareTag("Button"))
             {
-                if (score >= 3)
+                if (score >= 7)
                 {
                     if (onTouch == true)
                     {
                         buttonCount++;
-                        score -= 3; //change this to 5
+                        score -= 7; //change this to 5
                         Invoke("ResetButtonCollision", 2f);
                         onTouch = false;
                         DiminishingWall.transform.localScale -= new Vector3(0.1f, 0, 0);
                         Debug.Log("Collided with button");
-                        if (buttonCount == 5)
-                        {
-                            Destroy(collision.gameObject);
-                        }
+                        // if (buttonCount == 5)
+                        // {
+                            
+                        // }
+                        Destroy(collision.gameObject);
                     }
                 }
             }
@@ -205,7 +212,7 @@ namespace Level2
         {
 
             elapsedTime = Time.time - startTime;
-            gameOverScreen.Setup(score, elapsedTime, state, message, bulletsFired,bulletHit,isGettingSmall);
+            gameOverScreen.Setup(score, elapsedTime, state, message, bulletsFired, bulletHit, isGettingSmall);
         }
     }
 }
