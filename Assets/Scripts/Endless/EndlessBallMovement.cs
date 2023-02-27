@@ -34,6 +34,9 @@ namespace Endless
             rigidBody = GetComponent<Rigidbody2D>();
             direction = Random.insideUnitCircle.normalized;
             enemy = GetComponent<Rigidbody2D>();
+            instructions.SetActive(true);
+            canvasDispalay = true;
+            Time.timeScale = 0;
         }
 
         // Update is called once per frame
@@ -46,7 +49,7 @@ namespace Endless
             SpriteRenderer renderer = GetComponent<SpriteRenderer>();
             Bounds bounds = renderer.bounds;
             Vector2 size = bounds.size;
-            rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y)));
+            rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y,0.6f)));
         }
         public float timeInterval = 1.0f;
         private float timeCounter = 0.0f;
@@ -65,7 +68,7 @@ namespace Endless
             Bounds bounds = renderer.bounds;
             Vector2 size = bounds.size;
 
-            rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y)));
+            rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y,0.6f)));
 
             if (size.x <= 0.3f || size.y <= 0.3f)
             {
