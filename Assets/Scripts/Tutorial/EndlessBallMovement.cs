@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -25,9 +26,17 @@ namespace Tutorial
         private Vector2 originalVelocity;
 
         public GameObject instructions;
+        public GameObject enemyArrival;
+        public GameObject FirstFood;
+        public GameObject summary;
+        public GameObject gameEnd;
 
         public displaypoints displaypoints;
         private bool canvasDispalay = false;
+        private bool firstFood = false;
+        private bool isSummary = false;
+        private bool isEnemyArrival = false;
+        
         void Start()
         {
             startTime = Time.time;
@@ -36,6 +45,28 @@ namespace Tutorial
             enemy = GetComponent<Rigidbody2D>();
             instructions.SetActive(true);
             canvasDispalay = true;
+            Time.timeScale = 0;
+            StartCoroutine(CallFunction());
+            StartCoroutine(CallFunctionSummary());
+            StartCoroutine(CallFunctionGame());
+        }
+
+        IEnumerator CallFunction()
+        {
+            yield return new WaitForSeconds(1.0f);
+            enemyArrival.SetActive(true);
+            Time.timeScale = 0;
+        }
+        IEnumerator CallFunctionSummary()
+        {
+            yield return new WaitForSeconds(18.0f);
+            summary.SetActive(true);
+            Time.timeScale = 0;
+        }
+        IEnumerator CallFunctionGame()
+        {
+            yield return new WaitForSeconds(40.0f);
+            gameEnd.SetActive(true);
             Time.timeScale = 0;
         }
 
@@ -57,7 +88,6 @@ namespace Tutorial
         private void Update()
         {
             timeCounter += Time.deltaTime;
-
             if (timeCounter >= timeInterval)
             {
                 transform.localScale += new Vector3(-0.05f, -0.05f, 0);
@@ -70,6 +100,13 @@ namespace Tutorial
 
             rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y,0.6f)));
 
+            if ((size.x <= 0.6f || size.y <= 0.6f) && (firstFood == false))
+            {
+                FirstFood.SetActive(true);
+                Time.timeScale = 0;
+                firstFood = true;
+            }
+
             if (size.x <= 0.3f || size.y <= 0.3f)
             {
                 state = 1;//No state: 0 denotes kill by enemy, 1 denotes size death.
@@ -77,6 +114,13 @@ namespace Tutorial
                 this.enabled = false;
             }
             displaypoints.display(score);
+            if (Input.GetKey(KeyCode.Escape) && firstFood == true)
+            {
+                // Hide the canvas
+                FirstFood.SetActive(false);
+                Time.timeScale = 1;
+
+            }
             // Debug.Log(canvasDispalay);
             if (Input.GetKeyDown(KeyCode.Tab) && canvasDispalay==false)
             {
@@ -90,8 +134,29 @@ namespace Tutorial
                 canvasDispalay=false;
                 Time.timeScale = 1;
             }
+            if (Input.GetKey(KeyCode.Escape) && !isEnemyArrival)
+            {
+                // Hide the canvas
+                enemyArrival.SetActive(false);
+                isEnemyArrival = true;
+                Time.timeScale = 1;
+            }
 
+            else if (Input.GetKey(KeyCode.Escape) && isEnemyArrival)
+            {
+                // Hide the canvas
+                summary.SetActive(false);
+                Time.timeScale = 1;
+                isSummary = true;
+            }
 
+            else if (Input.GetKey(KeyCode.Escape) && isSummary)
+            {
+                // Hide the canvas
+                gameEnd.SetActive(false);
+                Time.timeScale = 1;
+                GameOver();
+            }
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -111,7 +176,6 @@ namespace Tutorial
             }
             if (collision.gameObject.CompareTag("FreezeFood"))
             {
-                Debug.Log("collided");
                 Destroy(collision.gameObject);
                 // enemy.color=Random.ColorHSV();
                 FreezeBall();
@@ -125,22 +189,18 @@ namespace Tutorial
         }
         void FreezeBall()
         {
-            Debug.Log("FreezingBall");
             if (!isBallFrozen)
             {
-                Debug.Log("Ball freezed");
                 isBallFrozen = true;
                 originalVelocity = enemy.velocity;
                 Debug.Log(originalVelocity);
                 enemy.velocity = Vector2.zero;
-                Debug.Log("After freeezing" + enemy.velocity);
                 Invoke("UnfreezeBall", freezeDuration);
             }
         }
 
         void UnfreezeBall()
         {
-            Debug.Log("UnfreezingBall");
             enemy.velocity = originalVelocity;
             isBallFrozen = false;
         }

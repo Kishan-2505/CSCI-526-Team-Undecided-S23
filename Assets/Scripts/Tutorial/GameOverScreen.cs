@@ -13,7 +13,7 @@ namespace Tutorial
 
         public TMP_Text pointsText;
         public TMP_Text timeText;
-        private readonly string basePath = "https://rich-teal-crayfish-coat.cyclic.app/endless";
+        private readonly string basePath = "https://rich-teal-crayfish-coat.cyclic.app/tutorial";
         private RequestHelper currentRequest;
 
         public void Setup(int score, float time, int state)
