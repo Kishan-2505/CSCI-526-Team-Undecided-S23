@@ -191,7 +191,7 @@ namespace Level2
                         score -= 7; //change this to 5
                         Invoke("ResetButtonCollision", 2f);
                         onTouch = false;
-                        DiminishingWall.transform.localScale -= new Vector3(0.1f, 0, 0);
+                        DiminishingWall.transform.localScale -= new Vector3(0.2f, 0, 0);
                         Debug.Log("Collided with button");
                         // if (buttonCount == 5)
                         // {
