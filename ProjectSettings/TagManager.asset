@@ -11,6 +11,14 @@ TagManager:
   - InfiniteTag
   - Spike
   - Bullet
+  - Wall
+  - Green
+  - Pink
+  - Black
+  - Blue
+  - Wall1
+  - Wall2
+  - Wall3
   layers:
   - Default
   - TransparentFX
