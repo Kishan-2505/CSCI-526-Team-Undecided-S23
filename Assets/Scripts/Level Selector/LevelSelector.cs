@@ -12,13 +12,12 @@ namespace LevelSelector
         // Start is called before the first frame update
         void Start()
         {
-            Debug.Log("Level Selector");
+
         }
 
         // Update is called once per frame
         public void LoadLevel()
         {
-            Debug.Log("Loading Level");
             SceneManager.LoadScene(levelName);
         }
     }
