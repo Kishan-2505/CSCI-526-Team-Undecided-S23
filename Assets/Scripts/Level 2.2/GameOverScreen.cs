@@ -39,6 +39,11 @@ namespace Level2_2
         {
             // Debug.Log("Restart");
             Time.timeScale = 1;
+            SceneManager.LoadScene("Level 2.2");
+        }
+        public void MenuButton()
+        {
+            Time.timeScale = 1;
             SceneManager.LoadScene("Level Selector");
         }
 

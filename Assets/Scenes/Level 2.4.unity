@@ -4298,6 +4298,7 @@ MonoBehaviour:
   pointsText: {fileID: 868354604}
   timeText: {fileID: 1246455399}
   messageText: {fileID: 787485807}
+  restartButton: {fileID: 1133863278}
 --- !u!1 &1772900267
 GameObject:
   m_ObjectHideFlags: 0
@@ -4356,7 +4357,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Menu
+  m_text: 'Main Menu
 
 '
   m_isRightToLeft: 0
