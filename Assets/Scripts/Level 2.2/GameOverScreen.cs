@@ -22,7 +22,15 @@ namespace Level2_2
             Post(score, time, state, bulletsFired, bulletHit, isGettingSmall);
             gameObject.SetActive(true);
             pointsText.text = score.ToString() + " Points";
-            messageText.text = message;
+            if (message == "Game Won!")
+            {
+                messageText.color = Color.green;
+                messageText.text = message;
+            }
+            else
+            {
+                messageText.text = message;
+            }
             timeText.text = Mathf.Round(time).ToString() + " seconds";
             Time.timeScale = 0;
         }
