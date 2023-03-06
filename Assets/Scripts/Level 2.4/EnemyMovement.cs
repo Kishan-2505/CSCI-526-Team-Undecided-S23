@@ -24,7 +24,7 @@ namespace Level2_4
         
         void Update()
         {
-            if (!ballmovementscript.isBallFrozen)
+            if (ballmovementscript.wall2Broken)
             {
                 Vector3 targetPosition = player.transform.position;
                 Vector3 enemyPosition = transform.position;

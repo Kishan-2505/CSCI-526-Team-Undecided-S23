@@ -16,7 +16,7 @@ namespace Level2_4
             {
                 timeCounter = 0.0f;
                 circlePrefab.tag = "food";
-                Vector3 randomPosition = new Vector3(Random.Range(-8.0f, 5.0f), Random.Range(-4.0f, 4.0f), 0.0f);
+                Vector3 randomPosition = new Vector3(Random.Range(-11.0f, 2.0f), Random.Range(-4.0f, 4.0f), 0.0f);
                 Instantiate(circlePrefab, randomPosition, Quaternion.identity);
             }
         }
