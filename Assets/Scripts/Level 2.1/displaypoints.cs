@@ -30,10 +30,10 @@ namespace Level2_1
             warningmessage.text = "";
         }
         
-        public void displaytimeofdeath(float time)
+        public void displaytimeofdeath(float health_percent)
         {
-            time=Mathf.Round(time);
-            timeofdeath.text = "Time of Death:"+time.ToString()+" seconds";
+            health_percent=Mathf.Round(health_percent * 100);
+            timeofdeath.text = "Health: "+health_percent.ToString()+" %";
         }
     }
 
