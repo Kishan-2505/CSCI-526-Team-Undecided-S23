@@ -142,7 +142,7 @@ namespace Level2_1
                 Time.timeScale = 1;
             }
             if(capsulecount==3){
-                 GameOver("Game Won!");
+                 GameOver("You Won!");
             }
 
         }
