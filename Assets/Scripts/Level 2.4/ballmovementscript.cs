@@ -103,7 +103,10 @@ namespace Level2_4
             }
 
             displaytimeofdeath.displaytimeofdeath((transform.localScale.x - min_health) / (max_health - min_health));
-            displaypoints.display(score);
+            if (score >= 5)
+            {
+                displaypoints.display((int)Mathf.Floor(score / 5));
+            }
             // if (score >= 3)
             // {
             //     displaybutton.displaybutton(0);
@@ -155,8 +158,9 @@ namespace Level2_4
                 canvasDispalay = false;
                 Time.timeScale = 1;
             }
-            if(capsulecount==1){
-                 GameOver("You Won!");
+            if (capsulecount == 1)
+            {
+                GameOver("You Won!");
             }
 
         }
@@ -196,7 +200,7 @@ namespace Level2_4
                 SpriteRenderer renderer = GetComponent<SpriteRenderer>();
                 Bounds bounds = renderer.bounds;
                 Vector2 size = bounds.size;
-                if (collision.gameObject.GetComponent<SpriteRenderer>().color == gameObject.GetComponent<SpriteRenderer>().color && size.x>=0.8f)
+                if (collision.gameObject.GetComponent<SpriteRenderer>().color == gameObject.GetComponent<SpriteRenderer>().color && size.x >= 0.8f)
                 {
                     Destroy(collision.gameObject);
                 }
