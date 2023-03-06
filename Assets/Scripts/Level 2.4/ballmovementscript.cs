@@ -71,9 +71,11 @@ namespace Level2_4
         }
         public float timeInterval = 1.0f;
         private float timeCounter = 0.0f;
-
+        private float max_health = 1.6f;
+        private float min_health = 0.3f;
         public int bulletsFired = 0;
         public bool isGettingSmall = true;
+        public bool wall2Broken = false;
         private void Update()
         {
             if (isGettingSmall)
@@ -100,7 +102,7 @@ namespace Level2_4
                 this.enabled = false;
             }
 
-            displaytimeofdeath.displaytimeofdeath((size.x - 0.3f) / 0.05f);
+            displaytimeofdeath.displaytimeofdeath((transform.localScale.x - min_health) / (max_health - min_health));
             displaypoints.display(score);
             // if (score >= 3)
             // {
@@ -154,7 +156,7 @@ namespace Level2_4
                 Time.timeScale = 1;
             }
             if(capsulecount==1){
-                 GameOver("Game Won!");
+                 GameOver("You Won!");
             }
 
         }
@@ -200,7 +202,7 @@ namespace Level2_4
                 }
                 else
                 {
-                    GameOver("You collided with an enemy");
+                    GameOver("You collided with an enemy. Let's try again!");
                     this.enabled = false;
                 }
 
@@ -257,6 +259,7 @@ namespace Level2_4
                     if (collision.gameObject.transform.localScale.x <= 0.0f)
                     {
                         Destroy(collision.gameObject);
+                        wall2Broken = true;
                     }
                 }
             }

@@ -22,7 +22,16 @@ namespace Level2_3
             Post(score, time, state, bulletsFired, bulletHit, isGettingSmall);
             gameObject.SetActive(true);
             pointsText.text = score.ToString() + " Points";
-            messageText.text = message;
+            if(message=="You Won!")
+            {
+                messageText.color = Color.green;
+                messageText.text = message;
+            }
+            else
+            {
+                messageText.text = message;
+
+            }
             timeText.text = Mathf.Round(time).ToString() + " seconds";
             Time.timeScale = 0;
         }
@@ -30,6 +39,11 @@ namespace Level2_3
         public void RestartButton()
         {
             // Debug.Log("Restart");
+            Time.timeScale = 1;
+            SceneManager.LoadScene("Level 2.3");
+        }
+        public void MenuButton()
+        {
             Time.timeScale = 1;
             SceneManager.LoadScene("Level Selector");
         }
