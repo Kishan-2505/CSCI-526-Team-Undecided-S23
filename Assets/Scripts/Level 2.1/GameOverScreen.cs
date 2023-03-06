@@ -29,7 +29,13 @@ namespace Level2_1
 
         public void RestartButton()
         {
-            // Debug.Log("Restart");
+            Debug.Log("Restart");
+            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        public void MenuButton(){
+            Debug.Log("Menu");
             Time.timeScale = 1;
             SceneManager.LoadScene("Level Selector");
         }
