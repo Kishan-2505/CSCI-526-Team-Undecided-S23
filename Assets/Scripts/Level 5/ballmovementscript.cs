@@ -41,7 +41,7 @@ namespace Level5
 
         private int capsulecount = 0;
         // public displaypoints displaybutton;
-        // public GameObject spikePrefab;
+        public GameObject spikePrefab;
 
         // public GameObject bulletPrefab;
 
@@ -68,12 +68,16 @@ namespace Level5
             Bounds bounds = renderer.bounds;
             Vector2 size = bounds.size;
             rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y, 0.6f)));
-        }
+        } 
         public float timeInterval = 1.0f;
         private float timeCounter = 0.0f;
 
         public int bulletsFired = 0;
+        private float max_health = 1.6f;
+        private float min_health = 0.3f;
         public bool isGettingSmall = true;
+        public bool wall3Broken = false;
+        public bool wall2Broken = false;
         private void Update()
         {
             if (isGettingSmall)
@@ -100,8 +104,23 @@ namespace Level5
                 this.enabled = false;
             }
 
-            displaytimeofdeath.displaytimeofdeath((size.x - 0.3f) / 0.05f);
-            displaypoints.display(score);
+           displaytimeofdeath.displaytimeofdeath((transform.localScale.x - min_health) / (max_health - min_health));
+           if(score>=5){
+            displaypoints.display((int)Mathf.Floor(score/5));
+           }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (score >= 5) //Change this to 10
+                {
+                    displaywarning.displaywarning("You spawned a spike");
+                    score -= 5;//change this to 10
+                    Instantiate(spikePrefab, gameObject.transform.localPosition, Quaternion.identity);
+                }
+                else
+                {
+                    displaywarning.displaywarning("You need at least 5 points to spawn a spike");
+                }
+            }
             // if (score >= 3)
             // {
             //     displaybutton.displaybutton(0);
@@ -207,7 +226,7 @@ namespace Level5
             }
             if (collision.gameObject.CompareTag("Green"))
             {
-                gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+                gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
                 Destroy(collision.gameObject);
                 capsulecount++;
             }
@@ -245,6 +264,7 @@ namespace Level5
                     if (collision.gameObject.transform.localScale.x <= 0.0f)
                     {
                         Destroy(collision.gameObject);
+                        wall2Broken=true;
                     }
                 }
             }
@@ -263,6 +283,7 @@ namespace Level5
                     if (collision.gameObject.transform.localScale.x <= 0.0f)
                     {
                         Destroy(collision.gameObject);
+                        wall3Broken=true;
                     }
                 }
             }

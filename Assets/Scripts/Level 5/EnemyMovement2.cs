@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Level5
 {
-    public class EnemyMovement : MonoBehaviour
+    public class EnemyMovement2 : MonoBehaviour
     {
         public GameOverScreen gameOverScreen;
         public ballmovementscript ballmovementscript;
@@ -25,7 +25,7 @@ namespace Level5
         void Update()
         {
             
-            if (ballmovementscript.wall3Broken)
+            if (ballmovementscript.wall2Broken)
             {
                 Vector3 targetPosition = player.transform.position;
                 Vector3 enemyPosition = transform.position;

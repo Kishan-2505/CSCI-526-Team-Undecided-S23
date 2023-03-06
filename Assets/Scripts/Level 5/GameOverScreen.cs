@@ -22,7 +22,16 @@ namespace Level5
             Post(score, time, state, bulletsFired, bulletHit, isGettingSmall);
             gameObject.SetActive(true);
             pointsText.text = score.ToString() + " Points";
-            messageText.text = message;
+            if (message == "You Won!")
+            {
+                messageText.color = Color.green;
+                messageText.text = message;
+            }
+            else
+            {
+                messageText.text = message;
+
+            }
             timeText.text = Mathf.Round(time).ToString() + " seconds";
             Time.timeScale = 0;
         }
@@ -31,9 +40,14 @@ namespace Level5
         {
             // Debug.Log("Restart");
             Time.timeScale = 1;
-            SceneManager.LoadScene("Level Selector");
+            SceneManager.LoadScene("Level 5");
         }
 
+        public void MenuButton()
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene("Level Selector");
+        }
         public void Post(int score, float time, int causeOfDeath, int bulletsFired, int bulletHit, bool isGettingSmall)
         {
             Dictionary<string, string> head = new Dictionary<string, string>();
