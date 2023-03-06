@@ -107,6 +107,9 @@ namespace Level2_4
             {
                 displaypoints.display((int)Mathf.Floor(score / 5));
             }
+            else{
+                displaypoints.display(0);
+            }
             // if (score >= 3)
             // {
             //     displaybutton.displaybutton(0);

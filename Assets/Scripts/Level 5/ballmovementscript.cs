@@ -108,6 +108,9 @@ namespace Level5
            if(score>=5){
             displaypoints.display((int)Mathf.Floor(score/5));
            }
+           else{
+            displaypoints.display(0);
+           }
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (score >= 5) //Change this to 10
