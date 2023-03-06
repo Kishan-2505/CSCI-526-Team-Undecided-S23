@@ -1664,7 +1664,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -276, y: -9.401428}
+  m_AnchoredPosition: {x: 309, y: -9.401428}
   m_SizeDelta: {x: -573.99005, y: 16.802887}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &581947136
@@ -2571,7 +2571,7 @@ GameObject:
   - component: {fileID: 982549677}
   - component: {fileID: 982549676}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Menu Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3317,6 +3317,8 @@ MonoBehaviour:
   pointsText: {fileID: 2005179169}
   timeText: {fileID: 86844430}
   messageText: {fileID: 771552827}
+  restartButton: {fileID: 2129909400}
+  menuButton: {fileID: 982549674}
 --- !u!1 &1138727693
 GameObject:
   m_ObjectHideFlags: 0
@@ -4785,7 +4787,7 @@ GameObject:
   - component: {fileID: 2129909403}
   - component: {fileID: 2129909402}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Restart Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
