@@ -16,6 +16,7 @@ namespace Level2_1
         public TMP_Text messageText;
         public GameObject restartButton;
         public GameObject menuButton;
+        public GameObject nextLevel;
         private readonly string basePath = "https://rich-teal-crayfish-coat.cyclic.app/level2";
         private readonly string basePath1 = "https://rich-teal-crayfish-coat.cyclic.app/retries";
         private readonly string basePathWin = "https://rich-teal-crayfish-coat.cyclic.app/level1won";
@@ -37,6 +38,7 @@ namespace Level2_1
                 messageText.text = message;
                 restartButton.SetActive(false);
                 menuButton.transform.position = restartButton.transform.position;
+                nextLevel.SetActive(true);
             }
             else
             {
@@ -54,13 +56,15 @@ namespace Level2_1
         public void RestartButton()
         {
             Post1();
-            Debug.Log("Restart");
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-
+        public void NextLevel()
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene("Level 2.2");
+        }
         public void MenuButton(){
-            Debug.Log("Menu");
             Time.timeScale = 1;
             SceneManager.LoadScene("Level Selector");
         }

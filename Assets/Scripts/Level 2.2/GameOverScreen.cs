@@ -20,7 +20,7 @@ namespace Level2_2
         private readonly string basePathLoss = "https://rich-teal-crayfish-coat.cyclic.app/level2lost";
         private RequestHelper currentRequest;
         private int count=0;
-
+        public GameObject nextLevel;
         public GameObject restartButton;
         public GameObject menuButton;
         public void Setup(int score, float time, int state, string message, int bulletsFired, int bulletHit, bool isGettingSmall)
@@ -36,6 +36,7 @@ namespace Level2_2
                 messageText.text = message;
                 restartButton.SetActive(false);
                 menuButton.transform.position = restartButton.transform.position;
+                nextLevel.SetActive(true);
             }
             else
             {
@@ -53,6 +54,11 @@ namespace Level2_2
             Post1();
             Time.timeScale = 1;
             SceneManager.LoadScene("Level 2.2");
+        }
+        public void NextLevel()
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene("Level 2.3");
         }
         public void MenuButton()
         {
