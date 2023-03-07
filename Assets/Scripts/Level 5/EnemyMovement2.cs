@@ -49,7 +49,7 @@ namespace Level5
                 Debug.Log("You Won!");
                 ballmovementscript.causeOfKillingEnemy2=1;
                 elapsedTime = Time.time - ballmovementscript.startTime;
-                gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!",ballmovementscript.bulletsFired,ballmovementscript.bulletHit,ballmovementscript.isGettingSmall,ballmovementscript.spikespawned,ballmovementscript.killedEnemy1,ballmovementscript.killedEnemy2,ballmovementscript.causeOfKillingEnemy1,ballmovementscript.causeOfKillingEnemy2); // 3 is win state
+                // gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!",ballmovementscript.bulletsFired,ballmovementscript.bulletHit,ballmovementscript.isGettingSmall,ballmovementscript.spikespawned,ballmovementscript.killedEnemy1,ballmovementscript.killedEnemy2,ballmovementscript.causeOfKillingEnemy1,ballmovementscript.causeOfKillingEnemy2); // 3 is win state
             }
             if (collision.gameObject.tag == "Bullet")
             {
