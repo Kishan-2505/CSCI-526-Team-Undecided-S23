@@ -102,7 +102,14 @@ namespace Level2_3
             }
 
             displaytimeofdeath.displaytimeofdeath((transform.localScale.x - min_health)/(max_health - min_health));
-            displaypoints.display(score);
+            if (score >= 5)
+            {
+                displaypoints.display((int)Mathf.Floor(score / 5));
+            }
+            else
+            {
+                displaypoints.display(0);
+            }
             // if (score >= 3)
             // {
             //     displaybutton.displaybutton(0);

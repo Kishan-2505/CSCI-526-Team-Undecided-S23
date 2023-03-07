@@ -17,6 +17,7 @@ namespace Level2_3
         private readonly string basePath = "https://rich-teal-crayfish-coat.cyclic.app/level2";
         private RequestHelper currentRequest;
         public GameObject restartButton;
+        public GameObject menuButton;
 
         public void Setup(int score, float time, int state, string message, int bulletsFired, int bulletHit, bool isGettingSmall)
         {
@@ -28,6 +29,7 @@ namespace Level2_3
                 messageText.color = Color.green;
                 messageText.text = message;
                 restartButton.SetActive(false);
+                menuButton.transform.position = restartButton.transform.position;
             }
             else
             {
