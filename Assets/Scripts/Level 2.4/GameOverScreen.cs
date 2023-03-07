@@ -22,6 +22,7 @@ namespace Level2_4
         private RequestHelper currentRequest;
         public GameObject restartButton;
         public GameObject menuButton;
+        public GameObject nextLevel;
 
         private int count = 0;
         public void Setup(int score, float time, int state, string message, int bulletsFired, int bulletHit, bool isGettingSmall, int spikespawned,int killedEnemy,int causeOfKillingEnemy)
@@ -36,6 +37,7 @@ namespace Level2_4
                 messageText.color = Color.green;
                 messageText.text = message;
                 restartButton.SetActive(false);
+                nextLevel.SetActive(true);
                 menuButton.transform.position = restartButton.transform.position;
             }
             else
@@ -55,6 +57,11 @@ namespace Level2_4
             Post1();
             Time.timeScale = 1;
             SceneManager.LoadScene("Level 2.4");
+        }
+        public void NextLevel()
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene("Level 5");
         }
         public void MenuButton()
         {

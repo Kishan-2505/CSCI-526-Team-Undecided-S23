@@ -23,7 +23,8 @@ namespace Level5
         private RequestHelper currentRequest;
 
         private int count = 0;
-
+        public GameObject restartButton;
+        public GameObject menuButton;
         public void Setup(int score, float time, int state, string message, int bulletsFired, int bulletHit, bool isGettingSmall, int spikespawned, int killedEnemy1, int killedEnemy2, int causeOfKillingEnemy1, int causeOfKillingEnemy2)
         {
             count++;
@@ -36,6 +37,8 @@ namespace Level5
                 Debug.Log("You Won called");
                 messageText.color = Color.green;
                 messageText.text = message;
+                restartButton.SetActive(false);
+                menuButton.transform.position = restartButton.transform.position;
             }
             else
             {
@@ -55,6 +58,7 @@ namespace Level5
             Time.timeScale = 1;
             SceneManager.LoadScene("Level 5");
         }
+
 
         public void MenuButton()
         {
