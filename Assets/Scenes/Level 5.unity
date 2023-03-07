@@ -2040,6 +2040,8 @@ MonoBehaviour:
   pointsText: {fileID: 1333785739}
   timeText: {fileID: 2033011402}
   messageText: {fileID: 852065723}
+  restartButton: {fileID: 44178139}
+  menuButton: {fileID: 103603217}
 --- !u!1 &663921163
 GameObject:
   m_ObjectHideFlags: 0
