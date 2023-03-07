@@ -31,12 +31,12 @@ namespace Level2_1
                 float step = speed * Time.deltaTime;
                 transform.position = Vector3.MoveTowards(enemyPosition, targetPosition, step);
             }
-            if(health <= 0)
-            {
-                Destroy(gameObject);
-                elapsedTime = Time.time - ballmovementscript.startTime;
-                gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!",ballmovementscript.bulletsFired,ballmovementscript.bulletHit,ballmovementscript.isGettingSmall); // 3 is win state
-            }
+            // if(health <= 0)
+            // {
+            //     Destroy(gameObject);
+            //     elapsedTime = Time.time - ballmovementscript.startTime;
+            //     gameOverScreen.Setup(elapsedTime, 3,"You Won!",ballmovementscript.score); // 3 is win state
+            // }
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -47,15 +47,15 @@ namespace Level2_1
                 Destroy(collision.gameObject);
                 Debug.Log("You Won!");
                 elapsedTime = Time.time - ballmovementscript.startTime;
-                gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!",ballmovementscript.bulletsFired,ballmovementscript.bulletHit,ballmovementscript.isGettingSmall); // 3 is win state
+                gameOverScreen.Setup(elapsedTime, 3,"You Won!",ballmovementscript.score); // 3 is win state
             }
-            if (collision.gameObject.tag == "Bullet")
-            {
-                // Destroy(gameObject);
-                ballmovementscript.bulletHit+=1;
-                Destroy(collision.gameObject);
-                health-=25; // 3 is win state
-            }
+            // if (collision.gameObject.tag == "Bullet")
+            // {
+            //     // Destroy(gameObject);
+            //     ballmovementscript.bulletHit+=1;
+            //     Destroy(collision.gameObject);
+            //     health-=25; // 3 is win state
+            // }
         }
     }
 

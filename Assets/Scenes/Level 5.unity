@@ -3641,6 +3641,11 @@ MonoBehaviour:
   isGettingSmall: 1
   wall3Broken: 0
   wall2Broken: 0
+  spikespawned: 0
+  killedEnemy1: 0
+  killedEnemy2: 0
+  causeOfKillingEnemy1: 0
+  causeOfKillingEnemy2: 0
 --- !u!1 &1333785737
 GameObject:
   m_ObjectHideFlags: 0
@@ -4416,7 +4421,7 @@ GameObject:
   - component: {fileID: 1616249540}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: enemy
+  m_TagString: enemy2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4978,7 +4983,7 @@ GameObject:
   - component: {fileID: 1717679695}
   m_Layer: 0
   m_Name: Enemy (1)
-  m_TagString: enemy
+  m_TagString: enemy1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

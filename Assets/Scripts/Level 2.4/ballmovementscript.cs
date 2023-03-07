@@ -76,6 +76,10 @@ namespace Level2_4
         public int bulletsFired = 0;
         public bool isGettingSmall = true;
         public bool wall2Broken = false;
+
+        public int killedEnemy=0;
+        public int causeOfKillingEnemy=0;
+        public int spikespawned = 0;
         private void Update()
         {
             if (isGettingSmall)
@@ -124,6 +128,7 @@ namespace Level2_4
                 {
                     displaywarning.displaywarning("You spawned a spike");
                     score -= 5;//change this to 10
+                    spikespawned++;
                     Instantiate(spikePrefab, gameObject.transform.localPosition, Quaternion.identity);
                 }
                 else
@@ -206,6 +211,8 @@ namespace Level2_4
                 if (collision.gameObject.GetComponent<SpriteRenderer>().color == gameObject.GetComponent<SpriteRenderer>().color && size.x >= 0.8f)
                 {
                     Destroy(collision.gameObject);
+                    killedEnemy++;
+                    causeOfKillingEnemy=2;
                 }
                 else
                 {
@@ -291,10 +298,10 @@ namespace Level2_4
 
         }
         public void GameOver(string message)
-        {
+        { 
 
             elapsedTime = Time.time - startTime;
-            gameOverScreen.Setup(score, elapsedTime, state, message, bulletsFired, bulletHit, isGettingSmall);
+            gameOverScreen.Setup(score, elapsedTime, state, message, bulletsFired, bulletHit, isGettingSmall,spikespawned,killedEnemy,causeOfKillingEnemy);
         }
     }
 }

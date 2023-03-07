@@ -98,7 +98,7 @@ namespace Level2_1
 
             if (size.x <= 0.3f || size.y <= 0.3f)
             {
-                state = 1;//No state: 0 denotes kill by enemy, 1 denotes size death.
+                state = 1;//No state: 0 denotes kill by enemy, 1 denotes size death,
                 GameOver("You died of starvation");
                 this.enabled = false;
             }
@@ -275,7 +275,7 @@ namespace Level2_1
         {
 
             elapsedTime = Time.time - startTime;
-            gameOverScreen.Setup(score, elapsedTime, state, message, bulletsFired, bulletHit, isGettingSmall);
+            gameOverScreen.Setup(elapsedTime, state,message,score);
         }
     }
 }
