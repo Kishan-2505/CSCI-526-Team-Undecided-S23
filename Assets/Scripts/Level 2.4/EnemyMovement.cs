@@ -35,19 +35,20 @@ namespace Level2_4
             {
                 Destroy(gameObject);
                 elapsedTime = Time.time - ballmovementscript.startTime;
-                gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!",ballmovementscript.bulletsFired,ballmovementscript.bulletHit,ballmovementscript.isGettingSmall); // 3 is win state
+                gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!",ballmovementscript.bulletsFired,ballmovementscript.bulletHit,ballmovementscript.isGettingSmall,ballmovementscript.spikespawned,ballmovementscript.killedEnemy,ballmovementscript.causeOfKillingEnemy); // 3 is win state
             }
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.tag == "Spike")
-            {
+            {  
+                ballmovementscript.causeOfKillingEnemy=1;
                 Destroy(gameObject);
                 Destroy(collision.gameObject);
                 Debug.Log("You Won!");
                 elapsedTime = Time.time - ballmovementscript.startTime;
-                //gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!",ballmovementscript.bulletsFired,ballmovementscript.bulletHit,ballmovementscript.isGettingSmall); // 3 is win state
+                // gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!",ballmovementscript.bulletsFired,ballmovementscript.bulletHit,ballmovementscript.isGettingSmall,ballmovementscript.spikespawned,ballmovementscript.killedEnemy,ballmovementscript.causeOfKillingEnemy); // 3 is win state
             }
             if (collision.gameObject.tag == "Bullet")
             {

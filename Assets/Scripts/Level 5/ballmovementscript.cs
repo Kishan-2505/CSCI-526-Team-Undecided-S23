@@ -78,6 +78,15 @@ namespace Level5
         public bool isGettingSmall = true;
         public bool wall3Broken = false;
         public bool wall2Broken = false;
+
+        public int spikespawned=0;
+        public int killedEnemy1=0;
+
+        public int killedEnemy2=0;
+
+        public int causeOfKillingEnemy1=0;
+        public int causeOfKillingEnemy2=0;
+
         private void Update()
         {
             if (isGettingSmall)
@@ -103,7 +112,7 @@ namespace Level5
                 GameOver("You died of starvation");
                 this.enabled = false;
             }
-
+ 
            displaytimeofdeath.displaytimeofdeath((transform.localScale.x - min_health) / (max_health - min_health));
            if(score>=5){
             displaypoints.display((int)Mathf.Floor(score/5));
@@ -118,6 +127,7 @@ namespace Level5
                     displaywarning.displaywarning("You spawned a spike");
                     score -= 5;//change this to 10
                     Instantiate(spikePrefab, gameObject.transform.localPosition, Quaternion.identity);
+                    spikespawned++;
                 }
                 else
                 {
@@ -164,7 +174,8 @@ namespace Level5
                 Time.timeScale = 1;
             }
             if(capsulecount==3){
-                 GameOver("Game Won!");
+                 GameOver("You Won!");
+                 state=3;
             }
 
         }
@@ -196,7 +207,7 @@ namespace Level5
                 score += 1;
             }
 
-            if (collision.gameObject.CompareTag("enemy"))
+            if (collision.gameObject.CompareTag("enemy1"))
             {
                 state = 0;// 0 denotes kill by enemy, 1 denotes size death.
                 // Debug.Log(collision.gameObject.GetComponent<SpriteRenderer>().color);
@@ -206,7 +217,30 @@ namespace Level5
                 Vector2 size = bounds.size;
                 if (collision.gameObject.GetComponent<SpriteRenderer>().color == gameObject.GetComponent<SpriteRenderer>().color && size.x>=0.8f)
                 {
+                    killedEnemy1=1;
                     Destroy(collision.gameObject);
+                    causeOfKillingEnemy1=2;
+                }
+                else
+                {
+                    GameOver("You collided with an enemy");
+                    this.enabled = false;
+                }
+
+            }
+            if (collision.gameObject.CompareTag("enemy2"))
+            {
+                state = 0;// 0 denotes kill by enemy, 1 denotes size death.
+                // Debug.Log(collision.gameObject.GetComponent<SpriteRenderer>().color);
+                // Debug.Log(gameObject.GetComponent<SpriteRenderer>().color);
+                SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+                Bounds bounds = renderer.bounds;
+                Vector2 size = bounds.size;
+                if (collision.gameObject.GetComponent<SpriteRenderer>().color == gameObject.GetComponent<SpriteRenderer>().color && size.x>=0.8f)
+                {
+                    killedEnemy2=1;
+                    Destroy(collision.gameObject);
+                    causeOfKillingEnemy2=2;
                 }
                 else
                 {
@@ -296,7 +330,7 @@ namespace Level5
         {
 
             elapsedTime = Time.time - startTime;
-            gameOverScreen.Setup(score, elapsedTime, state, message, bulletsFired, bulletHit, isGettingSmall);
+            gameOverScreen.Setup(score, elapsedTime, state, message, bulletsFired, bulletHit, isGettingSmall,spikespawned,killedEnemy1,killedEnemy2,causeOfKillingEnemy1,causeOfKillingEnemy2);
         }
     }
 }

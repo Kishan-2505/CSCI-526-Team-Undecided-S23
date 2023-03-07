@@ -15,6 +15,8 @@ namespace Level1
         public TMP_Text timeText;
         public TMP_Text messageText;
         private readonly string basePath = "https://rich-teal-crayfish-coat.cyclic.app/level1";
+
+        private readonly string basePath1 = "https://rich-teal-crayfish-coat.cyclic.app/retries";
         private RequestHelper currentRequest;
 
         public void Setup(int score, float time, int state, string message, bool isGettingSmall)
@@ -64,6 +66,32 @@ namespace Level1
             })
             .Catch(err => Debug.Log("Error"));
         }
+        public void Post1()
+        {
+            Dictionary<string, string> head = new Dictionary<string, string>();
+            head.Add("Content-Type", "application/json");
+            head.Add("Access-Control-Allow-Origin", "*");
+
+            currentRequest = new RequestHelper
+            {
+                Uri = basePath1,
+                Headers = head,
+                Body = new PlayerRequest1
+                {
+                    level = "level1"
+                },
+                EnableDebug = true
+            };
+            RestClient.Post<PlayerRequest>(currentRequest)
+            .Then(res =>
+            {
+
+                // And later we can clear the default query string params for all requests
+
+                Debug.Log("Success");
+            })
+            .Catch(err => Debug.Log("Error"));
+        }
 
     }
 
@@ -81,6 +109,11 @@ namespace Level1
         {
             return UnityEngine.JsonUtility.ToJson(this, true);
         }
+    }
+    public class PlayerRequest1
+    {
+        public string level;
+        
     }
 
 }
