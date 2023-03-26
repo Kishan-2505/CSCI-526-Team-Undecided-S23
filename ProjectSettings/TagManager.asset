@@ -21,6 +21,8 @@ TagManager:
   - Wall3
   - enemy1
   - enemy2
+  - Diamond
+  - Door
   layers:
   - Default
   - TransparentFX

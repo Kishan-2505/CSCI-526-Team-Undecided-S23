@@ -9,7 +9,7 @@ namespace Level2_1
         public GameOverScreen gameOverScreen;
         public ballmovementscript ballmovementscript;
 
-        private int health = 100;
+        //private int health = 100;
         // Start is called before the first frame update
         void Start()
         {
