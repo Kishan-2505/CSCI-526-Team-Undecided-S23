@@ -2135,7 +2135,7 @@ MonoBehaviour:
   angrySprite: {fileID: 21300000, guid: c62709d9f91e2ed4f998457485bac5c7, type: 3}
   playerMovement: {fileID: 148770636}
   player: {fileID: 148770630}
-  speed: 3
+  speed: 4
 --- !u!4 &592574203 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 386415815079189138, guid: 3aa3c283db2675849ae770195be681a5, type: 3}
@@ -5258,7 +5258,7 @@ MonoBehaviour:
   angrySprite: {fileID: 21300000, guid: c62709d9f91e2ed4f998457485bac5c7, type: 3}
   playerMovement: {fileID: 148770636}
   player: {fileID: 148770630}
-  speed: 3
+  speed: 4
 --- !u!1 &1857737635
 GameObject:
   m_ObjectHideFlags: 0
