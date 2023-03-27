@@ -118,16 +118,6 @@ namespace Level3_2
                 Destroy(collision.gameObject);
             }
         }
-        // public void RestartButton()
-        // {
-        //     Time.timeScale = 1;
-        //     SceneManager.LoadScene("Level 3_2");
-        // }
-        // public void MainMenuButton()
-        // {
-        //     Time.timeScale = 1;
-        //     SceneManager.LoadScene("Level Selector");
-        // }
     }
 }
 

@@ -6,9 +6,6 @@ namespace Level3_2
 {
     public class EnemyMovement2 : MonoBehaviour
     {
-        // public GameOverScreen gameOverScreen;
-        // public ballmovementscript ballmovementscript;
-
         public PlayerMovement playerMovement;
         public GameObject player;
         public float speed = 2.0f;
