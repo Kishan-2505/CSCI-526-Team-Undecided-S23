@@ -92,7 +92,7 @@ namespace Level3_2
                 Bounds bounds = renderer.bounds;
                 Vector2 size = bounds.size;
                 Vector2 enemysize = collision.gameObject.GetComponent<SpriteRenderer>().bounds.size;
-                if (size.x >= enemysize.x)
+                if (size.x >= 1.2f)
                 {
                     Destroy(collision.gameObject);
                 }
@@ -110,7 +110,8 @@ namespace Level3_2
                 Bounds bounds = renderer.bounds;
                 Vector2 size = bounds.size; 
                 Vector2 enemysize = collision.gameObject.GetComponent<SpriteRenderer>().bounds.size;
-                if (size.x >= enemysize.x)
+                Debug.Log("enemy2"+enemysize);
+                if (size.x >= 1.2f)
                 {
                     Destroy(collision.gameObject);
                 }

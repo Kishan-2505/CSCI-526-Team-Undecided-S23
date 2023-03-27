@@ -36,6 +36,8 @@ namespace Level3_2
                 Bounds playerbound = player.GetComponent<SpriteRenderer>().bounds;
                 Vector2 playersize = playerbound.size;
                 // Set the new sprite image and scale it to fit the current object size
+                Debug.Log("Player size2: " + playersize);
+                Debug.Log("Enemy size2: " + enemysize);
                 if (playersize.x<enemysize.x && playersize.y < enemysize.y)
                 {
                     spriteRenderer.sprite = angrySprite;

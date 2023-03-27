@@ -12,8 +12,8 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // transform.position = sourcePosition;
-        // StartCoroutine(MoveCamera());
+        transform.position = sourcePosition;
+        StartCoroutine(MoveCamera());
     }
     IEnumerator MoveCamera()
     {
@@ -34,7 +34,7 @@ public class CameraController : MonoBehaviour
         startOrthoSize=newOrthoSize;
         time = 0f;
         sourcePosition=destinationPosition;
-        destinationPosition=new Vector3(14.9f,3.74f,-10);
+        destinationPosition=new Vector3(10.9f,2.74f,-10);
         while (time < duration)
         {
             transform.position = Vector3.Lerp(sourcePosition, destinationPosition, time / duration);
