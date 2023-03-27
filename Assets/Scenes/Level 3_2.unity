@@ -4144,7 +4144,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 148770635}
   sourcePosition: {x: -22.88, y: -11.94, z: -10}
-  destinationPosition: {x: 24.12, y: -11.38, z: -10}
   zoomSpeed: 0
 --- !u!1 &1593204269
 GameObject:
