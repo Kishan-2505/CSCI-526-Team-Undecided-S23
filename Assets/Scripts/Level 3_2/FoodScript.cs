@@ -22,7 +22,8 @@ namespace Level3_2
             if (collision.gameObject.CompareTag("Player"))
             {
                 collision.gameObject.transform.localScale += new Vector3(0.15f, 0.15f, 0);
-                gameObject.SetActive(false);
+                // gameObject.SetActive(false);
+                Destroy(gameObject);
             }
         }
     }
