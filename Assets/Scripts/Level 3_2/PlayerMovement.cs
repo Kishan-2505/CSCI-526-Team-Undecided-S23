@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Level3_2
 {
@@ -14,6 +15,7 @@ namespace Level3_2
         private float timeCounter = 0.0f;
         private int diamondCount = 0;
         public TextMeshProUGUI diamondText;
+        // public GameObject healthText;
         public GameOverScript gameOverScript;
         private GameObject inGameCanvas;
 
@@ -24,6 +26,7 @@ namespace Level3_2
         {
             rigidBody = GetComponent<Rigidbody2D>();
             inGameCanvas = GameObject.Find("In Game Canvas");
+            // healthText = GameObject.Find("Health");
         }
 
         // Update is called once per frame
@@ -33,6 +36,10 @@ namespace Level3_2
             float vertical = Input.GetAxis("Vertical");
             Vector2 direction = new Vector2(horizontal, vertical);
             rigidBody.velocity = direction * speed;
+            SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+            Bounds bounds = renderer.bounds;
+            Vector2 size = bounds.size;
+            rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y, 0.6f)));
         }
 
         private void Update()
@@ -41,11 +48,13 @@ namespace Level3_2
             SpriteRenderer renderer = GetComponent<SpriteRenderer>();
             Bounds bounds = renderer.bounds;
             Vector2 size = bounds.size;
-            if (size.x <= 0.3f || size.y <= 0.3f)
+            rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y, 0.6f)));
+            if (size.x <= 0.6f || size.y <= 0.6f)
             {
                 gameOverScript.Setup("You died!");
                 inGameCanvas.SetActive(false);
             }
+            // healthText.GetComponent<TextMeshProUGUI>().text = Mathf.Round((size.x / 1.4f) * 100).ToString() + "%";
         }
 
         private void gettingSmall()
@@ -63,11 +72,11 @@ namespace Level3_2
             {
                 Destroy(collision.gameObject);
                 diamondCount++;
-                diamondText.text = "Diamonds: " + diamondCount + "/3"; 
+                diamondText.text = "Diamonds: " + diamondCount + "/3";
             }
             if (collision.gameObject.CompareTag("Door"))
             {
-                if(diamondCount==3)
+                if (diamondCount == 3)
                 {
                     gameOverScript.Setup("You won!");
                     inGameCanvas.SetActive(false);
@@ -82,13 +91,16 @@ namespace Level3_2
                 SpriteRenderer renderer = GetComponent<SpriteRenderer>();
                 Bounds bounds = renderer.bounds;
                 Vector2 size = bounds.size;
-                if (size.x>=0.8f)
+                Vector2 enemysize = collision.gameObject.GetComponent<SpriteRenderer>().bounds.size;
+                if (size.x >= enemysize.x)
                 {
                     Destroy(collision.gameObject);
                 }
                 else
                 {
                     Debug.Log("You collided with an enemy");
+                    gameOverScript.Setup("Enemy ate you!");
+                    inGameCanvas.SetActive(false);
                 }
 
             }
@@ -96,23 +108,27 @@ namespace Level3_2
             {
                 SpriteRenderer renderer = GetComponent<SpriteRenderer>();
                 Bounds bounds = renderer.bounds;
-                Vector2 size = bounds.size;
-                if (size.x>=0.8f)
+                Vector2 size = bounds.size; 
+                Vector2 enemysize = collision.gameObject.GetComponent<SpriteRenderer>().bounds.size;
+                if (size.x >= enemysize.x)
                 {
                     Destroy(collision.gameObject);
                 }
                 else
                 {
+
                     Debug.Log("You collided with an enemy");
+                    gameOverScript.Setup("Enemy ate you!");
+                    inGameCanvas.SetActive(false);
                 }
 
             }
-            if(collision.gameObject.CompareTag("Enemy1Detector"))
+            if (collision.gameObject.CompareTag("Enemy1Detector"))
             {
                 isEnemy1Freeze = false;
                 Destroy(collision.gameObject);
             }
-            if(collision.gameObject.CompareTag("Enemy2Detector"))
+            if (collision.gameObject.CompareTag("Enemy2Detector"))
             {
                 isEnemy2Freeze = false;
                 Destroy(collision.gameObject);
