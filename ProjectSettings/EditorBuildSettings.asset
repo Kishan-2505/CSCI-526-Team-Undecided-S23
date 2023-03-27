@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 3_1.unity
     guid: 7912d27bb8ba7054690f752cc00d130c
+  - enabled: 1
+    path: Assets/Scenes/Level 3_2.unity
+    guid: 03b424b6edfac0e42b4f31f88cb7a779
   - enabled: 0
     path: Assets/Scenes/Endless Scene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
