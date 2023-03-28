@@ -12,15 +12,20 @@ namespace Level3_1
         private Rigidbody2D rigidBody;
         private float timeInterval = 1.0f;
         private float timeCounter = 0.0f;
+        private float max_health = 2.1f;
+        private float min_health = 0.3f;
         private int diamondCount = 0;
         public TextMeshProUGUI diamondText;
+        private GameObject health;
         public GameOverScript gameOverScript;
         private GameObject inGameCanvas;
+
         // Start is called before the first frame update
         void Start()
         {
             rigidBody = GetComponent<Rigidbody2D>();
             inGameCanvas = GameObject.Find("In Game Canvas");
+            health = GameObject.Find("Health");
         }
 
         // Update is called once per frame
@@ -29,6 +34,9 @@ namespace Level3_1
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
             Vector2 direction = new Vector2(horizontal, vertical);
+            SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+            Bounds bounds = renderer.bounds;
+            Vector2 size = bounds.size;
             rigidBody.velocity = direction * speed;
         }
 
@@ -38,7 +46,9 @@ namespace Level3_1
             SpriteRenderer renderer = GetComponent<SpriteRenderer>();
             Bounds bounds = renderer.bounds;
             Vector2 size = bounds.size;
-            if (size.x <= 0.3f || size.y <= 0.3f)
+            //rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y, 0.6f)));
+            health.GetComponent<TextMeshPro>().text  = Mathf.Round((transform.localScale.x - min_health) / (max_health - min_health) * 100).ToString();
+            if (size.x <= min_health || size.y <= min_health)
             {
                 gameOverScript.Setup("You died!");
                 inGameCanvas.SetActive(false);

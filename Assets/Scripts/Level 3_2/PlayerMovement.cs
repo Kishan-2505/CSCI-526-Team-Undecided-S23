@@ -13,9 +13,11 @@ namespace Level3_2
         private Rigidbody2D rigidBody;
         private float timeInterval = 1.0f;
         private float timeCounter = 0.0f;
+        private float max_health = 2.1f;
+        private float min_health = 0.3f;
         private int diamondCount = 0;
         public TextMeshProUGUI diamondText;
-        // public GameObject healthText;
+        private GameObject health;
         public GameOverScript gameOverScript;
         private GameObject inGameCanvas;
 
@@ -26,7 +28,7 @@ namespace Level3_2
         {
             rigidBody = GetComponent<Rigidbody2D>();
             inGameCanvas = GameObject.Find("In Game Canvas");
-            // healthText = GameObject.Find("Health");
+            health = GameObject.Find("Health");
         }
 
         // Update is called once per frame
@@ -35,11 +37,11 @@ namespace Level3_2
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
             Vector2 direction = new Vector2(horizontal, vertical);
-            rigidBody.velocity = direction * speed;
             SpriteRenderer renderer = GetComponent<SpriteRenderer>();
             Bounds bounds = renderer.bounds;
             Vector2 size = bounds.size;
-            rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y, 0.6f)));
+            rigidBody.velocity = direction * speed;
+            //rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y, 0.6f)));
         }
 
         private void Update()
@@ -48,13 +50,13 @@ namespace Level3_2
             SpriteRenderer renderer = GetComponent<SpriteRenderer>();
             Bounds bounds = renderer.bounds;
             Vector2 size = bounds.size;
-            rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y, 0.6f)));
-            if (size.x <= 0.6f || size.y <= 0.6f)
+            //rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y, 0.6f)));
+            if (size.x <= min_health || size.y <= min_health)
             {
                 gameOverScript.Setup("You died!");
                 inGameCanvas.SetActive(false);
             }
-            // healthText.GetComponent<TextMeshProUGUI>().text = Mathf.Round((size.x / 1.4f) * 100).ToString() + "%";
+            health.GetComponent<TextMeshPro>().text = Mathf.Round((transform.localScale.x - min_health) / (max_health - min_health) * 100).ToString();
         }
 
         private void gettingSmall()
