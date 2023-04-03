@@ -12,8 +12,8 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = sourcePosition;
-        StartCoroutine(MoveCamera());
+        // transform.position = sourcePosition;
+        // StartCoroutine(MoveCamera());
     }
     IEnumerator MoveCamera()
     {
