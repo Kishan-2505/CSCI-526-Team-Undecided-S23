@@ -25,6 +25,7 @@ TagManager:
   - Door
   - Enemy1Detector
   - Enemy2Detector
+  - Enemy3Detector
   layers:
   - Default
   - TransparentFX
