@@ -27,6 +27,8 @@ TagManager:
   - Enemy2Detector
   - Enemy3Detector
   - enemy3
+  - teleportin
+  - teleportout
   layers:
   - Default
   - TransparentFX

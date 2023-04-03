@@ -70,6 +70,14 @@ namespace Level3_3
         }
         private void OnCollisionEnter2D(Collision2D collision)
         {
+            if(collision.gameObject.CompareTag("teleportin"))
+            {
+                Debug.Log("teleportin");
+                GameObject obj = GameObject.FindGameObjectWithTag("teleportout");
+                Debug.Log(obj.transform.position);
+                transform.position = obj.transform.position;
+
+            }
             if (collision.gameObject.CompareTag("Diamond"))
             {
                 Destroy(collision.gameObject);
