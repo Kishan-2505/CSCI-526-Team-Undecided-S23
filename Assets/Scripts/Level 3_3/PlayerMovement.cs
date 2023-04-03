@@ -72,9 +72,7 @@ namespace Level3_3
         {
             if(collision.gameObject.CompareTag("teleportin"))
             {
-                Debug.Log("teleportin");
                 GameObject obj = GameObject.FindGameObjectWithTag("teleportout");
-                Debug.Log(obj.transform.position);
                 transform.position = obj.transform.position;
 
             }
