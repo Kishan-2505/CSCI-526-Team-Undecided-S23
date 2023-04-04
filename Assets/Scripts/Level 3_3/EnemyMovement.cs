@@ -36,7 +36,7 @@ namespace Level3_3
                 Vector2 playersize = playerbound.size;
                 // Set the new sprite image and scale it to fit the current object size
                 Debug.Log("Enemy size1: " + enemysize);
-                if(playersize.x<enemysize.x && playersize.y<enemysize.y)
+                if (playersize.x < enemysize.x && playersize.y < enemysize.y)
                 {
                     spriteRenderer.sprite = angrySprite;
                     transform.localScale = new Vector3(angrySprite.bounds.size.x * scaleFactor, angrySprite.bounds.size.y * scaleFactor, 1);
@@ -51,7 +51,18 @@ namespace Level3_3
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
+            if (collision.gameObject.tag == "Spike")
+            {
+                Destroy(collision.gameObject);
+                // Transform transform = gameObject.GetComponent<Transform>();
+                // Vector3 newScale = transform.localScale / 1.4f;
+                // transform.localScale = newScale;
+                // transform.localScale = new Vector3(enemysize.x / 1.4f, enemysize.y / 1.4f, 1);
+                Vector3 currentSize = spriteRenderer.transform.localScale;
+                Vector3 newSize = new Vector3(currentSize.x / 1.4f, currentSize.y / 1.4f, currentSize.z/1.4f);
+                spriteRenderer.transform.localScale = newSize;
 
+            }
         }
     }
 

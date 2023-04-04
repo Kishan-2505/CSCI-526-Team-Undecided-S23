@@ -52,7 +52,18 @@ namespace Level3_3
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
+             if (collision.gameObject.tag == "Spike")
+            {
+                Destroy(collision.gameObject);
+                // Transform transform = gameObject.GetComponent<Transform>();
+                // Vector3 newScale = transform.localScale / 1.4f;
+                // transform.localScale = newScale;
+                // transform.localScale = new Vector3(enemysize.x / 1.4f, enemysize.y / 1.4f, 1);
+                Vector3 currentSize = spriteRenderer.transform.localScale;
+                Vector3 newSize = new Vector3(currentSize.x / 1.4f, currentSize.y / 1.4f, currentSize.z/1.4f);
+                spriteRenderer.transform.localScale = newSize;
 
+            }
         }
     }
 
