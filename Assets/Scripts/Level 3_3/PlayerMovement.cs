@@ -17,12 +17,18 @@ namespace Level3_3
         private float min_health = 0.3f;
         private int diamondCount = 0;
         public TextMeshProUGUI diamondText;
+
+        public TextMeshProUGUI spikeText;
         private GameObject health;
         public GameOverScript gameOverScript;
         private GameObject inGameCanvas;
 
         public bool isEnemy1Freeze = true;
         public bool isEnemy2Freeze = true;
+
+        public GameObject spikePrefab;
+
+        private int spikeCount = 0;
         // Start is called before the first frame update
         void Start()
         {
@@ -57,6 +63,12 @@ namespace Level3_3
                 inGameCanvas.SetActive(false);
             }
             health.GetComponent<TextMeshPro>().text = Mathf.Round((transform.localScale.x - min_health) / (max_health - min_health) * 100).ToString();
+
+            if (Input.GetKeyDown(KeyCode.Space)&& spikeCount>0)
+            {
+                Debug.Log("spike pressed");
+                Instantiate(spikePrefab, gameObject.transform.localPosition, Quaternion.identity);
+            }
         }
 
         private void gettingSmall()
@@ -70,7 +82,7 @@ namespace Level3_3
         }
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if(collision.gameObject.CompareTag("teleportin"))
+            if (collision.gameObject.CompareTag("teleportin"))
             {
                 GameObject obj = GameObject.FindGameObjectWithTag("teleportout");
                 transform.position = obj.transform.position;
@@ -116,12 +128,35 @@ namespace Level3_3
             {
                 SpriteRenderer renderer = GetComponent<SpriteRenderer>();
                 Bounds bounds = renderer.bounds;
-                Vector2 size = bounds.size; 
+                Vector2 size = bounds.size;
                 Vector2 enemysize = collision.gameObject.GetComponent<SpriteRenderer>().bounds.size;
-                Debug.Log("enemy2"+enemysize);
+                Debug.Log("enemy2" + enemysize);
                 if (size.x >= 1.2f)
                 {
                     Destroy(collision.gameObject);
+                }
+                else
+                {
+
+                    Debug.Log("You collided with an enemy");
+                    gameOverScript.Setup("Enemy ate you!");
+                    inGameCanvas.SetActive(false);
+                }
+
+            }
+            if (collision.gameObject.CompareTag("enemy3"))
+            {
+                SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+                Bounds bounds = renderer.bounds;
+                Vector2 size = bounds.size;
+                Vector2 enemysize = collision.gameObject.GetComponent<SpriteRenderer>().bounds.size;
+                Debug.Log("enemy2" + enemysize);
+                if (size.x >= 1.2f)
+                {
+                    Destroy(collision.gameObject);
+                    spikeCount++;
+                    spikeText.text=":"+spikeCount;
+                    Debug.Log("spikeCount" + spikeCount);
                 }
                 else
                 {

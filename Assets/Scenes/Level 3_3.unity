@@ -4721,9 +4721,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diamondText: {fileID: 1543001133}
+  spikeText: {fileID: 1511138666}
   gameOverScript: {fileID: 1523410379}
   isEnemy1Freeze: 1
   isEnemy2Freeze: 1
+  spikePrefab: {fileID: 8980224342333677492, guid: 558de8965d4aa8144bc5a22cadd09f58, type: 3}
 --- !u!1 &1541138946
 GameObject:
   m_ObjectHideFlags: 0
@@ -5840,7 +5842,7 @@ GameObject:
   - component: {fileID: 1859156766}
   m_Layer: 0
   m_Name: Enemy3
-  m_TagString: enemy2
+  m_TagString: enemy3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
