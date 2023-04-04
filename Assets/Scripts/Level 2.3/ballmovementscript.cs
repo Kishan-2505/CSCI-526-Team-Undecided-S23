@@ -75,6 +75,8 @@ namespace Level2_3
         private float min_health = 0.3f;
         public int bulletsFired = 0;
         public bool isGettingSmall = true;
+
+        public int spikespawned = 0;
         private void Update()
         {
             if (isGettingSmall)
@@ -102,7 +104,14 @@ namespace Level2_3
             }
 
             displaytimeofdeath.displaytimeofdeath((transform.localScale.x - min_health)/(max_health - min_health));
-            displaypoints.display(score);
+            if (score >= 5)
+            {
+                displaypoints.display((int)Mathf.Floor(score / 5));
+            }
+            else
+            {
+                displaypoints.display(0);
+            }
             // if (score >= 3)
             // {
             //     displaybutton.displaybutton(0);
@@ -115,6 +124,7 @@ namespace Level2_3
             {
                 if (score >= 5) //Change this to 10
                 {
+                    spikespawned++;
                     displaywarning.displaywarning("You spawned a spike");
                     score -= 5;//change this to 10
                     Instantiate(spikePrefab, gameObject.transform.localPosition, Quaternion.identity);
@@ -285,7 +295,7 @@ namespace Level2_3
         {
 
             elapsedTime = Time.time - startTime;
-            gameOverScreen.Setup(score, elapsedTime, state, message, bulletsFired, bulletHit, isGettingSmall);
+            gameOverScreen.Setup(score, elapsedTime, state, message, bulletsFired, bulletHit, isGettingSmall,spikespawned);
         }
     }
 }

@@ -35,7 +35,7 @@ namespace Level2_3
             {
                 Destroy(gameObject);
                 elapsedTime = Time.time - ballmovementscript.startTime;
-                gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!",ballmovementscript.bulletsFired,ballmovementscript.bulletHit,ballmovementscript.isGettingSmall); // 3 is win state
+                gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!",ballmovementscript.bulletsFired,ballmovementscript.bulletHit,ballmovementscript.isGettingSmall,ballmovementscript.spikespawned); // 3 is win state
             }
         }
 
@@ -47,7 +47,7 @@ namespace Level2_3
                 Destroy(collision.gameObject);
                 Debug.Log("You Won!");
                 elapsedTime = Time.time - ballmovementscript.startTime;
-                gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!",ballmovementscript.bulletsFired,ballmovementscript.bulletHit,ballmovementscript.isGettingSmall); // 3 is win state
+                gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!",ballmovementscript.bulletsFired,ballmovementscript.bulletHit,ballmovementscript.isGettingSmall,ballmovementscript.spikespawned); // 3 is win state
             }
             if (collision.gameObject.tag == "Bullet")
             {

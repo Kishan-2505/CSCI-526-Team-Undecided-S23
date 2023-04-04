@@ -19,6 +19,19 @@ TagManager:
   - Wall1
   - Wall2
   - Wall3
+  - enemy1
+  - enemy2
+  - Diamond
+  - Door
+  - Enemy1Detector
+  - Enemy2Detector
+  - Enemy3Detector
+  - enemy3
+  - teleportin
+  - teleportout
+  - teleportin2
+  - teleportout2
+  - magnet
   layers:
   - Default
   - TransparentFX
@@ -56,6 +69,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
+  - name: 
     uniqueID: 4222151063
     locked: 0

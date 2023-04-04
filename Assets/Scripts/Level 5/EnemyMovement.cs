@@ -36,7 +36,7 @@ namespace Level5
             {
                 Destroy(gameObject);
                 elapsedTime = Time.time - ballmovementscript.startTime;
-                gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!",ballmovementscript.bulletsFired,ballmovementscript.bulletHit,ballmovementscript.isGettingSmall); // 3 is win state
+                gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!",ballmovementscript.bulletsFired,ballmovementscript.bulletHit,ballmovementscript.isGettingSmall,ballmovementscript.spikespawned,ballmovementscript.killedEnemy1,ballmovementscript.killedEnemy2,ballmovementscript.causeOfKillingEnemy1,ballmovementscript.causeOfKillingEnemy2); // 3 is win state
             }
         }
 
@@ -47,8 +47,9 @@ namespace Level5
                 Destroy(gameObject);
                 Destroy(collision.gameObject);
                 Debug.Log("You Won!");
+                ballmovementscript.causeOfKillingEnemy1=1;
                 elapsedTime = Time.time - ballmovementscript.startTime;
-                gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!",ballmovementscript.bulletsFired,ballmovementscript.bulletHit,ballmovementscript.isGettingSmall); // 3 is win state
+                // gameOverScreen.Setup(ballmovementscript.score, elapsedTime, 3, "You Won!",ballmovementscript.bulletsFired,ballmovementscript.bulletHit,ballmovementscript.isGettingSmall,ballmovementscript.spikespawned,ballmovementscript.killedEnemy1,ballmovementscript.killedEnemy2,ballmovementscript.causeOfKillingEnemy1,ballmovementscript.causeOfKillingEnemy2); // 3 is win state
             }
             if (collision.gameObject.tag == "Bullet")
             {

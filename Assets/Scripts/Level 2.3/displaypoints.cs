@@ -14,7 +14,7 @@ namespace Level2_3
         public TMP_Text timeofdeath;
         public void display(int score)
         {
-            currentPoints.text = "Score:" + score.ToString();
+            currentPoints.text = "Spike:" + score.ToString();
         }
         public void displaywarning(string warning)
         {
