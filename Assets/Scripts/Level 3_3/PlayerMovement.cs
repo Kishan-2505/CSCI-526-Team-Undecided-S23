@@ -66,7 +66,6 @@ namespace Level3_3
 
             if (Input.GetKeyDown(KeyCode.Space)&& spikeCount>0)
             {
-                Debug.Log("spike pressed");
                 Instantiate(spikePrefab, gameObject.transform.localPosition, Quaternion.identity);
             }
         }
@@ -156,7 +155,6 @@ namespace Level3_3
                     Destroy(collision.gameObject);
                     spikeCount++;
                     spikeText.text=":"+spikeCount;
-                    Debug.Log("spikeCount" + spikeCount);
                 }
                 else
                 {
