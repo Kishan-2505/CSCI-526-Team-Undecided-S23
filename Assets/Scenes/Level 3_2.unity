@@ -1925,12 +1925,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 532422671}
   - {fileID: 2081368900}
-  - {fileID: 2050634897}
+  - {fileID: 532422671}
   - {fileID: 1208131215}
   - {fileID: 1011413676}
   - {fileID: 1457942690}
+  - {fileID: 2050634897}
   - {fileID: 713228584}
   - {fileID: 1549081978}
   - {fileID: 1311017995}
@@ -4288,6 +4288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1582623073}
   - component: {fileID: 1582623072}
+  - component: {fileID: 1582623075}
   - component: {fileID: 1582623074}
   - component: {fileID: 1582623071}
   m_Layer: 0
@@ -4378,6 +4379,18 @@ MonoBehaviour:
   target: {fileID: 148770635}
   sourcePosition: {x: -22.88, y: -11.94, z: -10}
   zoomSpeed: 2
+--- !u!114 &1582623075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582623070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b50ec9f3e16a64e8006eefa7f18f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1593204269
 GameObject:
   m_ObjectHideFlags: 0
