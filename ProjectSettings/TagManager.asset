@@ -32,6 +32,8 @@ TagManager:
   - teleportin2
   - teleportout2
   - magnet
+  - enemy4
+  - Enemy4Detector
   layers:
   - Default
   - TransparentFX
