@@ -26,6 +26,7 @@ namespace Level3_5
         public bool isEnemy1Freeze = true;
         public bool isEnemy2Freeze = true;
         public bool isEnemy3Freeze = true;
+        public bool isEnemy4Freeze = true;
         public bool hasMagnet = false;
         private bool onTouch1 = true;
         public GameObject spikePrefab;
@@ -181,6 +182,11 @@ namespace Level3_5
             if (collision.gameObject.CompareTag("Enemy3Detector"))
             {
                 isEnemy3Freeze = false;
+                Destroy(collision.gameObject);
+            }
+            if(collision.gameObject.CompareTag("Enemy4Detector"))
+            {
+                isEnemy4Freeze = false;
                 Destroy(collision.gameObject);
             }
             if (collision.gameObject.CompareTag("magnet"))
