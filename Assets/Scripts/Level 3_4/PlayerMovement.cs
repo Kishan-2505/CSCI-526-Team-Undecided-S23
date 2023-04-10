@@ -69,7 +69,7 @@ namespace Level3_4
             if (Input.GetKeyDown(KeyCode.Space)&& spikeCount>0)
             {
                 spikeCount -= 1;
-                Instantiate(spikePrefab, gameObject.transform.localPosition, Quaternion.identity);
+                Instantiate(spikePrefab, new Vector3(gameObject.transform.localPosition.x + 1, gameObject.transform.localPosition.y + 1), Quaternion.identity);
             }
         }
 
