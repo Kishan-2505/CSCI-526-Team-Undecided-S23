@@ -63,6 +63,19 @@ namespace Level3_5
                 spriteRenderer.transform.localScale = newSize;
 
             }
+            if (collision.gameObject.tag == "knife")
+            {
+                Destroy(collision.gameObject);
+                Vector3 spawnPosition1 = transform.position + transform.right * 0.5f;
+                Vector3 spawnPosition2 = transform.position - transform.right * 0.5f;
+
+                GameObject newObject1 = Instantiate(gameObject, spawnPosition1, Quaternion.identity);
+                newObject1.transform.localScale = transform.localScale / 2;
+
+                GameObject newObject2 = Instantiate(gameObject, spawnPosition2, Quaternion.identity);
+                newObject2.transform.localScale = transform.localScale / 2;
+                Destroy(gameObject);
+            }
         }
     }
 }

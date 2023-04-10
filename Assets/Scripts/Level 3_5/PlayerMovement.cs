@@ -16,6 +16,8 @@ namespace Level3_5
         private float max_health = 2.1f;
         private float min_health = 0.3f;
         private int diamondCount = 0;
+        private int knifeCount = 0;
+        private float throwForce = 10.0f;
         public TextMeshProUGUI diamondText;
 
         public TextMeshProUGUI spikeText;
@@ -30,6 +32,7 @@ namespace Level3_5
         public bool hasMagnet = false;
         private bool onTouch1 = true;
         public GameObject spikePrefab;
+        public GameObject knifePrefab;
 
         private int spikeCount = 0;
         // Start is called before the first frame update
@@ -67,10 +70,20 @@ namespace Level3_5
             }
             health.GetComponent<TextMeshPro>().text = Mathf.Round((transform.localScale.x - min_health) / (max_health - min_health) * 100).ToString();
 
-            if (Input.GetKeyDown(KeyCode.Space)&& spikeCount>0)
+            if (Input.GetKeyDown(KeyCode.Space) && spikeCount>0)
             {
                 spikeCount -= 1;
                 Instantiate(spikePrefab, new Vector3(gameObject.transform.localPosition.x + 1, gameObject.transform.localPosition.y + 1), Quaternion.identity);
+            }
+            if (Input.GetMouseButtonDown(0) && knifeCount>0)
+            {
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePos.z = 0f;
+
+                GameObject thrownObject = Instantiate(knifePrefab, transform.position, Quaternion.identity);
+                Rigidbody2D rb = thrownObject.GetComponent<Rigidbody2D>();
+                Vector2 throwDirection = (mousePos - transform.position).normalized;
+                rb.AddForce(throwDirection * throwForce, ForceMode2D.Impulse);
             }
         }
 
@@ -100,6 +113,11 @@ namespace Level3_5
                 Destroy(collision.gameObject);
                 diamondCount++;
                 diamondText.text = "Diamonds: " + diamondCount + "/3";
+            }
+            if(collision.gameObject.CompareTag("GetKnife"))
+            {
+                Destroy(collision.gameObject);
+                knifeCount += 5;
             }
             if (collision.gameObject.CompareTag("Door"))
             {

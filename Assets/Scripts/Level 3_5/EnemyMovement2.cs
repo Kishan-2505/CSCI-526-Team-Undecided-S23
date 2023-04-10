@@ -52,7 +52,7 @@ namespace Level3_5
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-             if (collision.gameObject.tag == "Spike")
+            if (collision.gameObject.tag == "Spike")
             {
                 Destroy(collision.gameObject);
                 // Transform transform = gameObject.GetComponent<Transform>();
@@ -63,6 +63,19 @@ namespace Level3_5
                 Vector3 newSize = new Vector3(currentSize.x / 1.4f, currentSize.y / 1.4f, currentSize.z/1.4f);
                 spriteRenderer.transform.localScale = newSize;
 
+            }
+            if (collision.gameObject.tag == "knife")
+            {
+                Destroy(collision.gameObject);
+                Vector3 spawnPosition1 = transform.position + transform.right * 0.5f;
+                Vector3 spawnPosition2 = transform.position - transform.right * 0.5f;
+
+                GameObject newObject1 = Instantiate(gameObject, spawnPosition1, Quaternion.identity);
+                newObject1.transform.localScale = transform.localScale / 2;
+
+                GameObject newObject2 = Instantiate(gameObject, spawnPosition2, Quaternion.identity);
+                newObject2.transform.localScale = transform.localScale / 2;
+                Destroy(gameObject);
             }
         }
     }
