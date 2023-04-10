@@ -3,7 +3,11 @@ guid: 8bf00dbedb136c44694d9ab4d355ce98
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sadSprite: {fileID: 21300000, guid: d240926b2f26b8140933a7ee4446a4ea, type: 3}
+  - angrySprite: {fileID: 21300000, guid: 7f471054504b8f0488952e2d89640aea, type: 3}
+  - playerMovement: {instanceID: 0}
+  - player: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
