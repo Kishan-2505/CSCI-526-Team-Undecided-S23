@@ -20,6 +20,14 @@ namespace Level3_1
         public GameOverScript gameOverScript;
         private GameObject inGameCanvas;
 
+        public GameObject foodtutorial;
+
+        public GameObject diamondtutorial;
+
+        private int countDiamondtutorial = 0;
+
+        private int countFoodtutorial = 0;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -66,6 +74,24 @@ namespace Level3_1
         }
         private void OnCollisionEnter2D(Collision2D collision)
         {
+            if(collision.gameObject.CompareTag("Diamond"))
+            {
+                if(countDiamondtutorial==0)
+                {
+                    diamondtutorial.SetActive(true);
+                    Time.timeScale = 0;
+                    countDiamondtutorial++;
+                }
+            }
+            if(collision.gameObject.CompareTag("food"))
+            {
+                if(countFoodtutorial==0)
+                {
+                    foodtutorial.SetActive(true);
+                    Time.timeScale = 0;
+                    countFoodtutorial++;
+                }
+            }
             if (collision.gameObject.CompareTag("Diamond"))
             {
                 Destroy(collision.gameObject);
@@ -94,6 +120,13 @@ namespace Level3_1
         {
             Time.timeScale = 1;
             SceneManager.LoadScene("Level Selector");
+        }
+
+        public void QuitButton()
+        {
+            foodtutorial.SetActive(false);
+            diamondtutorial.SetActive(false);
+            Time.timeScale=1;
         }
     }
 }

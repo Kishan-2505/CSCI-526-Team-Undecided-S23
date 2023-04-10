@@ -8,7 +8,7 @@ namespace level3_1
     {
         private Camera Camera;
         private float zoomOut = 20f;
-        private const float zoomIn = 12.14533f; // Const do not change it
+        private const float zoomIn = 7.829389f; // Const do not change it
         void Start()
         {
             Camera = GetComponent<Camera>();
