@@ -21,6 +21,10 @@ namespace Level3_2
         public GameOverScript gameOverScript;
         private GameObject inGameCanvas;
 
+        public GameObject enemytutorial;
+
+        private bool isDisplayedOnce;
+
         public bool isEnemy1Freeze = true;
         public bool isEnemy2Freeze = true;
         // Start is called before the first frame update
@@ -29,6 +33,9 @@ namespace Level3_2
             rigidBody = GetComponent<Rigidbody2D>();
             inGameCanvas = GameObject.Find("In Game Canvas");
             health = GameObject.Find("Health");
+
+            isDisplayedOnce = false;
+
         }
 
         // Update is called once per frame
@@ -134,6 +141,13 @@ namespace Level3_2
                 Destroy(collision.gameObject);
             }
         }
+
+        private void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Player") && !isDisplayedOnce) {
+            enemytutorial.SetActive(true);
+            isDisplayedOnce = true;
+        }
+    }
     }
 }
 
