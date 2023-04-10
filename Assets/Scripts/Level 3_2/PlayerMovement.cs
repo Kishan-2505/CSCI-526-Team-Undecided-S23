@@ -100,7 +100,6 @@ namespace Level3_2
                 }
                 else
                 {
-                    Debug.Log("You collided with an enemy");
                     gameOverScript.Setup("Enemy ate you!");
                     inGameCanvas.SetActive(false);
                 }
@@ -119,8 +118,6 @@ namespace Level3_2
                 }
                 else
                 {
-
-                    Debug.Log("You collided with an enemy");
                     gameOverScript.Setup("Enemy ate you!");
                     inGameCanvas.SetActive(false);
                 }

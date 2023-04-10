@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScript : MonoBehaviour
 {
-    public TextMeshProUGUI gameOverText; 
+    public TextMeshProUGUI gameOverText;
+    public GameObject restartButton;
+    public GameObject nextLevelButton;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -22,6 +24,17 @@ public class GameOverScript : MonoBehaviour
     {
         gameObject.SetActive(true);
         gameOverText.text = message;
+        if (message == "You died!")
+        {
+            restartButton.SetActive(true);
+            nextLevelButton.SetActive(false);
+        }
+        if (message=="You won!")
+        {
+            restartButton.SetActive(false);
+            nextLevelButton.SetActive(true);
+            nextLevelButton.transform.position = restartButton.transform.position;
+        }
     }
     public void RestartButton()
     {
@@ -32,5 +45,10 @@ public class GameOverScript : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("Level Selector");
+    }
+    public void NextLevelButton()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Level 3_2");
     }
 }

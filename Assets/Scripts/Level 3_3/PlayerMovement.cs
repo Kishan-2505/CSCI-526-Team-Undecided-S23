@@ -66,7 +66,7 @@ namespace Level3_3
 
             if (Input.GetKeyDown(KeyCode.Space)&& spikeCount>0)
             {
-                Instantiate(spikePrefab, gameObject.transform.localPosition, Quaternion.identity);
+                Instantiate(spikePrefab, new Vector3(gameObject.transform.localPosition.x + 1,gameObject.transform.localPosition.y + 1), Quaternion.identity);
             }
         }
 
@@ -117,7 +117,6 @@ namespace Level3_3
                 }
                 else
                 {
-                    Debug.Log("You collided with an enemy");
                     gameOverScript.Setup("Enemy ate you!");
                     inGameCanvas.SetActive(false);
                 }
@@ -136,8 +135,6 @@ namespace Level3_3
                 }
                 else
                 {
-
-                    Debug.Log("You collided with an enemy");
                     gameOverScript.Setup("Enemy ate you!");
                     inGameCanvas.SetActive(false);
                 }
@@ -158,8 +155,6 @@ namespace Level3_3
                 }
                 else
                 {
-
-                    Debug.Log("You collided with an enemy");
                     gameOverScript.Setup("Enemy ate you!");
                     inGameCanvas.SetActive(false);
                 }
