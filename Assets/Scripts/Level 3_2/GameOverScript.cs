@@ -8,7 +8,9 @@ namespace Level3_2
 {
     public class GameOverScript : MonoBehaviour
     {
-        public TextMeshProUGUI gameOverText; 
+        public TextMeshProUGUI gameOverText;
+        public GameObject restartButton;
+        public GameObject nextLevelButton;
         // Start is called before the first frame update
         void Start()
         {
@@ -24,6 +26,17 @@ namespace Level3_2
         {
             gameObject.SetActive(true);
             gameOverText.text = message;
+            if (message == "You died!" || message== "Enemy ate you!")
+            {
+                restartButton.SetActive(true);
+                nextLevelButton.SetActive(false);
+            }
+            if (message == "You won!")
+            {
+                restartButton.SetActive(false);
+                nextLevelButton.SetActive(true);
+                nextLevelButton.transform.position = restartButton.transform.position;
+            }
         }
         public void RestartButton()
         {
@@ -34,6 +47,11 @@ namespace Level3_2
         {
             Time.timeScale = 1;
             SceneManager.LoadScene("Level Selector");
+        }
+        public void NextLevelButton()
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene("Level 3_3");
         }
     }
 }
