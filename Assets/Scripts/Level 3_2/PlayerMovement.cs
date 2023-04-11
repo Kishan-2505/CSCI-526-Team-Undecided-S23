@@ -23,8 +23,6 @@ namespace Level3_2
 
         public GameObject enemytutorial;
 
-        private bool isDisplayedOnce;
-
         public bool isEnemy1Freeze = true;
         public bool isEnemy2Freeze = true;
         // Start is called before the first frame update
@@ -33,8 +31,6 @@ namespace Level3_2
             rigidBody = GetComponent<Rigidbody2D>();
             inGameCanvas = GameObject.Find("In Game Canvas");
             health = GameObject.Find("Health");
-
-            isDisplayedOnce = false;
 
         }
 
@@ -116,9 +112,9 @@ namespace Level3_2
             {
                 SpriteRenderer renderer = GetComponent<SpriteRenderer>();
                 Bounds bounds = renderer.bounds;
-                Vector2 size = bounds.size; 
+                Vector2 size = bounds.size;
                 Vector2 enemysize = collision.gameObject.GetComponent<SpriteRenderer>().bounds.size;
-                Debug.Log("enemy2"+enemysize);
+                Debug.Log("enemy2" + enemysize);
                 if (size.x >= 1.2f)
                 {
                     Destroy(collision.gameObject);
@@ -139,15 +135,16 @@ namespace Level3_2
             {
                 isEnemy2Freeze = false;
                 Destroy(collision.gameObject);
+                enemytutorial.SetActive(true);
+                Time.timeScale = 0;
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Player") && !isDisplayedOnce) {
-            enemytutorial.SetActive(true);
-            isDisplayedOnce = true;
+        public void QuitButton()
+        {
+           enemytutorial.SetActive(false);
+            Time.timeScale = 1;
         }
-    }
     }
 }
 
