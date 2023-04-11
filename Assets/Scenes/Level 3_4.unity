@@ -9111,7 +9111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2051139604}
   m_Layer: 0
-  m_Name: Boundary (1)
+  m_Name: Boundary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
