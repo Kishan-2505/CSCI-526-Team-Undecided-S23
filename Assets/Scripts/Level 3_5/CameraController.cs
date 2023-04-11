@@ -18,10 +18,12 @@ namespace level3_5
         {
             if (Input.GetKeyDown(KeyCode.M))
             {
+                Time.timeScale = 0;
                 Camera.orthographicSize = zoomOut;
             }
             else if (Input.GetKeyUp(KeyCode.M))
             {
+                Time.timeScale = 1;
                 Camera.orthographicSize = zoomIn;
             }
         }

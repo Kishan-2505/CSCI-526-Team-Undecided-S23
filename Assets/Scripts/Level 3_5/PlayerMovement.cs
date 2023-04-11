@@ -34,6 +34,10 @@ namespace Level3_5
         public GameObject spikePrefab;
         public GameObject knifePrefab;
 
+        public GameObject swordTuitorial;
+
+        private int swordTuitorialCount = 0;
+
         private int spikeCount = 0;
         // Start is called before the first frame update
         void Start()
@@ -116,6 +120,11 @@ namespace Level3_5
             }
             if(collision.gameObject.CompareTag("GetKnife"))
             {
+                if(swordTuitorialCount==0){
+                    swordTuitorial.SetActive(true);
+                    swordTuitorialCount++;
+                    Time.timeScale = 0;
+                }
                 Destroy(collision.gameObject);
                 knifeCount += 5;
             }
@@ -137,13 +146,13 @@ namespace Level3_5
                 Bounds bounds = renderer.bounds;
                 Vector2 size = bounds.size;
                 Vector2 enemysize = collision.gameObject.GetComponent<SpriteRenderer>().bounds.size;
-                if (size.x >= 1.8f)
+                if (size.x >= 1.2f)
                 {
                     Destroy(collision.gameObject);
                 }
                 else
                 {
-                    Destroy(gameObject);
+                    // Destroy(gameObject);
                     gameOverScript.Setup("Enemy ate you!");
                     inGameCanvas.SetActive(false);
                 }
@@ -155,13 +164,13 @@ namespace Level3_5
                 Bounds bounds = renderer.bounds;
                 Vector2 size = bounds.size;
                 Vector2 enemysize = collision.gameObject.GetComponent<SpriteRenderer>().bounds.size;
-                if (size.x >= 1.8f)
+                if (size.x >= 1.2f)
                 {
                     Destroy(collision.gameObject);
                 }
                 else
                 {
-                    Destroy(gameObject);
+                    // Destroy(gameObject);
                     gameOverScript.Setup("Enemy ate you!");
                     inGameCanvas.SetActive(false);
                 }
@@ -173,7 +182,7 @@ namespace Level3_5
                 Bounds bounds = renderer.bounds;
                 Vector2 size = bounds.size;
                 Vector2 enemysize = collision.gameObject.GetComponent<SpriteRenderer>().bounds.size;
-                if (size.x >= 1.8f)
+                if (size.x >= 1.2f)
                 {
                     Destroy(collision.gameObject);
                     spikeCount+=3;
@@ -181,7 +190,7 @@ namespace Level3_5
                 }
                 else
                 {
-                    Destroy(gameObject);
+                    // Destroy(gameObject);
                     gameOverScript.Setup("Enemy ate you!");
                     inGameCanvas.SetActive(false);
                 }
@@ -233,6 +242,12 @@ namespace Level3_5
         private void ResetButtonCollision1()
         {
             onTouch1 = true;
+        }
+
+        public void QuitButton()
+        {
+            swordTuitorial.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 }
