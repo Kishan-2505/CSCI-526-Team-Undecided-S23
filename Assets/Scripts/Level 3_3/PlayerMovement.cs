@@ -27,6 +27,8 @@ namespace Level3_3
 
         public GameObject teleporttutorial;
 
+        public GameObject spikeTutorial;
+
         public bool isEnemy1Freeze = true;
         public bool isEnemy2Freeze = true;
 
@@ -178,9 +180,16 @@ namespace Level3_3
                 spikyenemytutorial.SetActive(true);
                 Time.timeScale = 0;
             }
+            if (collision.gameObject.CompareTag("SpikeDetector"))
+            {
+                Destroy(collision.gameObject);
+                spikeTutorial.SetActive(true);
+                Time.timeScale = 0;
+            }
         }
         public void QuitButton()
         {
+            spikeTutorial.SetActive(false);
             spikyenemytutorial.SetActive(false);
             teleporttutorial.SetActive(false);
             Time.timeScale = 1;

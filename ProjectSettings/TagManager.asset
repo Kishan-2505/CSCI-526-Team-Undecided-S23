@@ -36,6 +36,7 @@ TagManager:
   - Enemy4Detector
   - knife
   - GetKnife
+  - SpikeDetector
   layers:
   - Default
   - TransparentFX
