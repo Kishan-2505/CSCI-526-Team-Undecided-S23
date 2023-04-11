@@ -196,6 +196,26 @@ namespace Level3_5
                 }
 
             }
+            if (collision.gameObject.CompareTag("enemy4"))
+            {
+                SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+                Bounds bounds = renderer.bounds;
+                Vector2 size = bounds.size;
+                Vector2 enemysize = collision.gameObject.GetComponent<SpriteRenderer>().bounds.size;
+                if (size.x >= 1.2f)
+                {
+                    Destroy(collision.gameObject);
+                    spikeCount += 3;
+                    spikeText.text = ":" + spikeCount;
+                }
+                else
+                {
+                    // Destroy(gameObject);
+                    gameOverScript.Setup("Enemy ate you!");
+                    inGameCanvas.SetActive(false);
+                }
+
+            }
             if (collision.gameObject.CompareTag("Enemy1Detector"))
             {
                 isEnemy1Freeze = false;
