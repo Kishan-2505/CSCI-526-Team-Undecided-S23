@@ -41,7 +41,7 @@ namespace Level3_5
         public void RestartButton()
         {
             Time.timeScale = 1;
-            SceneManager.LoadScene("Level 3_4");
+            SceneManager.LoadScene("Level 3_5");
         }
         public void MainMenuButton()
         {
