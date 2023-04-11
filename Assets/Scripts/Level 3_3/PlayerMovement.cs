@@ -23,6 +23,10 @@ namespace Level3_3
         public GameOverScript gameOverScript;
         private GameObject inGameCanvas;
 
+        public GameObject spikyenemytutorial;
+
+        public GameObject teleporttutorial;
+
         public bool isEnemy1Freeze = true;
         public bool isEnemy2Freeze = true;
 
@@ -64,9 +68,9 @@ namespace Level3_3
             }
             health.GetComponent<TextMeshPro>().text = Mathf.Round((transform.localScale.x - min_health) / (max_health - min_health) * 100).ToString();
 
-            if (Input.GetKeyDown(KeyCode.Space)&& spikeCount>0)
+            if (Input.GetKeyDown(KeyCode.Space) && spikeCount > 0)
             {
-                Instantiate(spikePrefab, new Vector3(gameObject.transform.localPosition.x + 1,gameObject.transform.localPosition.y + 1), Quaternion.identity);
+                Instantiate(spikePrefab, new Vector3(gameObject.transform.localPosition.x + 1, gameObject.transform.localPosition.y + 1), Quaternion.identity);
             }
         }
 
@@ -151,7 +155,7 @@ namespace Level3_3
                 {
                     Destroy(collision.gameObject);
                     spikeCount++;
-                    spikeText.text=":"+spikeCount;
+                    spikeText.text = ":" + spikeCount;
                 }
                 else
                 {
@@ -164,12 +168,22 @@ namespace Level3_3
             {
                 isEnemy1Freeze = false;
                 Destroy(collision.gameObject);
+                teleporttutorial.SetActive(true);
+                Time.timeScale = 0;
             }
             if (collision.gameObject.CompareTag("Enemy2Detector"))
             {
                 isEnemy2Freeze = false;
                 Destroy(collision.gameObject);
+                spikyenemytutorial.SetActive(true);
+                Time.timeScale = 0;
             }
+        }
+        public void QuitButton()
+        {
+            spikyenemytutorial.SetActive(false);
+            teleporttutorial.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 }
