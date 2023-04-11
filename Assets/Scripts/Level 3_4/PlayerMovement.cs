@@ -30,6 +30,8 @@ namespace Level3_4
         private bool onTouch1 = true;
         public GameObject spikePrefab;
 
+        public GameObject magnetTutorail;
+        public GameObject wallTutorial;
         private int spikeCount = 0;
         // Start is called before the first frame update
         void Start()
@@ -172,6 +174,8 @@ namespace Level3_4
             {
                 isEnemy1Freeze = false;
                 Destroy(collision.gameObject);
+                magnetTutorail.SetActive(true);
+                Time.timeScale = 0;
             }
             if (collision.gameObject.CompareTag("Enemy2Detector"))
             {
@@ -182,6 +186,8 @@ namespace Level3_4
             {
                 isEnemy3Freeze = false;
                 Destroy(collision.gameObject);
+                wallTutorial.SetActive(true);
+                Time.timeScale = 0;
             }
             if (collision.gameObject.CompareTag("magnet"))
             {
@@ -209,6 +215,12 @@ namespace Level3_4
         private void ResetButtonCollision1()
         {
             onTouch1 = true;
+        }
+        public void QuitButton()
+        {
+            wallTutorial.SetActive(false);
+            magnetTutorail.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 }
