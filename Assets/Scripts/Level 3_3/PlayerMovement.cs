@@ -62,7 +62,7 @@ namespace Level3_3
             SpriteRenderer renderer = GetComponent<SpriteRenderer>();
             Bounds bounds = renderer.bounds;
             Vector2 size = bounds.size;
-            //rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y, 0.6f)));
+            rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y, 0.6f)));
             if (size.x <= min_health || size.y <= min_health)
             {
                 gameOverScript.Setup("You died!");
@@ -81,7 +81,7 @@ namespace Level3_3
             timeCounter += Time.deltaTime;
             if (timeCounter >= timeInterval)
             {
-                transform.localScale += new Vector3(-0.03f, -0.03f, 0);
+                transform.localScale += new Vector3(-0.07f, -0.07f, 0);
                 timeCounter = 0.0f;
             }
         }
