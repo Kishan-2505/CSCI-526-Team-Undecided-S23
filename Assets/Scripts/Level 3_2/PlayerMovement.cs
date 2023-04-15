@@ -23,6 +23,10 @@ namespace Level3_2
 
         public GameObject enemytutorial;
 
+        public GameObject enemycolourchange;
+
+        public bool isEnemyColourChange = false;
+
         public bool isEnemy1Freeze = true;
         public bool isEnemy2Freeze = true;
         // Start is called before the first frame update
@@ -44,7 +48,7 @@ namespace Level3_2
             Bounds bounds = renderer.bounds;
             Vector2 size = bounds.size;
             rigidBody.velocity = direction * speed;
-            //rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y, 0.6f)));
+            // rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y, 0.6f)));
         }
 
         private void Update()
@@ -53,13 +57,19 @@ namespace Level3_2
             SpriteRenderer renderer = GetComponent<SpriteRenderer>();
             Bounds bounds = renderer.bounds;
             Vector2 size = bounds.size;
-            //rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y, 0.6f)));
+            rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y, 0.6f)));
             if (size.x <= min_health || size.y <= min_health)
             {
                 gameOverScript.Setup("You died!");
                 inGameCanvas.SetActive(false);
             }
             health.GetComponent<TextMeshPro>().text = Mathf.Round((transform.localScale.x - min_health) / (max_health - min_health) * 100).ToString();
+            if(isEnemyColourChange==true){
+                enemycolourchange.SetActive(true);
+                isEnemyColourChange=false;
+                Time.timeScale = 0;
+
+            }
         }
 
         private void gettingSmall()
@@ -67,7 +77,7 @@ namespace Level3_2
             timeCounter += Time.deltaTime;
             if (timeCounter >= timeInterval)
             {
-                transform.localScale += new Vector3(-0.03f, -0.03f, 0);
+                transform.localScale += new Vector3(-0.07f, -0.07f, 0);
                 timeCounter = 0.0f;
             }
         }
@@ -142,6 +152,7 @@ namespace Level3_2
 
         public void QuitButton()
         {
+            enemycolourchange.SetActive(false);
            enemytutorial.SetActive(false);
             Time.timeScale = 1;
         }
