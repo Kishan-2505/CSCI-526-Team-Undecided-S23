@@ -7,8 +7,7 @@ namespace level3_1
     public class CameraController : MonoBehaviour
     {
         private Camera Camera;
-        private float zoomOut = 20f;
-        private const float zoomIn = 7.829389f; // Const do not change it
+        private float zoom = 7.829389f;
         void Start()
         {
             Camera = GetComponent<Camera>();
@@ -16,15 +15,29 @@ namespace level3_1
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                Time.timeScale=0;
-                Camera.orthographicSize = zoomOut;
+            // if (Input.GetKeyDown(KeyCode.M))
+            // {
+            //     Time.timeScale=0;
+            //     Camera.orthographicSize = zoomOut;
+            // }
+            // else if (Input.GetKeyUp(KeyCode.M))
+            // {
+            //     Time.timeScale=1;
+            //     Camera.orthographicSize = zoomIn;
+            // }
+        }
+        public void zoomInCamera()
+        {
+            if(zoom>=3.829389f){
+                zoom--;
+                Camera.orthographicSize = zoom;
             }
-            else if (Input.GetKeyUp(KeyCode.M))
-            {
-                Time.timeScale=1;
-                Camera.orthographicSize = zoomIn;
+        }
+        public void zoomOutCamera()
+        {
+            if(zoom<=15f){
+                zoom++;
+                Camera.orthographicSize = zoom;
             }
         }
     }

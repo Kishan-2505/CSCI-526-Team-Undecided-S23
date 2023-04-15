@@ -54,7 +54,7 @@ namespace Level3_1
             SpriteRenderer renderer = GetComponent<SpriteRenderer>();
             Bounds bounds = renderer.bounds;
             Vector2 size = bounds.size;
-            //rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y, 0.6f)));
+            rigidBody.velocity = rigidBody.velocity.normalized * (speed / (Mathf.Max(size.x, size.y, 0.6f)));
             health.GetComponent<TextMeshPro>().text  = Mathf.Round((transform.localScale.x - min_health) / (max_health - min_health) * 100).ToString();
             if (size.x <= min_health || size.y <= min_health)
             {
@@ -68,7 +68,7 @@ namespace Level3_1
             timeCounter += Time.deltaTime;
             if (timeCounter >= timeInterval)
             {
-                transform.localScale += new Vector3(-0.03f, -0.03f, 0);
+                transform.localScale += new Vector3(-0.07f, -0.07f, 0);
                 timeCounter = 0.0f;
             }
         }
