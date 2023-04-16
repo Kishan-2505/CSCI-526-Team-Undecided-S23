@@ -34,6 +34,9 @@ namespace Level3_3
 
         public GameObject spikePrefab;
 
+        public bool isEnemy1spiked = false;
+        public bool isEnemy2spiked = false;
+        public bool isEnemy3spiked = false;
         private int spikeCount = 0;
         // Start is called before the first frame update
         void Start()
@@ -73,6 +76,8 @@ namespace Level3_3
             if (Input.GetKeyDown(KeyCode.Space) && spikeCount > 0)
             {
                 Instantiate(spikePrefab, new Vector3(gameObject.transform.localPosition.x + 1, gameObject.transform.localPosition.y + 1), Quaternion.identity);
+                spikeCount--;
+                spikeText.text = ":" + spikeCount;
             }
         }
 
@@ -121,6 +126,10 @@ namespace Level3_3
                 {
                     Destroy(collision.gameObject);
                 }
+                else if (isEnemy1spiked == true && size.x >= 0.85)
+                {
+                    Destroy(collision.gameObject);
+                }
                 else
                 {
                     gameOverScript.Setup("Enemy ate you!");
@@ -134,8 +143,11 @@ namespace Level3_3
                 Bounds bounds = renderer.bounds;
                 Vector2 size = bounds.size;
                 Vector2 enemysize = collision.gameObject.GetComponent<SpriteRenderer>().bounds.size;
-                Debug.Log("enemy2" + enemysize);
-                if (size.x >= 1.2f)
+                if (size.x >= 2.2f)
+                {
+                    Destroy(collision.gameObject);
+                }
+                else if (isEnemy2spiked == true && size.x >= 1.5)
                 {
                     Destroy(collision.gameObject);
                 }
@@ -152,11 +164,16 @@ namespace Level3_3
                 Bounds bounds = renderer.bounds;
                 Vector2 size = bounds.size;
                 Vector2 enemysize = collision.gameObject.GetComponent<SpriteRenderer>().bounds.size;
-                Debug.Log("enemy2" + enemysize);
                 if (size.x >= 1.2f)
                 {
                     Destroy(collision.gameObject);
-                    spikeCount++;
+                    spikeCount += 1;//change this to 1
+                    spikeText.text = ":" + spikeCount;
+                }
+                else if (isEnemy3spiked == true && size.x >= 0.85)
+                {
+                    Destroy(collision.gameObject);
+                    spikeCount += 1;//change this to 1
                     spikeText.text = ":" + spikeCount;
                 }
                 else

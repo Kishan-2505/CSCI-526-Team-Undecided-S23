@@ -37,6 +37,7 @@ namespace Level3_3
                 nextLevelButton.SetActive(true);
                 nextLevelButton.transform.position = restartButton.transform.position;
             }
+            Time.timeScale = 0;
         }
         public void RestartButton()
         {
