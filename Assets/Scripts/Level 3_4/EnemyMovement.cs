@@ -8,7 +8,11 @@ namespace Level3_4
     {
         public Sprite sadSprite;
         public Sprite angrySprite;
+
+        public Sprite sadSprite15;
+        public Sprite angrySprite15;
         public PlayerMovement playerMovement;
+        private float speedReduced = 2.0f;
         private GameObject player;
         public float speed = 2.0f;
         private float elapsedTime;
@@ -25,10 +29,10 @@ namespace Level3_4
         {
             if (!playerMovement.isEnemy1Freeze)
             {
-                Vector3 targetPosition = player.transform.position;
-                Vector3 enemyPosition = transform.position;
-                float step = speed * Time.deltaTime;
-                transform.position = Vector3.MoveTowards(enemyPosition, targetPosition, step);
+                // Vector3 targetPosition = player.transform.position;
+                // Vector3 enemyPosition = transform.position;
+                // float step = speed * Time.deltaTime;
+                // transform.position = Vector3.MoveTowards(enemyPosition, targetPosition, step);
                 Bounds bounds = spriteRenderer.sprite.bounds;
                 Vector3 scale = transform.localScale;
                 float scaleFactor = Mathf.Max(scale.x / bounds.size.x, scale.y / bounds.size.y);
@@ -36,15 +40,38 @@ namespace Level3_4
                 Bounds playerbound = player.GetComponent<SpriteRenderer>().bounds;
                 Vector2 playersize = playerbound.size;
                 // Set the new sprite image and scale it to fit the current object size
-                if (playersize.x < transform.localScale.x && playersize.y < transform.localScale.y)
+                Debug.Log("Enemy size1: " + enemysize);
+                if (playersize.x < enemysize.x && playersize.y < enemysize.y && playerMovement.isEnemy1spiked == false) 
                 {
+                    Vector3 targetPosition = player.transform.position;
+                    Vector3 enemyPosition = transform.position;
+                    float step = speed * Time.deltaTime;
+                    transform.position = Vector3.MoveTowards(enemyPosition, targetPosition, step);
                     spriteRenderer.sprite = angrySprite;
                     transform.localScale = new Vector3(angrySprite.bounds.size.x * scaleFactor, angrySprite.bounds.size.y * scaleFactor, 1);
                 }
-                else
+                else if(playerMovement.isEnemy1spiked==false)
                 {
+                    Vector3 direction = transform.position - player.transform.position;
+                    transform.Translate(direction.normalized * speedReduced * Time.deltaTime);
                     spriteRenderer.sprite = sadSprite;
                     transform.localScale = new Vector3(sadSprite.bounds.size.x * scaleFactor, sadSprite.bounds.size.y * scaleFactor, 1);
+                }
+                if (playersize.x < enemysize.x && playersize.y < enemysize.y && playerMovement.isEnemy1spiked == true)
+                {
+                    Vector3 targetPosition = player.transform.position;
+                    Vector3 enemyPosition = transform.position;
+                    float step = speed * Time.deltaTime;
+                    transform.position = Vector3.MoveTowards(enemyPosition, targetPosition, step);
+                    spriteRenderer.sprite = angrySprite15;
+                    transform.localScale = new Vector3(angrySprite15.bounds.size.x * scaleFactor, angrySprite15.bounds.size.y * scaleFactor, 1);
+                }
+                else if (playerMovement.isEnemy1spiked == true)
+                {
+                    Vector3 direction = transform.position - player.transform.position;
+                    transform.Translate(direction.normalized * speedReduced * Time.deltaTime);
+                    spriteRenderer.sprite = sadSprite15;
+                    transform.localScale = new Vector3(sadSprite15.bounds.size.x * scaleFactor, sadSprite15.bounds.size.y * scaleFactor, 1);
                 }
             }
         }
@@ -58,10 +85,16 @@ namespace Level3_4
                 // Vector3 newScale = transform.localScale / 1.4f;
                 // transform.localScale = newScale;
                 // transform.localScale = new Vector3(enemysize.x / 1.4f, enemysize.y / 1.4f, 1);
-                Vector3 currentSize = spriteRenderer.transform.localScale;
-                Vector3 newSize = new Vector3(currentSize.x / 1.4f, currentSize.y / 1.4f, currentSize.z/1.4f);
-                spriteRenderer.transform.localScale = newSize;
+                // Vector3 currentSize = spriteRenderer.transform.localScale;
+                // Vector3 newSize = new Vector3(currentSize.x / 1.4f, currentSize.y / 1.4f, currentSize.z/1.4f);
+                // spriteRenderer.transform.localScale = newSize;
 
+                playerMovement.isEnemy1spiked = true;
+
+            }
+            if (collision.gameObject.CompareTag("WallSpike"))
+            {
+                Destroy(gameObject);
             }
         }
     }

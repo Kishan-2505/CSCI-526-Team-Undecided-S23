@@ -27,6 +27,10 @@ namespace Level3_4
         public bool isEnemy1Freeze = true;
         public bool isEnemy2Freeze = true;
         public bool isEnemy3Freeze = true;
+
+        public bool isEnemy1spiked = false;
+        public bool isEnemy2spiked = false;
+        public bool isEnemy3spiked = false;
         public bool hasMagnet = false;
         private bool onTouch1 = true;
         public GameObject spikePrefab;
@@ -72,6 +76,7 @@ namespace Level3_4
             if (Input.GetKeyDown(KeyCode.Space)&& spikeCount>0)
             {
                 spikeCount -= 1;
+                spikeText.text = ":" + spikeCount;
                 Instantiate(spikePrefab, new Vector3(gameObject.transform.localPosition.x + 1, gameObject.transform.localPosition.y + 1), Quaternion.identity);
             }
         }
@@ -81,7 +86,7 @@ namespace Level3_4
             timeCounter += Time.deltaTime;
             if (timeCounter >= timeInterval)
             {
-                transform.localScale += new Vector3(-0.03f, -0.03f, 0);
+                transform.localScale += new Vector3(-0.07f, -0.07f, 0);
                 timeCounter = 0.0f;
             }
         }
@@ -121,17 +126,20 @@ namespace Level3_4
                 Bounds bounds = renderer.bounds;
                 Vector2 size = bounds.size;
                 Vector2 enemysize = collision.gameObject.GetComponent<SpriteRenderer>().bounds.size;
-                if (size.x >= 1.8f)
+                if (size.x >= 2.2f)
+                {
+                    Destroy(collision.gameObject);
+                }
+                else if (isEnemy1spiked == true && size.x >= 1.43)
                 {
                     Destroy(collision.gameObject);
                 }
                 else
                 {
-                    Destroy(gameObject);
                     gameOverScript.Setup("Enemy ate you!");
                     inGameCanvas.SetActive(false);
                 }
-
+ 
             }
             if (collision.gameObject.CompareTag("enemy2"))
             {
@@ -139,13 +147,16 @@ namespace Level3_4
                 Bounds bounds = renderer.bounds;
                 Vector2 size = bounds.size;
                 Vector2 enemysize = collision.gameObject.GetComponent<SpriteRenderer>().bounds.size;
-                if (size.x >= 1.8f)
+                if (size.x >= 1.2f)
+                {
+                    Destroy(collision.gameObject);
+                }
+                else if (isEnemy2spiked == true && size.x >= 0.85)
                 {
                     Destroy(collision.gameObject);
                 }
                 else
                 {
-                    Destroy(gameObject);
                     gameOverScript.Setup("Enemy ate you!");
                     inGameCanvas.SetActive(false);
                 }
@@ -157,19 +168,23 @@ namespace Level3_4
                 Bounds bounds = renderer.bounds;
                 Vector2 size = bounds.size;
                 Vector2 enemysize = collision.gameObject.GetComponent<SpriteRenderer>().bounds.size;
-                if (size.x >= 1.8f)
+                if (size.x >= 1.2f)
                 {
                     Destroy(collision.gameObject);
-                    spikeCount+=3;
-                    spikeText.text=":"+spikeCount;
+                    spikeCount += 1;//change this to 1
+                    spikeText.text = ":" + spikeCount;
+                }
+                else if (isEnemy3spiked == true && size.x >= 0.85)
+                {
+                    Destroy(collision.gameObject);
+                    spikeCount += 1;//change this to 1
+                    spikeText.text = ":" + spikeCount;
                 }
                 else
                 {
-                    Destroy(gameObject);
                     gameOverScript.Setup("Enemy ate you!");
                     inGameCanvas.SetActive(false);
                 }
-
             }
             if (collision.gameObject.CompareTag("Enemy1Detector"))
             {
@@ -211,6 +226,13 @@ namespace Level3_4
                         Destroy(collision.gameObject);
                     }
                 }
+            }
+            if (collision.gameObject.CompareTag("WallSpike"))
+            {
+                // Vector3 currentSize = spriteRenderer.transform.localScale;
+                // Vector3 newSize = new Vector3(currentSize.x - 0.1f, currentSize.y - 0.1f, currentSize.z - 0.1f);
+                // spriteRenderer.transform.localScale = newSize;
+                transform.localScale += new Vector3(-0.1f, -0.1f, 0);
             }
         }
         private void ResetButtonCollision1()
