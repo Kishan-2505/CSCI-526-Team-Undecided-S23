@@ -11,6 +11,7 @@ namespace Level3_6
     {
         private float speed = 8.0f;
         private Rigidbody2D rigidBody;
+        private SpriteRenderer spriteRenderer;
         private float timeInterval = 1.0f;
         private float timeCounter = 0.0f;
         private float max_health = 2.1f;
@@ -45,6 +46,7 @@ namespace Level3_6
             rigidBody = GetComponent<Rigidbody2D>();
             inGameCanvas = GameObject.Find("In Game Canvas");
             health = GameObject.Find("Health");
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         // Update is called once per frame
@@ -256,6 +258,12 @@ namespace Level3_6
                         Destroy(collision.gameObject);
                     }
                 }
+            }
+            if (collision.gameObject.CompareTag("WallSpike"))
+            {
+                Vector3 currentSize = spriteRenderer.transform.localScale;
+                Vector3 newSize = new Vector3(currentSize.x - 0.1f, currentSize.y - 0.1f, currentSize.z - 0.1f);
+                spriteRenderer.transform.localScale = newSize;
             }
         }
         private void ResetButtonCollision1()
