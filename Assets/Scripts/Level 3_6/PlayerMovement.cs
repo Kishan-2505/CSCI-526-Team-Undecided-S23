@@ -36,6 +36,10 @@ namespace Level3_6
         public GameObject knifePrefab;
 
         public GameObject swordTuitorial;
+        public bool isEnemy1spiked;
+        public bool isEnemy2spiked;
+        public bool isEnemy3spiked;
+        public bool isEnemy4spiked;
 
         //private int swordTuitorialCount = 0;
 
@@ -76,13 +80,13 @@ namespace Level3_6
             }
             health.GetComponent<TextMeshPro>().text = Mathf.Round((transform.localScale.x - min_health) / (max_health - min_health) * 100).ToString();
 
-            if (Input.GetKeyDown(KeyCode.Space) && spikeCount>0)
+            if (Input.GetKeyDown(KeyCode.Space) && spikeCount > 0)
             {
                 spikeCount -= 1;
                 spikeText.text = ":" + spikeCount;
                 Instantiate(spikePrefab, new Vector3(gameObject.transform.localPosition.x + 1, gameObject.transform.localPosition.y + 1), Quaternion.identity);
             }
-            if (Input.GetMouseButtonDown(0) && knifeCount>0)
+            if (Input.GetMouseButtonDown(0) && knifeCount > 0)
             {
                 knifeCount -= 1;
                 knifeText.text = ":" + knifeCount.ToString();
@@ -100,7 +104,7 @@ namespace Level3_6
             timeCounter += Time.deltaTime;
             if (timeCounter >= timeInterval)
             {
-                transform.localScale += new Vector3(-0.03f, -0.03f, 0);
+                transform.localScale += new Vector3(-0.05f, -0.05f, 0);
                 timeCounter = 0.0f;
             }
         }
@@ -109,7 +113,7 @@ namespace Level3_6
             if (collision.gameObject.CompareTag("teleportin"))
             {
                 GameObject obj = GameObject.FindGameObjectWithTag("teleportout");
-                transform.position = obj.transform.position + new Vector3(-1f, -1f, 0); 
+                transform.position = obj.transform.position + new Vector3(-1f, -1f, 0);
             }
             if (collision.gameObject.CompareTag("teleportin2"))
             {
@@ -122,7 +126,7 @@ namespace Level3_6
                 diamondCount++;
                 diamondText.text = "Diamonds: " + diamondCount + "/3";
             }
-            if(collision.gameObject.CompareTag("GetKnife"))
+            if (collision.gameObject.CompareTag("GetKnife"))
             {
                 //if(swordTuitorialCount==0){
                 //    swordTuitorial.SetActive(true);
@@ -151,13 +155,16 @@ namespace Level3_6
                 Bounds bounds = renderer.bounds;
                 Vector2 size = bounds.size;
                 Vector2 enemysize = collision.gameObject.GetComponent<SpriteRenderer>().bounds.size;
-                if (size.x >= 1.2f)
+               if (size.x >= 1.2f)
+                {
+                    Destroy(collision.gameObject);
+                }
+                else if (isEnemy1spiked == true && size.x >= 0.85)
                 {
                     Destroy(collision.gameObject);
                 }
                 else
                 {
-                    // Destroy(gameObject);
                     gameOverScript.Setup("Enemy ate you!");
                     inGameCanvas.SetActive(false);
                 }
@@ -173,9 +180,12 @@ namespace Level3_6
                 {
                     Destroy(collision.gameObject);
                 }
+                else if (isEnemy2spiked == true && size.x >= 0.85)
+                {
+                    Destroy(collision.gameObject);
+                }
                 else
                 {
-                    // Destroy(gameObject);
                     gameOverScript.Setup("Enemy ate you!");
                     inGameCanvas.SetActive(false);
                 }
@@ -190,12 +200,17 @@ namespace Level3_6
                 if (size.x >= 1.2f)
                 {
                     Destroy(collision.gameObject);
-                    spikeCount+=3;
-                    spikeText.text=":"+spikeCount;
+                    spikeCount += 1;//change this to 1
+                    spikeText.text = ":" + spikeCount;
+                }
+                else if (isEnemy3spiked == true && size.x >= 0.85)
+                {
+                    Destroy(collision.gameObject);
+                    spikeCount += 1;//change this to 1
+                    spikeText.text = ":" + spikeCount;
                 }
                 else
                 {
-                    // Destroy(gameObject);
                     gameOverScript.Setup("Enemy ate you!");
                     inGameCanvas.SetActive(false);
                 }
@@ -210,12 +225,13 @@ namespace Level3_6
                 if (size.x >= 1.2f)
                 {
                     Destroy(collision.gameObject);
-                    spikeCount += 3;
-                    spikeText.text = ":" + spikeCount;
+                }
+                else if (isEnemy4spiked == true && size.x >= 0.85)
+                {
+                    Destroy(collision.gameObject);
                 }
                 else
                 {
-                    // Destroy(gameObject);
                     gameOverScript.Setup("Enemy ate you!");
                     inGameCanvas.SetActive(false);
                 }
@@ -236,7 +252,7 @@ namespace Level3_6
                 isEnemy3Freeze = false;
                 Destroy(collision.gameObject);
             }
-            if(collision.gameObject.CompareTag("Enemy4Detector"))
+            if (collision.gameObject.CompareTag("Enemy4Detector"))
             {
                 isEnemy4Freeze = false;
                 Destroy(collision.gameObject);
@@ -265,9 +281,7 @@ namespace Level3_6
             }
             if (collision.gameObject.CompareTag("WallSpike"))
             {
-                Vector3 currentSize = spriteRenderer.transform.localScale;
-                Vector3 newSize = new Vector3(currentSize.x - 0.1f, currentSize.y - 0.1f, currentSize.z - 0.1f);
-                spriteRenderer.transform.localScale = newSize;
+                transform.localScale += new Vector3(-0.1f, -0.1f, 0);
             }
         }
         private void ResetButtonCollision1()

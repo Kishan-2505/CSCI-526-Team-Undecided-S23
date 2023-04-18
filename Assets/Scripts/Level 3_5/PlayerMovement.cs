@@ -97,7 +97,7 @@ namespace Level3_5
             {
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 mousePos.z = 0f;
-
+                knifeCount -= 1;
                 GameObject thrownObject = Instantiate(knifePrefab, transform.position, Quaternion.identity);
                 Rigidbody2D rb = thrownObject.GetComponent<Rigidbody2D>();
                 Vector2 throwDirection = (mousePos - transform.position).normalized;
