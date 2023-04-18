@@ -24,6 +24,7 @@ namespace Level3_5
         }
         public void Setup(string message)
         {
+            Time.timeScale = 0;
             gameObject.SetActive(true);
             gameOverText.text = message;
             if (message == "You died!" || message == "Enemy ate you!")

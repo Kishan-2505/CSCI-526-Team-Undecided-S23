@@ -38,6 +38,7 @@ TagManager:
   - GetKnife
   - SpikeDetector
   - WallSpike
+  - enemy5
   layers:
   - Default
   - TransparentFX

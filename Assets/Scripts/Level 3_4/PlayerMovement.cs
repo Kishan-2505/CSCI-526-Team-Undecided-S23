@@ -228,6 +228,10 @@ namespace Level3_4
                     }
                 }
             }
+            if (collision.gameObject.CompareTag("WallSpike"))
+            {
+                transform.localScale += new Vector3(-0.1f, -0.1f, 0);
+            }
         }
         private void ResetButtonCollision1()
         {

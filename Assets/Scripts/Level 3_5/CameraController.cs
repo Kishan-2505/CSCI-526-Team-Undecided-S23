@@ -6,7 +6,7 @@ namespace level3_5
 {
     public class CameraController : MonoBehaviour
     {
-    private Camera Camera;
+        private Camera Camera;
         private float zoom = 7.829389f;
         void Start()
         {
