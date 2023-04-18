@@ -78,7 +78,7 @@ namespace Level3_4
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-             if (collision.gameObject.tag == "Spike")
+            if (collision.gameObject.tag == "Spike")
             {
                 Destroy(collision.gameObject);
                 // Transform transform = gameObject.GetComponent<Transform>();

@@ -20,7 +20,7 @@ namespace Level3_6
         private int knifeCount = 0;
         private float throwForce = 20.0f;
         public TextMeshProUGUI diamondText;
-
+        public TextMeshProUGUI knifeText;
         public TextMeshProUGUI spikeText;
         private GameObject health;
         public GameOverScript gameOverScript;
@@ -79,10 +79,13 @@ namespace Level3_6
             if (Input.GetKeyDown(KeyCode.Space) && spikeCount>0)
             {
                 spikeCount -= 1;
+                spikeText.text = ":" + spikeCount;
                 Instantiate(spikePrefab, new Vector3(gameObject.transform.localPosition.x + 1, gameObject.transform.localPosition.y + 1), Quaternion.identity);
             }
             if (Input.GetMouseButtonDown(0) && knifeCount>0)
             {
+                knifeCount -= 1;
+                knifeText.text = ":" + knifeCount.ToString();
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 mousePos.z = 0f;
                 GameObject thrownObject = Instantiate(knifePrefab, transform.position, Quaternion.identity);
@@ -128,6 +131,7 @@ namespace Level3_6
                 //}
                 Destroy(collision.gameObject);
                 knifeCount += 5;
+                knifeText.text = ":" + knifeCount.ToString();
             }
             if (collision.gameObject.CompareTag("Door"))
             {

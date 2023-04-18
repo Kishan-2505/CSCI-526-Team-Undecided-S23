@@ -862,7 +862,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1886656124}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -7733,11 +7733,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1886656124}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 254.0478, y: -1.3324}
+  m_AnchoredPosition: {x: 744, y: -0.41489}
   m_SizeDelta: {x: 36.0793, y: 30.555}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1301327010
@@ -10434,6 +10434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diamondText: {fileID: 1543001133}
+  knifeText: {fileID: 166931765}
   spikeText: {fileID: 1511138666}
   gameOverScript: {fileID: 1523410379}
   isEnemy1Freeze: 1
@@ -12729,8 +12730,8 @@ RectTransform:
   - {fileID: 1511138665}
   - {fileID: 338458973}
   - {fileID: 966395991}
-  - {fileID: 166931764}
   - {fileID: 1301327009}
+  - {fileID: 166931764}
   m_Father: {fileID: 609475727}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
