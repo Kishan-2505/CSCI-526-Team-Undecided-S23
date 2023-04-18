@@ -17,7 +17,7 @@ namespace Level3_5
         private float max_health = 2.1f;
         private float min_health = 0.3f;
         private int diamondCount = 0;
-        private int knifeCount = 0;
+        private int knifeCount = 10;
         private float throwForce = 10.0f;
         public TextMeshProUGUI diamondText;
 
