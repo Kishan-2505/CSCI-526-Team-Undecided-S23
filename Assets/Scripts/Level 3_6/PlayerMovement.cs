@@ -17,7 +17,7 @@ namespace Level3_6
         private float min_health = 0.3f;
         private int diamondCount = 0;
         private int knifeCount = 0;
-        private float throwForce = 10.0f;
+        private float throwForce = 20.0f;
         public TextMeshProUGUI diamondText;
 
         public TextMeshProUGUI spikeText;
@@ -36,7 +36,7 @@ namespace Level3_6
 
         public GameObject swordTuitorial;
 
-        private int swordTuitorialCount = 0;
+        //private int swordTuitorialCount = 0;
 
         private int spikeCount = 0;
         // Start is called before the first frame update
@@ -83,7 +83,6 @@ namespace Level3_6
             {
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 mousePos.z = 0f;
-
                 GameObject thrownObject = Instantiate(knifePrefab, transform.position, Quaternion.identity);
                 Rigidbody2D rb = thrownObject.GetComponent<Rigidbody2D>();
                 Vector2 throwDirection = (mousePos - transform.position).normalized;
@@ -120,11 +119,11 @@ namespace Level3_6
             }
             if(collision.gameObject.CompareTag("GetKnife"))
             {
-                if(swordTuitorialCount==0){
-                    swordTuitorial.SetActive(true);
-                    swordTuitorialCount++;
-                    Time.timeScale = 0;
-                }
+                //if(swordTuitorialCount==0){
+                //    swordTuitorial.SetActive(true);
+                //    swordTuitorialCount++;
+                //    Time.timeScale = 0;
+                //}
                 Destroy(collision.gameObject);
                 knifeCount += 5;
             }

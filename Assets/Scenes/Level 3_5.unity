@@ -4039,8 +4039,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef82824efd7a464e976ae0c656c2536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attractionForce: 10
-  maxDistance: 5
+  attractionForce: 20
+  maxDistance: 20
   duration: 5
   playerMovement: {fileID: 676494846}
 --- !u!1001 &620927789
