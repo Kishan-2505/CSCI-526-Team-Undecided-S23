@@ -1202,8 +1202,8 @@ Transform:
   m_LocalScale: {x: 2.8849, y: 4.1186, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_Father: {fileID: 1810496804}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!60 &295401003
 PolygonCollider2D:
@@ -4994,8 +4994,8 @@ Transform:
   m_LocalScale: {x: 2.8849, y: 4.1186, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_Father: {fileID: 1810496804}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!60 &989724847
 PolygonCollider2D:
@@ -5246,8 +5246,8 @@ Transform:
   m_LocalScale: {x: 2.8849, y: 4.1186, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_Father: {fileID: 1810496804}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!60 &1019690083
 PolygonCollider2D:
@@ -9323,8 +9323,8 @@ Transform:
   m_LocalScale: {x: 2.8849, y: 4.1186, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_Father: {fileID: 1810496804}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!60 &1761245652
 PolygonCollider2D:
@@ -9751,6 +9751,41 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 386415815079189138, guid: 49a7b67811c017b4e8b479bf29e69abc, type: 3}
   m_PrefabInstance: {fileID: 725089128}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1810496803
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1810496804}
+  m_Layer: 0
+  m_Name: Spike Components
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1810496804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810496803}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 989724846}
+  - {fileID: 295401002}
+  - {fileID: 1019690082}
+  - {fileID: 1761245651}
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1848416183 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6561367269131845279, guid: c07f1f63acdafe740a1023a9b2a92300, type: 3}

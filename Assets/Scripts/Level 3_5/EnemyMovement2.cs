@@ -77,6 +77,10 @@ namespace Level3_5
                 newObject2.transform.localScale = transform.localScale / 2;
                 Destroy(gameObject);
             }
+            if (collision.gameObject.CompareTag("WallSpike"))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

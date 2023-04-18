@@ -61,7 +61,10 @@ namespace Level3_4
                 Vector3 currentSize = spriteRenderer.transform.localScale;
                 Vector3 newSize = new Vector3(currentSize.x / 1.4f, currentSize.y / 1.4f, currentSize.z/1.4f);
                 spriteRenderer.transform.localScale = newSize;
-
+            }
+            if (collision.gameObject.CompareTag("WallSpike"))
+            {
+                Destroy(gameObject);
             }
         }
     }

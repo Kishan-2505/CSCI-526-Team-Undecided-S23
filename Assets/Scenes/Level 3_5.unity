@@ -244,9 +244,10 @@ GameObject:
   m_Component:
   - component: {fileID: 25578981}
   - component: {fileID: 25578980}
+  - component: {fileID: 25578982}
   m_Layer: 0
   m_Name: SpikeComponent
-  m_TagString: Untagged
+  m_TagString: WallSpike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -310,14 +311,53 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 25578979}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 68.77, y: 12.23, z: 0}
   m_LocalScale: {x: 2.3304, y: 3.2475, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_Father: {fileID: 864307745}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &25578982
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25578979}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.36, y: 1.72}
+    newSize: {x: 0.36, y: 1.72}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.17999999, y: -0.48999998}
+      - {x: 0.17999999, y: 0.26999998}
+      - {x: 0.16, y: 0.29}
+      - {x: 0.17999999, y: 0.35}
+      - {x: 0.17999999, y: 0.74}
+      - {x: -0.03, y: 0.84999996}
+      - {x: -0.089999996, y: 0.84999996}
+      - {x: -0.11, y: 0.84}
+      - {x: -0.11, y: -0.84}
+      - {x: -0.089999996, y: -0.84999996}
+      - {x: -0.02, y: -0.84999996}
+      - {x: 0.17999999, y: -0.79999995}
+      - {x: 0.17999999, y: -0.58}
+      - {x: 0.16, y: -0.56}
 --- !u!1001 &29470747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4005,9 +4045,10 @@ GameObject:
   m_Component:
   - component: {fileID: 587730517}
   - component: {fileID: 587730516}
+  - component: {fileID: 587730518}
   m_Layer: 0
   m_Name: SpikeComponent (4)
-  m_TagString: Untagged
+  m_TagString: WallSpike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4071,14 +4112,53 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587730515}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 65.89, y: 4.05, z: 0}
-  m_LocalScale: {x: 2.2103844, y: 2.8835435, z: 1}
+  m_LocalScale: {x: 2.2103844, y: 2.8835433, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_Father: {fileID: 864307745}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!60 &587730518
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587730515}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.36, y: 1.72}
+    newSize: {x: 0.36, y: 1.72}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.17999999, y: -0.48999998}
+      - {x: 0.17999999, y: 0.26999998}
+      - {x: 0.16, y: 0.29}
+      - {x: 0.17999999, y: 0.35}
+      - {x: 0.17999999, y: 0.74}
+      - {x: -0.03, y: 0.84999996}
+      - {x: -0.089999996, y: 0.84999996}
+      - {x: -0.11, y: 0.84}
+      - {x: -0.11, y: -0.84}
+      - {x: -0.089999996, y: -0.84999996}
+      - {x: -0.02, y: -0.84999996}
+      - {x: 0.17999999, y: -0.79999995}
+      - {x: 0.17999999, y: -0.58}
+      - {x: 0.16, y: -0.56}
 --- !u!1 &592809391
 GameObject:
   m_ObjectHideFlags: 0
@@ -6404,6 +6484,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &864307744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 864307745}
+  m_Layer: 0
+  m_Name: Spike Components
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &864307745
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864307744}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 25578981}
+  - {fileID: 1654631799}
+  - {fileID: 1957074152}
+  - {fileID: 2054930921}
+  - {fileID: 587730517}
+  - {fileID: 1227616401}
+  - {fileID: 1742545369}
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &901212912
 GameObject:
   m_ObjectHideFlags: 0
@@ -8225,9 +8343,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1227616401}
   - component: {fileID: 1227616400}
+  - component: {fileID: 1227616402}
   m_Layer: 0
   m_Name: SpikeComponent (5)
-  m_TagString: Untagged
+  m_TagString: WallSpike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8291,14 +8410,53 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227616399}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 70.75, y: 4.08, z: 0}
-  m_LocalScale: {x: 2.2103844, y: 2.8835435, z: 1}
+  m_LocalScale: {x: 2.2103844, y: 2.8835433, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_Father: {fileID: 864307745}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!60 &1227616402
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227616399}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.36, y: 1.72}
+    newSize: {x: 0.36, y: 1.72}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.17999999, y: -0.48999998}
+      - {x: 0.17999999, y: 0.26999998}
+      - {x: 0.16, y: 0.29}
+      - {x: 0.17999999, y: 0.35}
+      - {x: 0.17999999, y: 0.74}
+      - {x: -0.03, y: 0.84999996}
+      - {x: -0.089999996, y: 0.84999996}
+      - {x: -0.11, y: 0.84}
+      - {x: -0.11, y: -0.84}
+      - {x: -0.089999996, y: -0.84999996}
+      - {x: -0.02, y: -0.84999996}
+      - {x: 0.17999999, y: -0.79999995}
+      - {x: 0.17999999, y: -0.58}
+      - {x: 0.16, y: -0.56}
 --- !u!1 &1233632888
 GameObject:
   m_ObjectHideFlags: 0
@@ -10372,9 +10530,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1654631799}
   - component: {fileID: 1654631798}
+  - component: {fileID: 1654631800}
   m_Layer: 0
   m_Name: SpikeComponent (1)
-  m_TagString: Untagged
+  m_TagString: WallSpike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10438,14 +10597,53 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654631797}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 68.8, y: 17.6, z: 0}
   m_LocalScale: {x: 2.3304, y: 3.2475, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_Father: {fileID: 864307745}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &1654631800
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654631797}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.36, y: 1.72}
+    newSize: {x: 0.36, y: 1.72}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.17999999, y: -0.48999998}
+      - {x: 0.17999999, y: 0.26999998}
+      - {x: 0.16, y: 0.29}
+      - {x: 0.17999999, y: 0.35}
+      - {x: 0.17999999, y: 0.74}
+      - {x: -0.03, y: 0.84999996}
+      - {x: -0.089999996, y: 0.84999996}
+      - {x: -0.11, y: 0.84}
+      - {x: -0.11, y: -0.84}
+      - {x: -0.089999996, y: -0.84999996}
+      - {x: -0.02, y: -0.84999996}
+      - {x: 0.17999999, y: -0.79999995}
+      - {x: 0.17999999, y: -0.58}
+      - {x: 0.16, y: -0.56}
 --- !u!1 &1680099877
 GameObject:
   m_ObjectHideFlags: 0
@@ -11027,7 +11225,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1742545367
 GameObject:
@@ -11039,9 +11237,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1742545369}
   - component: {fileID: 1742545368}
+  - component: {fileID: 1742545370}
   m_Layer: 0
   m_Name: SpikeComponent (6)
-  m_TagString: Untagged
+  m_TagString: WallSpike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11105,14 +11304,53 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1742545367}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 75.58, y: 4.08, z: 0}
-  m_LocalScale: {x: 2.2103844, y: 2.8835435, z: 1}
+  m_LocalScale: {x: 2.2103844, y: 2.8835433, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_Father: {fileID: 864307745}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!60 &1742545370
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742545367}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.36, y: 1.72}
+    newSize: {x: 0.36, y: 1.72}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.17999999, y: -0.48999998}
+      - {x: 0.17999999, y: 0.26999998}
+      - {x: 0.16, y: 0.29}
+      - {x: 0.17999999, y: 0.35}
+      - {x: 0.17999999, y: 0.74}
+      - {x: -0.03, y: 0.84999996}
+      - {x: -0.089999996, y: 0.84999996}
+      - {x: -0.11, y: 0.84}
+      - {x: -0.11, y: -0.84}
+      - {x: -0.089999996, y: -0.84999996}
+      - {x: -0.02, y: -0.84999996}
+      - {x: 0.17999999, y: -0.79999995}
+      - {x: 0.17999999, y: -0.58}
+      - {x: 0.16, y: -0.56}
 --- !u!1 &1759836248
 GameObject:
   m_ObjectHideFlags: 0
@@ -12774,9 +13012,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1957074152}
   - component: {fileID: 1957074151}
+  - component: {fileID: 1957074153}
   m_Layer: 0
   m_Name: SpikeComponent (2)
-  m_TagString: Untagged
+  m_TagString: WallSpike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12840,14 +13079,53 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957074150}
-  m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 0, w: 0}
+  m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: -0, w: 0}
   m_LocalPosition: {x: 71.667, y: 20.3616, z: 0}
-  m_LocalScale: {x: 2.2103844, y: 2.8835435, z: 1}
+  m_LocalScale: {x: 2.2103844, y: 2.8835433, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_Father: {fileID: 864307745}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 90}
+--- !u!60 &1957074153
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957074150}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.36, y: 1.72}
+    newSize: {x: 0.36, y: 1.72}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.17999999, y: -0.48999998}
+      - {x: 0.17999999, y: 0.26999998}
+      - {x: 0.16, y: 0.29}
+      - {x: 0.17999999, y: 0.35}
+      - {x: 0.17999999, y: 0.74}
+      - {x: -0.03, y: 0.84999996}
+      - {x: -0.089999996, y: 0.84999996}
+      - {x: -0.11, y: 0.84}
+      - {x: -0.11, y: -0.84}
+      - {x: -0.089999996, y: -0.84999996}
+      - {x: -0.02, y: -0.84999996}
+      - {x: 0.17999999, y: -0.79999995}
+      - {x: 0.17999999, y: -0.58}
+      - {x: 0.16, y: -0.56}
 --- !u!1001 &1994676964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13171,9 +13449,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2054930921}
   - component: {fileID: 2054930920}
+  - component: {fileID: 2054930922}
   m_Layer: 0
   m_Name: SpikeComponent (3)
-  m_TagString: Untagged
+  m_TagString: WallSpike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13237,14 +13516,53 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054930919}
-  m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 0, w: 0}
+  m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: -0, w: 0}
   m_LocalPosition: {x: 76.541, y: 20.34, z: 0}
-  m_LocalScale: {x: 2.2103844, y: 2.9085746, z: 1}
+  m_LocalScale: {x: 2.2103844, y: 2.9085743, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_Father: {fileID: 864307745}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 90}
+--- !u!60 &2054930922
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054930919}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.36, y: 1.72}
+    newSize: {x: 0.36, y: 1.72}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.17999999, y: -0.48999998}
+      - {x: 0.17999999, y: 0.26999998}
+      - {x: 0.16, y: 0.29}
+      - {x: 0.17999999, y: 0.35}
+      - {x: 0.17999999, y: 0.74}
+      - {x: -0.03, y: 0.84999996}
+      - {x: -0.089999996, y: 0.84999996}
+      - {x: -0.11, y: 0.84}
+      - {x: -0.11, y: -0.84}
+      - {x: -0.089999996, y: -0.84999996}
+      - {x: -0.02, y: -0.84999996}
+      - {x: 0.17999999, y: -0.79999995}
+      - {x: 0.17999999, y: -0.58}
+      - {x: 0.16, y: -0.56}
 --- !u!1 &2065010382
 GameObject:
   m_ObjectHideFlags: 0

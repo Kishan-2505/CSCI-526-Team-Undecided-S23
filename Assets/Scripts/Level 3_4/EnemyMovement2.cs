@@ -52,7 +52,7 @@ namespace Level3_4
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-             if (collision.gameObject.tag == "Spike")
+            if (collision.gameObject.tag == "Spike")
             {
                 Destroy(collision.gameObject);
                 // Transform transform = gameObject.GetComponent<Transform>();
@@ -63,6 +63,10 @@ namespace Level3_4
                 Vector3 newSize = new Vector3(currentSize.x / 1.4f, currentSize.y / 1.4f, currentSize.z/1.4f);
                 spriteRenderer.transform.localScale = newSize;
 
+            }
+            if (collision.gameObject.CompareTag("WallSpike"))
+            {
+                Destroy(gameObject);
             }
         }
     }

@@ -40,6 +40,7 @@ namespace Level3_4
             rigidBody = GetComponent<Rigidbody2D>();
             inGameCanvas = GameObject.Find("In Game Canvas");
             health = GameObject.Find("Health");
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         // Update is called once per frame
@@ -211,6 +212,12 @@ namespace Level3_4
                         Destroy(collision.gameObject);
                     }
                 }
+            }
+            if (collision.gameObject.CompareTag("WallSpike"))
+            {
+                Vector3 currentSize = spriteRenderer.transform.localScale;
+                Vector3 newSize = new Vector3(currentSize.x - 0.1f, currentSize.y - 0.1f, currentSize.z - 0.1f);
+                spriteRenderer.transform.localScale = newSize;
             }
         }
         private void ResetButtonCollision1()
