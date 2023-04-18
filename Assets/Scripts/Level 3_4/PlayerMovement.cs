@@ -21,6 +21,7 @@ namespace Level3_4
         public TextMeshProUGUI spikeText;
         private GameObject health;
         public GameOverScript gameOverScript;
+        private SpriteRenderer spriteRenderer;
         private GameObject inGameCanvas;
 
         public bool isEnemy1Freeze = true;
