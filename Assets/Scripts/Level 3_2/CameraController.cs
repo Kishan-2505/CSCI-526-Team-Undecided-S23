@@ -8,6 +8,8 @@ namespace level3_2
     {
         private Camera Camera;
         private float zoom = 7.829389f;
+        private float zoomOut = 20f;
+        private const float zoomIn = 12.14533f;
         void Start()
         {
             Camera = GetComponent<Camera>();
@@ -15,16 +17,16 @@ namespace level3_2
 
         void Update()
         {
-            // if (Input.GetKeyDown(KeyCode.M))
-            // {
-            //     Time.timeScale=0;
-            //     Camera.orthographicSize = zoomOut;
-            // }
-            // else if (Input.GetKeyUp(KeyCode.M))
-            // {
-            //     Time.timeScale=1;
-            //     Camera.orthographicSize = zoomIn;
-            // }
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                Time.timeScale=0;
+                Camera.orthographicSize = zoomOut;
+            }
+            else if (Input.GetKeyUp(KeyCode.M))
+            {
+                Time.timeScale=1;
+                Camera.orthographicSize = zoomIn;
+            }
         }
         public void zoomInCamera()
         {
