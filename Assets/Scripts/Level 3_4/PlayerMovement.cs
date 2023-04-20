@@ -37,6 +37,7 @@ namespace Level3_4
 
         public GameObject magnetTutorail;
         public GameObject wallTutorial;
+        public GameObject spikyWallTutorial;
         private int spikeCount = 0;
         // Start is called before the first frame update
         void Start()
@@ -79,6 +80,15 @@ namespace Level3_4
                 spikeCount -= 1;
                 spikeText.text = ":" + spikeCount;
                 Instantiate(spikePrefab, new Vector3(gameObject.transform.localPosition.x + 1, gameObject.transform.localPosition.y + 1), Quaternion.identity);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                wallTutorial.SetActive(false);
+                magnetTutorail.SetActive(false);
+                spikyWallTutorial.SetActive(false);
+                //Destroy(collision.gameObject);
+                Time.timeScale = 1;
             }
         }
 
@@ -206,6 +216,13 @@ namespace Level3_4
                 wallTutorial.SetActive(true);
                 Time.timeScale = 0;
             }
+            if (collision.gameObject.CompareTag("SpikyWallDetector"))
+            {
+               // isEnemy3Freeze = false;
+                Destroy(collision.gameObject);
+                spikyWallTutorial.SetActive(true);
+                Time.timeScale = 0;
+            }
             if (collision.gameObject.CompareTag("magnet"))
             {
                 hasMagnet = true;
@@ -241,7 +258,9 @@ namespace Level3_4
         {
             wallTutorial.SetActive(false);
             magnetTutorail.SetActive(false);
+            spikyWallTutorial.SetActive(false);
             Time.timeScale = 1;
+            
         }
     }
 }

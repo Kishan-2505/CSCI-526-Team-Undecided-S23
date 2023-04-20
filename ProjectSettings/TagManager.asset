@@ -39,6 +39,7 @@ TagManager:
   - SpikeDetector
   - WallSpike
   - enemy5
+  - SpikyWallDetector
   layers:
   - Default
   - TransparentFX
