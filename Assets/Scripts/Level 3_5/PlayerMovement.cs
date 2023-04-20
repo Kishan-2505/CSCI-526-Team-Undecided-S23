@@ -172,10 +172,12 @@ namespace Level3_5
                 if (size.x >= 1.2f)
                 {
                     Destroy(collision.gameObject);
+                    transform.localScale += new Vector3(0.3f, 0.3f, 0);
                 }
                 else if (isEnemy1spiked == true && size.x >= 0.85)
                 {
                     Destroy(collision.gameObject);
+                    transform.localScale += new Vector3(0.3f, 0.3f, 0);
                 }
                 else
                 {
@@ -193,10 +195,12 @@ namespace Level3_5
                 if (size.x >= 1.2f)
                 {
                     Destroy(collision.gameObject);
+                    transform.localScale += new Vector3(0.3f, 0.3f, 0);
                 }
                 else if (isEnemy2spiked == true && size.x >= 0.85)
                 {
                     Destroy(collision.gameObject);
+                    transform.localScale += new Vector3(0.3f, 0.3f, 0);
                 }
                 else
                 {
@@ -236,13 +240,15 @@ namespace Level3_5
                 Bounds bounds = renderer.bounds;
                 Vector2 size = bounds.size;
                 Vector2 enemysize = collision.gameObject.GetComponent<SpriteRenderer>().bounds.size;
-                if (size.x >= 2.2f)
+                if (size.x >= 1.2f)
                 {
                     Destroy(collision.gameObject);
+                    transform.localScale += new Vector3(0.3f, 0.3f, 0);
                 }
                 else if (isEnemy4spiked == true && size.x >= 1.43)
                 {
                     Destroy(collision.gameObject);
+                    transform.localScale += new Vector3(0.3f, 0.3f, 0);
                 }
                 else
                 {
@@ -260,10 +266,12 @@ namespace Level3_5
                 if (size.x >= 1.2f)
                 {
                     Destroy(collision.gameObject);
+                    transform.localScale += new Vector3(0.3f, 0.3f, 0);
                 }
                 else if (isEnemy5spiked == true && size.x >= 0.85)
                 {
                     Destroy(collision.gameObject);
+                    transform.localScale += new Vector3(0.3f, 0.3f, 0);
                 }
                 else
                 {
@@ -314,7 +322,7 @@ namespace Level3_5
                     }
                 }
             }
-             if (collision.gameObject.CompareTag("WallSpike"))
+            if (collision.gameObject.CompareTag("WallSpike"))
             {
                 transform.localScale += new Vector3(-0.1f, -0.1f, 0);
             }

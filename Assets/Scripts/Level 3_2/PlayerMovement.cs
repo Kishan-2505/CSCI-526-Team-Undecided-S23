@@ -116,6 +116,7 @@ namespace Level3_2
                 if (size.x >= 1.2f)
                 {
                     Destroy(collision.gameObject);
+                    transform.localScale += new Vector3(0.3f, 0.3f, 0);
                 }
                 else
                 {
@@ -134,6 +135,7 @@ namespace Level3_2
                 if (size.x >= 1.2f)
                 {
                     Destroy(collision.gameObject);
+                    transform.localScale += new Vector3(0.3f, 0.3f, 0);
                 }
                 else
                 {
