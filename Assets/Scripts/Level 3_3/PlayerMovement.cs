@@ -79,6 +79,15 @@ namespace Level3_3
                 spikeCount--;
                 spikeText.text = ":" + spikeCount;
             }
+
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                spikyenemytutorial.SetActive(false);
+                spikeTutorial.SetActive(false);
+                teleporttutorial.SetActive(false);
+                //Destroy(collision.gameObject);
+                Time.timeScale = 1;
+            }
         }
 
         private void gettingSmall()

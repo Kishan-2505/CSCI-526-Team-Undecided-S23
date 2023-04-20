@@ -104,6 +104,12 @@ namespace Level3_5
                 Vector2 throwDirection = (mousePos - transform.position).normalized;
                 rb.AddForce(throwDirection * throwForce, ForceMode2D.Impulse);
             }
+
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                swordTuitorial.SetActive(false);
+                Time.timeScale = 1;
+            }
         }
 
         private void gettingSmall()
