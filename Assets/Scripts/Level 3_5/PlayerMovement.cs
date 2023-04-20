@@ -93,18 +93,28 @@ namespace Level3_5
                 spikeText.text = ":" + spikeCount;
                 Instantiate(spikePrefab, new Vector3(gameObject.transform.localPosition.x + 1, gameObject.transform.localPosition.y + 1), Quaternion.identity);
             }
-            if (Input.GetMouseButtonDown(0) && knifeCount>0 && ispaused==false)
+            if (Input.GetMouseButtonDown(0) && knifeCount>0 && ispaused == false)
             {
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 mousePos.z = 0f;
                 knifeCount -= 1;
                 knifeText.text = ":" + knifeCount.ToString();
-                GameObject thrownObject = Instantiate(knifePrefab, transform.position, Quaternion.identity);
+                GameObject thrownObject;
+                if(mousePos.y > transform.position.y)
+                {
+                    thrownObject = Instantiate(knifePrefab, new Vector3(transform.position.x, transform.position.y), Quaternion.identity);
+                }
+                else
+                {
+                    thrownObject = Instantiate(knifePrefab, new Vector3(transform.position.x, transform.position.y - 1), Quaternion.identity);
+                }
                 Rigidbody2D rb = thrownObject.GetComponent<Rigidbody2D>();
-                Vector2 throwDirection = (mousePos - transform.position).normalized;
+                Vector2 throwDirection = mousePos - (Vector3)transform.position;
+                float magnitude = throwDirection.magnitude;
+                throwDirection /= magnitude;
+                //thrownObject.GetComponent<Rigidbody2D>().velocity = throwDirection * throwForce;
                 rb.AddForce(throwDirection * throwForce, ForceMode2D.Impulse);
             }
-
             if (Input.GetKeyDown(KeyCode.Tab))
             {
                 swordTuitorial.SetActive(false);

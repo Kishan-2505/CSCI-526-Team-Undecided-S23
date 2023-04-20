@@ -88,13 +88,24 @@ namespace Level3_6
             }
             if (Input.GetMouseButtonDown(0) && knifeCount > 0)
             {
-                knifeCount -= 1;
-                knifeText.text = ":" + knifeCount.ToString();
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 mousePos.z = 0f;
-                GameObject thrownObject = Instantiate(knifePrefab, transform.position, Quaternion.identity);
+                knifeCount -= 1;
+                knifeText.text = ":" + knifeCount.ToString();
+                GameObject thrownObject;
+                if (mousePos.y > transform.position.y)
+                {
+                    thrownObject = Instantiate(knifePrefab, new Vector3(transform.position.x, transform.position.y), Quaternion.identity);
+                }
+                else
+                {
+                    thrownObject = Instantiate(knifePrefab, new Vector3(transform.position.x, transform.position.y - 1), Quaternion.identity);
+                }
                 Rigidbody2D rb = thrownObject.GetComponent<Rigidbody2D>();
-                Vector2 throwDirection = (mousePos - transform.position).normalized;
+                Vector2 throwDirection = mousePos - (Vector3)transform.position;
+                float magnitude = throwDirection.magnitude;
+                throwDirection /= magnitude;
+                //thrownObject.GetComponent<Rigidbody2D>().velocity = throwDirection * throwForce;
                 rb.AddForce(throwDirection * throwForce, ForceMode2D.Impulse);
             }
         }

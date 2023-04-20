@@ -39,7 +39,6 @@ namespace Level3_5
                 Vector2 enemysize = bounds.size;
                 Bounds playerbound = player.GetComponent<SpriteRenderer>().bounds;
                 Vector2 playersize = playerbound.size;
-                Debug.Log("enemy size1: " + enemysize);
                 // Set the new sprite image and scale it to fit the current object size
                 if (playersize.x < enemysize.x && playersize.y < enemysize.y && playerMovement.isEnemy1spiked==false)
                 {
