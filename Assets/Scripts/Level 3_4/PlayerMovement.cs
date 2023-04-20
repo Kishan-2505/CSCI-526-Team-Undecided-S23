@@ -97,7 +97,7 @@ namespace Level3_4
             timeCounter += Time.deltaTime;
             if (timeCounter >= timeInterval)
             {
-                transform.localScale += new Vector3(-0.07f, -0.07f, 0);
+                transform.localScale += new Vector3(-0.05f, -0.05f, 0);
                 timeCounter = 0.0f;
             }
         }
