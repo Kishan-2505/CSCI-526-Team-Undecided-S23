@@ -40,6 +40,7 @@ TagManager:
   - WallSpike
   - enemy5
   - SpikyWallDetector
+  - TeleportDetector
   layers:
   - Default
   - TransparentFX

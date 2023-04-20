@@ -83,7 +83,7 @@ namespace Level3_3
             if (Input.GetKeyDown(KeyCode.Tab))
             {
                 spikyenemytutorial.SetActive(false);
-                spikeTutorial.SetActive(false);
+                //spikeTutorial.SetActive(false);
                 teleporttutorial.SetActive(false);
                 //Destroy(collision.gameObject);
                 Time.timeScale = 1;
@@ -196,8 +196,8 @@ namespace Level3_3
             {
                 isEnemy1Freeze = false;
                 Destroy(collision.gameObject);
-                teleporttutorial.SetActive(true);
-                Time.timeScale = 0;
+                //teleporttutorial.SetActive(true);
+                //Time.timeScale = 0;
             }
             if (collision.gameObject.CompareTag("Enemy2Detector"))
             {
@@ -206,16 +206,23 @@ namespace Level3_3
                 spikyenemytutorial.SetActive(true);
                 Time.timeScale = 0;
             }
-            if (collision.gameObject.CompareTag("SpikeDetector"))
+            if (collision.gameObject.CompareTag("TeleportDetector"))
+            {
+                //isEnemy2Freeze = false;
+                Destroy(collision.gameObject);
+                teleporttutorial.SetActive(true);
+                Time.timeScale = 0;
+            }
+            /*if (collision.gameObject.CompareTag("SpikeDetector"))
             {
                 Destroy(collision.gameObject);
                 spikeTutorial.SetActive(true);
                 Time.timeScale = 0;
-            }
+            }*/
         }
         public void QuitButton()
         {
-            spikeTutorial.SetActive(false);
+            //spikeTutorial.SetActive(false);
             spikyenemytutorial.SetActive(false);
             teleporttutorial.SetActive(false);
             Time.timeScale = 1;
