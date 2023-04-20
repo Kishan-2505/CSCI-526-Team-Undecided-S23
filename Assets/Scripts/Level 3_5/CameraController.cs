@@ -27,6 +27,22 @@ namespace level3_5
                 Time.timeScale=1;
                 Camera.orthographicSize = zoomIn;
             }
+
+            if (Input.GetKeyDown(KeyCode.Plus) || Input.GetKeyDown(KeyCode.KeypadPlus))
+            {
+                if(zoom>=3.829389f){
+                zoom--;
+                Camera.orthographicSize = zoom;
+            }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Minus) || Input.GetKeyDown(KeyCode.KeypadMinus))
+            {
+                if(zoom<=15f){
+                zoom++;
+                Camera.orthographicSize = zoom;
+            }
+            }
         }
         public void zoomInCamera()
         {
