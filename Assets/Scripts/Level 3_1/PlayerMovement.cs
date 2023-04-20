@@ -61,6 +61,13 @@ namespace Level3_1
                 gameOverScript.Setup("You died!");
                 inGameCanvas.SetActive(false);
             }
+
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                diamondtutorial.SetActive(false);
+                foodtutorial.SetActive(false);
+                Time.timeScale = 1;
+            }
         }
 
         private void gettingSmall()

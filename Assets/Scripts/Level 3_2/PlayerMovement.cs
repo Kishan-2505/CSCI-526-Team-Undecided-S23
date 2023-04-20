@@ -68,7 +68,13 @@ namespace Level3_2
                 enemycolourchange.SetActive(true);
                 isEnemyColourChange=false;
                 Time.timeScale = 0;
+            }
 
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                enemytutorial.SetActive(false);
+                enemycolourchange .SetActive(false);
+                Time.timeScale = 1;
             }
         }
 
