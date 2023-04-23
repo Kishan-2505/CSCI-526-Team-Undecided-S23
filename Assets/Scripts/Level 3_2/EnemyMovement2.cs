@@ -13,7 +13,6 @@ namespace Level3_2
         public float speed = 2.0f;
 
         private float speedReduced=2.0f;
-        private float elapsedTime;
         private SpriteRenderer spriteRenderer;
         private int count=0;
         // Start is called before the first frame update
@@ -35,11 +34,11 @@ namespace Level3_2
                 Bounds bounds = spriteRenderer.sprite.bounds;
                 Vector3 scale = transform.localScale;
                 float scaleFactor = Mathf.Min(scale.x / bounds.size.x, scale.y / bounds.size.y);
-                Vector2 enemysize = bounds.size;
+                // Vector2 enemysize = bounds.size;
                 Bounds playerbound = player.GetComponent<SpriteRenderer>().bounds;
                 Vector2 playersize = playerbound.size;
                 // Set the new sprite image and scale it to fit the current object size
-                if (playersize.x < enemysize.x && playersize.y < enemysize.y)
+                if (playersize.x < transform.localScale.x && playersize.y < transform.localScale.y)
                 {
                     Vector3 targetPosition = player.transform.position;
                     Vector3 enemyPosition = transform.position;

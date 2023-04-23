@@ -15,7 +15,6 @@ namespace Level3_5
         public PlayerMovement playerMovement;
         private GameObject player;
         public float speed = 2.0f;
-        private float elapsedTime;
         private SpriteRenderer spriteRenderer;
         // Start is called before the first frame update
         void Start()
@@ -36,11 +35,11 @@ namespace Level3_5
                 Bounds bounds = spriteRenderer.sprite.bounds;
                 Vector3 scale = transform.localScale;
                 float scaleFactor = Mathf.Max(scale.x / bounds.size.x, scale.y / bounds.size.y);
-                Vector2 enemysize = bounds.size;
+                //Vector2 enemysize = bounds.size;
                 Bounds playerbound = player.GetComponent<SpriteRenderer>().bounds;
                 Vector2 playersize = playerbound.size;
                 // Set the new sprite image and scale it to fit the current object size
-                if (playersize.x < enemysize.x && playersize.y < enemysize.y && playerMovement.isEnemy1spiked==false)
+                if (playersize.x < transform.localScale.x && playersize.y < transform.localScale.y && playerMovement.isEnemy1spiked==false)
                 {
                     Vector3 targetPosition = player.transform.position;
                     Vector3 enemyPosition = transform.position;
@@ -56,7 +55,7 @@ namespace Level3_5
                     spriteRenderer.sprite = sadSprite;
                     transform.localScale = new Vector3(sadSprite.bounds.size.x * scaleFactor, sadSprite.bounds.size.y * scaleFactor, 1);
                 }
-                if (playersize.x < enemysize.x && playersize.y < enemysize.y && playerMovement.isEnemy1spiked==true)
+                if (playersize.x < transform.localScale.x && playersize.y < transform.localScale.y && playerMovement.isEnemy1spiked==true)
                 {
                     Vector3 targetPosition = player.transform.position;
                     Vector3 enemyPosition = transform.position;
