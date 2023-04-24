@@ -2449,7 +2449,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &335933744
 PrefabInstance:
@@ -6900,7 +6900,7 @@ Transform:
   - {fileID: 1227616401}
   - {fileID: 1742545369}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &873890022
 GameObject:
@@ -9499,7 +9499,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1391596236
 PrefabInstance:
@@ -9959,7 +9959,7 @@ Transform:
   m_GameObject: {fileID: 1416043933}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 55.7, y: -10.3, z: 0}
-  m_LocalScale: {x: 2.2, y: 2.2, z: 1}
+  m_LocalScale: {x: 3.2, y: 3.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 220926264}
@@ -10027,7 +10027,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2104a5cd23537e04980fa1b34ae68056, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8eb513452fcf03140bc4141894e14297, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10050,10 +10050,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281b335e1cb3f1e4dbbfa3a7a5e906a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sadSprite: {fileID: 21300000, guid: e8b3b25a0243b7a4a90e4b7885ee3f00, type: 3}
-  angrySprite: {fileID: 21300000, guid: 2104a5cd23537e04980fa1b34ae68056, type: 3}
-  sadSprite15: {fileID: 21300000, guid: 9c98f26a27c08c94493da64a8eab9605, type: 3}
-  angrySprite15: {fileID: 21300000, guid: 982bea3dd94fbcf479b6ad0717a656f2, type: 3}
+  sadSprite: {fileID: 21300000, guid: d240926b2f26b8140933a7ee4446a4ea, type: 3}
+  angrySprite: {fileID: 21300000, guid: 8eb513452fcf03140bc4141894e14297, type: 3}
+  sadSprite15: {fileID: 21300000, guid: 444029ab00c8a844b9befa9e216c235d, type: 3}
+  angrySprite15: {fileID: 21300000, guid: 7630b1b662c3c074786c1766d3dd1a81, type: 3}
   playerMovement: {fileID: 676494846}
   speed: 2
 --- !u!58 &1416043940
@@ -10069,9 +10069,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.00078618526, y: 0}
   serializedVersion: 2
-  m_Radius: 1.1
+  m_Radius: 0.61036766
 --- !u!1001 &1445093712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10462,7 +10462,7 @@ Transform:
   - {fileID: 475149770}
   - {fileID: 106313870}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1570313807
 PrefabInstance:
