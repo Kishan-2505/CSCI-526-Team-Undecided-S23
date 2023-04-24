@@ -3274,7 +3274,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1460396599}
         m_TargetAssemblyTypeName: Level3_2.GameOverScript, Assembly-CSharp
         m_MethodName: MainMenuButton
         m_Mode: 1
@@ -5598,7 +5598,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1460396599}
         m_TargetAssemblyTypeName: Level3_2.GameOverScript, Assembly-CSharp
         m_MethodName: RestartButton
         m_Mode: 1
