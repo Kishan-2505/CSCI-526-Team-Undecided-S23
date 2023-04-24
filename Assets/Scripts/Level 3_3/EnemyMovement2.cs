@@ -34,11 +34,13 @@ namespace Level3_3
                 Bounds bounds = spriteRenderer.sprite.bounds;
                 Vector3 scale = transform.localScale;
                 float scaleFactor = Mathf.Min(scale.x / bounds.size.x, scale.y / bounds.size.y);
-                //Vector2 enemysize = bounds.size;
+                Vector2 enemysize = bounds.size;
                 Bounds playerbound = player.GetComponent<SpriteRenderer>().bounds;
                 Vector2 playersize = playerbound.size;
+                Debug.Log("playersize" + playersize);
+                Debug.Log("transform.local.x  " + transform.localScale);
                 // Set the new sprite image and scale it to fit the current object size
-                if (playersize.x < transform.localScale.x && playersize.y < transform.localScale.y && playerMovement.isEnemy2spiked == false) 
+                if (playersize.x < transform.localScale.x && playersize.y < transform.localScale.y && playerMovement.isEnemy2spiked == false)
                 {
                     Vector3 targetPosition = player.transform.position;
                     Vector3 enemyPosition = transform.position;
@@ -47,7 +49,7 @@ namespace Level3_3
                     spriteRenderer.sprite = angrySprite;
                     transform.localScale = new Vector3(angrySprite.bounds.size.x * scaleFactor, angrySprite.bounds.size.y * scaleFactor, 1);
                 }
-                else if(playerMovement.isEnemy2Freeze==false)
+                else if (playerMovement.isEnemy2Freeze == false)
                 {
                     Vector3 direction = transform.position - player.transform.position;
                     transform.Translate(direction.normalized * speedReduced * Time.deltaTime);
@@ -78,6 +80,7 @@ namespace Level3_3
             if (collision.gameObject.tag == "Spike")
             {
                 Destroy(collision.gameObject);
+                transform.localScale = new Vector3(transform.localScale.x / 1.4f, transform.localScale.y / 1.4f, 1);
                 // Transform transform = gameObject.GetComponent<Transform>();
                 // Vector3 newScale = transform.localScale / 1.4f;
                 // transform.localScale = newScale;

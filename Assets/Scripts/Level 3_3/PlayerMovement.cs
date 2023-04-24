@@ -37,7 +37,7 @@ namespace Level3_3
         public bool isEnemy1spiked = false;
         public bool isEnemy2spiked = false;
         public bool isEnemy3spiked = false;
-        private int spikeCount = 0;
+        private int spikeCount = 2;//change to 0
         // Start is called before the first frame update
         void Start()
         {
@@ -154,7 +154,7 @@ namespace Level3_3
                 Bounds bounds = renderer.bounds;
                 Vector2 size = bounds.size;
                 Vector2 enemysize = collision.gameObject.GetComponent<SpriteRenderer>().bounds.size;
-                if (size.x >= 1.2f)
+                if (size.x >= 2.2f)
                 {
                     Destroy(collision.gameObject);
                     transform.localScale += new Vector3(0.3f, 0.3f, 0);
@@ -177,13 +177,13 @@ namespace Level3_3
                 Bounds bounds = renderer.bounds;
                 Vector2 size = bounds.size;
                 Vector2 enemysize = collision.gameObject.GetComponent<SpriteRenderer>().bounds.size;
-                if (size.x >= 1.2f)
+                if (size.x >= 2.2f)
                 {
                     Destroy(collision.gameObject);
                     spikeCount += 1;//change this to 1
                     spikeText.text = ":" + spikeCount;
                 }
-                else if (isEnemy3spiked == true && size.x >= 0.85)
+                else if (isEnemy3spiked == true && size.x >= 1.55)
                 {
                     Destroy(collision.gameObject);
                     spikeCount += 1;//change this to 1

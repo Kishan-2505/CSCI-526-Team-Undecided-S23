@@ -34,7 +34,7 @@ namespace Level3_3
             Bounds bounds = spriteRenderer.sprite.bounds;
             Vector3 scale = transform.localScale;
             float scaleFactor = Mathf.Min(scale.x / bounds.size.x, scale.y / bounds.size.y);
-            // Vector2 enemysize = bounds.size;
+            Vector2 enemysize = bounds.size;
             Bounds playerbound = player.GetComponent<SpriteRenderer>().bounds;
             Vector2 playersize = playerbound.size;
             // Set the new sprite image and scale it to fit the current object size
@@ -77,6 +77,7 @@ namespace Level3_3
             if (collision.gameObject.tag == "Spike")
             {
                 Destroy(collision.gameObject);
+                // transform.localScale = new Vector3(transform.localScale.x / 1.2f, transform.localScale.y / 1.2f, 1);
                 // Transform transform = gameObject.GetComponent<Transform>();
                 // Vector3 newScale = transform.localScale / 1.4f;
                 // transform.localScale = newScale;
