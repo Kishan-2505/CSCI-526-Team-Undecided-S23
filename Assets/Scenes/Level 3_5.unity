@@ -2657,7 +2657,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 873890024}
         m_TargetAssemblyTypeName: Level3_5.GameOverScript, Assembly-CSharp
         m_MethodName: RestartButton
         m_Mode: 1
@@ -3122,7 +3122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 873890024}
         m_TargetAssemblyTypeName: Level3_5.GameOverScript, Assembly-CSharp
         m_MethodName: MainMenuButton
         m_Mode: 1
@@ -5391,10 +5391,10 @@ RectTransform:
   m_Father: {fileID: 1154280315}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 220, y: 162.5}
-  m_SizeDelta: {x: -457.93, y: -298.128}
+  m_AnchoredPosition: {x: -60.5, y: -23}
+  m_SizeDelta: {x: 103.07001, y: 72.87201}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &700902299
 MonoBehaviour:
