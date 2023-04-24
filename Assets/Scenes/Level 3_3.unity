@@ -1850,7 +1850,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8244305689793760413, guid: fb39885101124144b8c5171af327e91c, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244305689793760413, guid: fb39885101124144b8c5171af327e91c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.7032415
       objectReference: {fileID: 0}
     - target: {fileID: 8244305689793760413, guid: fb39885101124144b8c5171af327e91c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1858,7 +1862,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8244305689793760413, guid: fb39885101124144b8c5171af327e91c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.1
+      value: -9.6816
       objectReference: {fileID: 0}
     - target: {fileID: 8244305689793760413, guid: fb39885101124144b8c5171af327e91c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7795,7 +7799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &1859156766
 Rigidbody2D:
   serializedVersion: 4

@@ -37,7 +37,7 @@ namespace Level3_3
         public bool isEnemy1spiked = false;
         public bool isEnemy2spiked = false;
         public bool isEnemy3spiked = false;
-        private int spikeCount = 2;//change to 0
+        private int spikeCount = 0;//change to 0
         // Start is called before the first frame update
         void Start()
         {
